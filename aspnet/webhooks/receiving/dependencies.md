@@ -1,20 +1,20 @@
 ---
 uid: webhooks/receiving/dependencies
-title: Dependências do receptor de WebHooks do ASP.NET | Microsoft Docs
+title: ASP.NET dependências do receptor WebHooks | Microsoft Docs
 author: rick-anderson
-description: Dependências do receptor e injeção de dependência em WebHooks ASP.NET.
+description: Dependências do receptor e injeção de dependência em ASP.NET WebHooks.
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 5125e483-c2bb-435b-8cd1-21d3499bfaaf
-ms.openlocfilehash: 477b8828209d0da1d485ef883b0f99b4e1b9b5bf
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: b50442b3d95512bc0db7583b93de3bbef2d4bb4a
+ms.sourcegitcommit: ce28244209db8615bc9bdd576a2e2c88174d318d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78637280"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80675209"
 ---
-# <a name="aspnet-webhooks-receiver-dependencies"></a>Dependências do receptor de WebHooks do ASP.NET
+# <a name="aspnet-webhooks-receiver-dependencies"></a>ASP.NET dependências do receptor WebHooks
 
-Microsoft ASP.NET WebHooks é projetado com a injeção de dependência em mente. A maioria das dependências no sistema pode ser substituída por implementações alternativas usando um mecanismo de injeção de dependência.
+O ASP.NET WebHooks da Microsoft é projetado com injeção de dependência em mente. A maioria das dependências do sistema pode ser substituída por implementações alternativas usando um motor de injeção de dependência.
 
-Consulte [DependencyScopeExtensions](https://github.com/aspnet/aspnetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Extensions/DependencyScopeExtensions.cs) para obter uma lista de dependências do destinatário. Se nenhuma dependência tiver sido registrada, uma implementação padrão será usada. Confira [destinatárioservices](https://github.com/aspnet/aspnetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Services/ReceiverServices.cs) para obter uma lista de implementações padrão.
+Consulte [DependencyScopeExtensions](https://github.com/aspnet/aspnetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Extensions/DependencyScopeExtensions.cs) para obter uma lista de dependências do receptor. Se nenhuma dependência tiver sido registrada, uma implementação padrão será usada. Consulte [ReceiverServices](https://github.com/aspnet/aspnetWebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/Services/ReceiverServices.cs) para obter uma lista de implementações padrão.

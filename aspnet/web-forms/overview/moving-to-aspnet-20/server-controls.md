@@ -1,299 +1,299 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/server-controls
-title: Controles de servidor | Microsoft Docs
-author: microsoft
-description: O ASP.NET 2,0 aprimora os controles de servidor de várias maneiras. Neste módulo, abordaremos algumas das mudanças de arquitetura para a maneira como o ASP.NET 2,0 e o Visual Studio 200...
+title: Controles do servidor | Microsoft Docs
+author: rick-anderson
+description: ASP.NET 2.0 melhora os controles do servidor de muitas maneiras. Neste módulo, vamos cobrir algumas das mudanças arquitetônicas na forma como ASP.NET 2.0 e Visual Studio 200...
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: c02a633013f061c09141d4f98871848c011a799e
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 7109f10e87abfadf1e7e08795cf9d3d6bf5df122
+ms.sourcegitcommit: 022f79dbc1350e0c6ffaa1e7e7c6e850cdabf9af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78641438"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81543737"
 ---
 # <a name="server-controls"></a>Controles de servidor
 
 pela [Microsoft](https://github.com/microsoft)
 
-> O ASP.NET 2,0 aprimora os controles de servidor de várias maneiras. Neste módulo, abordaremos algumas das mudanças de arquitetura para o modo como o ASP.NET 2,0 e o Visual Studio 2005 lidam com controles de servidor.
+> ASP.NET 2.0 melhora os controles do servidor de muitas maneiras. Neste módulo, abordaremos algumas das mudanças arquitetônicas na forma como ASP.NET 2.0 e visual Studio 2005 lidam com controles de servidor.
 
-O ASP.NET 2,0 aprimora os controles de servidor de várias maneiras. Neste módulo, abordaremos algumas das mudanças de arquitetura para o modo como o ASP.NET 2,0 e o Visual Studio 2005 lidam com controles de servidor.
+ASP.NET 2.0 melhora os controles do servidor de muitas maneiras. Neste módulo, abordaremos algumas das mudanças arquitetônicas na forma como ASP.NET 2.0 e visual Studio 2005 lidam com controles de servidor.
 
-## <a name="view-state"></a>Estado de exibição
+## <a name="view-state"></a>Ver estado
 
-A principal alteração no estado de exibição no ASP.NET 2,0 é uma redução drástica em tamanho. Considere uma página com apenas um controle Calendar. Aqui está o estado de exibição no ASP.NET 1,1.
+A principal mudança no estado de visão em ASP.NET 2.0 é uma redução drástica do tamanho. Considere uma página com apenas um controle de calendário nela. Aqui está o estado de vista em ASP.NET 1.1.
 
 [!code-css[Main](server-controls/samples/sample1.css)]
 
-Agora, aqui está o estado de exibição em uma página idêntica no ASP.NET 2,0.
+Agora, aqui está o estado de exibição em uma página idêntica em ASP.NET 2.0.
 
 [!code-css[Main](server-controls/samples/sample2.css)]
 
-Essa é uma alteração bastante significativa e considerar que o estado de exibição é transportado para frente e para trás pela conexão, essa alteração pode dar aos desenvolvedores um aumento significativo no desempenho. A redução no tamanho do estado de exibição é basicamente devido à maneira como lidamos internamente. Lembre-se que o estado de exibição é uma cadeia de caracteres codificada em base64. Para entender melhor a alteração no estado de exibição no ASP.NET 2,0, vamos dar uma olhada nos valores decodificados dos exemplos acima.
+Essa é uma mudança bastante significativa, e considerando que o estado de visão é transportado para frente e para trás sobre o fio, essa mudança pode dar aos desenvolvedores um aumento significativo de desempenho. A redução do tamanho do estado de visão deve-se, em grande parte, à maneira como lidamos com ele internamente. Lembre-se que o estado de exibição é uma seqüência codificada base64. Para entender melhor a mudança no estado de visão em ASP.NET 2.0, vamos dar uma olhada nos valores decodificados dos exemplos acima.
 
-Aqui está o estado de exibição 1,1 decodificado:
+Aqui está o estado de exibição 1.1 decodificado:
 
 [!code-css[Main](server-controls/samples/sample3.css)]
 
-Isso pode parecer um pouco como ininteligível, mas há um padrão aqui. No ASP.NET 1. x, usamos caracteres únicos para identificar tipos de dados e valores delimitados usando o &lt;&gt; caracteres. O "t" no exemplo de estado de exibição acima representa um terceto. O terceto contém um par de ArrayLists (o "l" representa um ArrayList). Um desses ArrayLists contém um Int32 ("i") com um valor de 1 e o outro contém outro terceto. O terceto contém um par de ArrayLists, etc. O importante a ser lembrado é que usamos tercetos que contêm pares, identificamos os tipos de dados por meio de uma letra e usamos o &lt; e &gt; caracteres como delimitadores.
+Isso pode parecer um pouco como uma bobagem, mas há um padrão aqui. Em ASP.NET 1.x, usamos caracteres únicos para identificar tipos &lt; &gt; de dados e valores delimitados usando os caracteres. O "t" na amostra de estado de visão acima representa um Trigêmeo. O Triplet contém um par de ArrayLists (o "l" representa uma ArrayList.) Um desses ArrayLists contém um Int32 ("i") com um valor de 1 e o outro contém outro Triplet. O Triplet contém um par de ArrayLists, etc. O importante a lembrar é que usamos Trigêmeos que contêm pares, identificamos os &lt; tipos &gt; de dados através de uma carta e usamos os personagens como delimitadores.
 
-No ASP.NET 2,0, o estado de exibição decodificada parece um pouco diferente.
+Em ASP.NET 2.0, o estado de exibição decodificado parece um pouco diferente.
 
 [!code-powershell[Main](server-controls/samples/sample4.ps1)]
 
-Você deve observar uma enorme alteração na aparência do estado de exibição decodificado. Essa alteração tem várias bases de arquitetura. O estado de exibição no ASP.NET 1. x usou o LosFormatter para serializar dados. Em 2,0, usamos a nova classe ObjectStateFormatter. Essa classe foi projetada especificamente para auxiliar na serialização e desserialização do estado de exibição e do estado de controle. (O estado do controle será abordado na próxima seção.) Há muitos benefícios obtidos pela alteração do método pelo qual ocorre a serialização e a desserialização. Um dos mais significativos é o fato de que, ao contrário do LosFormatter que usa um TextWriter, o ObjectStateFormatter usa um BinaryWriter. Isso permite que o ASP.NET 2,0 armazene o estado de exibição de uma série de bytes em vez de cadeias de caracteres. Veja, por exemplo, um inteiro. No ASP.NET 1,1, um inteiro exigia 4 bytes de estado de exibição. No ASP.NET 2,0, esse mesmo inteiro requer apenas 1 byte. Foram feitas outras melhorias para diminuir a quantidade de estado de exibição que é armazenada. Os valores DateTime, por exemplo, agora são armazenados usando um or em vez de uma cadeia de caracteres.
+Você deve notar uma grande mudança na aparência do estado de exibição decodificado. Essa mudança tem vários fundamentos arquitetônicos. Exibir estado em ASP.NET 1.x usou o LosFormatter para serializar dados. No 2.0, usamos a nova classe ObjectStateFormatter. Esta classe foi especificamente projetada para auxiliar na serialização e desserialização do estado de visão e estado de controle. (O estado de controle será coberto na próxima seção.) Há muitos benefícios obtidos com a mudança do método pelo qual a serialização e a desserialização ocorrem. Um dos mais dramáticos é o fato de que, ao contrário do LosFormatter que usa um TextWriter, o ObjectStateFormatter usa um BinaryWriter. Isso permite que ASP.NET 2.0 armazene o estado de exibição de uma série de bytes em vez de strings. Veja, por exemplo, um inteiro. Em ASP.NET 1.1, um inteiro exigiu 4 bytes de estado de vista. Em ASP.NET 2.0, esse mesmo inteiro requer apenas 1 byte. Outros aprimoramentos foram feitos para diminuir a quantidade de estado de visão armazenado. Os valores DateTime, por exemplo, agora são armazenados usando um TickCount em vez de uma seqüência de string.
 
-Como se tudo isso não fosse suficiente, a atenção especial foi paga ao fato de que um dos maiores consumidores do estado de exibição em 1. x era o DataGrid e controles semelhantes. Uma grande desvantagem dos controles como, por exemplo, o DataGrid em que diz respeito ao estado de exibição é que ele geralmente contém grandes quantidades de informações repetidas. No ASP.NET 1. x, essas informações repetidas eram simplesmente armazenadas repetidamente, resultando em um estado de exibição inflado. No ASP.NET 2,0, usamos a nova classe IndexedString para armazenar esses dados. Se uma cadeia de caracteres for repetida, basta armazenar o token para Indexstring e o índice em uma tabela em execução de objetos IndexedString.
+Como se tudo isso não bastasse, uma atenção especial foi dada ao fato de que um dos maiores consumidores de estado de visão em 1.x era o DataGrid e controles similares. Uma grande desvantagem de controles como o DataGrid no que diz respeito ao estado de exibição é que muitas vezes contém grandes quantidades de informações repetidas. Em ASP.NET 1.x, essa informação repetida foi simplesmente armazenada várias vezes, resultando em um estado de exibição inchado. Em ASP.NET 2.0, usamos a nova classe IndexedString para armazenar tais dados. Se uma string se repetir, apenas armazenamos o token para o IndexedString e o índice dentro de uma tabela em execução de objetos IndexedString.
 
-## <a name="control-state"></a>Estado de controle
+## <a name="control-state"></a>Estado de Controle
 
-Uma das principais alças que os desenvolvedores tinham com o estado de exibição era o tamanho que ele adicionou à carga de HTTP. Como mencionado anteriormente, um dos maiores consumidores do estado de exibição é o controle DataGrid. Para evitar grandes quantidades de estado de exibição gerados por um DataGrid, muitos desenvolvedores simplesmente desabilitaram o estado de exibição para esse controle. Infelizmente, essa solução nem sempre era uma boa. O estado de exibição no ASP.NET 1. x contém não apenas os dados necessários para a funcionalidade correta do controle. Ele também contém informações relacionadas ao estado da interface do usuário do controle. Isso significa que se você quiser permitir paginação em um DataGrid, deverá habilitar o estado de exibição mesmo que não precise de todas as informações de interface do usuário que o estado de exibição contenha. É um cenário tudo ou nada.
+Uma das principais queixas que os desenvolvedores tinham com o estado de visão foi o tamanho que ele adicionou à carga http. Como mencionado anteriormente, um dos maiores consumidores de estado de visão é o controle DataGrid. Para evitar as enormes quantidades de estado de exibição geradas por um DataGrid, muitos desenvolvedores simplesmente desativaram o estado de exibição para esse controle. Infelizmente, essa solução nem sempre foi boa. Exibir estado em ASP.NET 1.x contém não apenas dados necessários para a funcionalidade correta do controle. Também contém informações sobre o estado da ui do controle. Isso significa que, se você quiser permitir a paginação em um DataGrid, você deve habilitar o estado de exibição mesmo que você não precise de todas as informações de ia que o estado de exibição contém. É um cenário de tudo ou nada.
 
-No ASP.NET 2,0, o estado de controle resolve esse problema bem por meio da introdução do estado de controle. O estado de controle contém os dados que são absolutamente necessários para a funcionalidade adequada de um controle. Diferentemente do estado de exibição, o estado de controle não pode ser desabilitado. Portanto, é importante que os dados armazenados no estado de controle sejam cuidadosamente controlados.
+Em ASP.NET 2.0, o estado de controle resolve bem esse problema através da introdução do estado de controle. O estado de controle contém os dados que são absolutamente necessários para a funcionalidade adequada de um controle. Ao contrário do estado de exibição, o estado de controle não pode ser desativado. Portanto, é importante que os dados armazenados em estado de controle sejam cuidadosamente controlados.
 
 > [!NOTE]
-> O estado de controle é persistido junto com o estado de exibição no campo de formulário \_\_VIEWSTATE Hidden.
+> O estado de controle é persistido juntamente com o estado de exibição no \_ \_campo de formulário oculto VIEWSTATE.
 
-Este vídeo é uma explicação do estado de exibição e do estado de controle.
+Este vídeo é um passo a passo do estado de visão e estado de controle.
 
 ![](server-controls/_static/image1.png)
 
-[Abrir vídeo de tela inteira](server-controls/_static/state1.wmv)
+[Abra o vídeo em tela cheia](server-controls/_static/state1.wmv)
 
-Para que um controle de servidor Leia e grave no estado de controle, você deve executar três etapas.
+Para que um controle de servidor leia e escreva para controlar o estado, você deve dar três passos.
 
-## <a name="step-1-call-the-registerrequirescontrolstate-method"></a>Etapa 1: chamar o método RegisterRequiresControlState
+## <a name="step-1-call-the-registerrequirescontrolstate-method"></a>Passo 1: Ligue para o método RegisterRequiresControlState
 
-O método RegisterRequiresControlState informa ASP.NET que um controle precisa para manter o estado do controle. Ele usa um argumento do tipo Control, que é o controle que está sendo registrado.
+O método RegisterRequiresControlState informa ASP.NET que um controle precisa persistir no estado de controle. É preciso um argumento do tipo Controle que é o controle que está sendo registrado.
 
-É importante observar que o registro não persiste da solicitação para a solicitação. Portanto, esse método deve ser chamado em cada solicitação se um controle for manter o estado do controle. É recomendável que o método seja chamado em OnInit.
+É importante ressaltar que o registro não persiste de solicitação a solicitação. Portanto, este método deve ser chamado em cada solicitação se um controle persistir no estado de controle. Recomenda-se que o método seja chamado de OnInit.
 
 [!code-csharp[Main](server-controls/samples/sample5.cs)]
 
-## <a name="step-2-override-savecontrolstate"></a>Etapa 2: substituir SaveControlState
+## <a name="step-2-override-savecontrolstate"></a>Passo 2: Substituir SaveControlState
 
-O método SaveControlState salva as alterações de estado de controle de um controle desde o último postback. Ele retorna um objeto que representa o estado do controle.
+O método SaveControlState salva alterações de estado de controle para um controle desde o último post de volta. Ele retorna um objeto representando o estado do controle.
 
-## <a name="step-3-override-loadcontrolstate"></a>Etapa 3: substituir LoadControlState
+## <a name="step-3-override-loadcontrolstate"></a>Passo 3: Substituir LoadControlState
 
-O método LoadControlState carrega o estado salvo em um controle. O método usa um argumento do tipo Object que mantém o estado salvo do controle.
+O método LoadControlState carrega o estado salvo em um controle. O método pega um argumento do tipo Objeto que mantém o estado salvo para o controle.
 
-## <a name="full-xhtml-compliance"></a>Conformidade total de XHTML
+## <a name="full-xhtml-compliance"></a>Conformidade xhtml completa
 
-Qualquer desenvolvedor da Web sabe a importância dos padrões em aplicativos Web. Para manter um ambiente de desenvolvimento baseado em padrões, o ASP.NET 2,0 é totalmente compatível com XHTML. Portanto, todas as marcas são renderizadas de acordo com os padrões XHTML em navegadores que dão suporte a HTML 4,0 ou superior.
+Qualquer desenvolvedor Web sabe a importância dos padrões em aplicações Web. Para manter um ambiente de desenvolvimento baseado em padrões, ASP.NET 2.0 é totalmente compatível com XHTML. Portanto, todas as tags são renderizadas de acordo com os padrões XHTML em navegadores que suportam HTML 4.0 ou superior.
 
-A definição de DOCTYPE no ASP.NET 1,1 foi a seguinte:
+A definição DOCTYPE em ASP.NET 1.1 foi a seguinte:
 
 [!code-html[Main](server-controls/samples/sample6.html)]
 
-No ASP.NET 2,0, a definição DOCTYPE padrão é a seguinte:
+Em ASP.NET 2.0, a definição padrão do DOCTYPE é a seguinte:
 
 [!code-html[Main](server-controls/samples/sample7.html)]
 
-Se você escolher, poderá alterar a conformidade padrão do XHTML por meio do nó xhtmlConformance no arquivo de configuração. Por exemplo, o seguinte nó no arquivo Web. config alterará a conformidade XHTML para XHTML 1,0 estrito:
+Se você escolher, você pode alterar a conformidade XHTML padrão através do nó xhtmlConformância no arquivo de configuração. Por exemplo, o seguinte nó no arquivo web.config mudará a conformidade XHTML para XHTML 1.0 Strict:
 
 [!code-xml[Main](server-controls/samples/sample8.xml)]
 
-Se você escolher, também poderá configurar o ASP.NET para usar a configuração herdada usada no ASP.NET 1. x da seguinte maneira:
+Se você escolher, você também pode configurar ASP.NET para usar a configuração legado usada em ASP.NET 1.x da seguinte forma:
 
 [!code-xml[Main](server-controls/samples/sample9.xml)]
 
-## <a name="adaptive-rendering-using-adapters"></a>Renderização adaptável usando adaptadores
+## <a name="adaptive-rendering-using-adapters"></a>Renderização adaptativa usando adaptadores
 
-No ASP.NET 1. x, o arquivo de configuração continha um &lt;browserCaps&gt; seção que populava um objeto HttpBrowserCapabilities. Esse objeto permitia que um desenvolvedor determinasse qual dispositivo está fazendo uma solicitação específica e processasse o código adequadamente. No ASP.NET 2,0, o modelo melhorou e agora usa a nova classe ControlAdapter. A classe ControlAdapter substitui eventos no ciclo de vida do controle e controla a renderização de controles com base nos recursos do agente do usuário. Os recursos de um agente de usuário específico são definidos por um arquivo de definição de navegador (um arquivo com uma extensão de arquivo. browser) armazenado no c:\Windows\Microsoft.NET\Framework\v2.0.\*\*\*\*pasta \CONFIG\Browsers
+Em ASP.NET 1.x, o &lt;arquivo&gt; de configuração continha uma seção browserCaps que preencheu um objeto HttpBrowserCapabilities. Este objeto permitiu que um desenvolvedor determinasse qual dispositivo está fazendo uma solicitação específica e renderizasse o código adequadamente. Em ASP.NET 2.0, o modelo melhorou e agora usa a nova classe ControlAdapter. A classe ControlAdapter substitui eventos no ciclo de vida do controle e controla a renderização de controles com base nas capacidades do agente de usuário. Os recursos de um agente de usuário específico são definidos por um arquivo de definição do navegador (um arquivo com uma extensão de arquivo .browser) armazenado no c:\windows\microsoft.net\framework\v2.0. \* \* \*\CONFIG\Pasta de navegadores. \*
 
 > [!NOTE]
 > A classe ControlAdapter é uma classe abstrata.
 
-Assim como a seção &lt;browserCaps&gt; no 1. x, o arquivo de definição de navegador usa uma expressão regular para analisar a cadeia de caracteres do agente do usuário a fim de identificar o navegador solicitante. Ele define recursos específicos para esse agente do usuário. O ControlAdapter processa o controle por meio do método Render. Portanto, se você substituir o método Render, não deverá chamar render na classe base. Isso pode fazer com que a renderização ocorra duas vezes, uma vez para o adaptador e uma vez para o próprio controle.
+Assim como &lt;a&gt; seção browserCaps em 1.x, o arquivo de definição do navegador usa uma Expressão Regular para analisar a seqüência do agente de usuário, a fim de identificar o navegador solicitante. Ele define recursos particulares para esse agente usuário. O ControlAdapter renderiza o controle através do método Render. Portanto, se você substituir o método Render, você não deve chamar Render na classe base. Isso pode fazer com que a renderização ocorra duas vezes, uma para o adaptador e outra para o próprio controle.
 
 ## <a name="developing-a-custom-adapter"></a>Desenvolvendo um adaptador personalizado
 
-Você pode desenvolver seu próprio adaptador personalizado herdando de ControlAdapter. Além disso, você pode herdar da classe abstrata PageAdapter em casos em que um adaptador é necessário para uma página. O mapeamento de controles para o adaptador personalizado é realizado por meio do elemento &lt;controlAdapters&gt; no arquivo de definição do navegador. Por exemplo, o XML a seguir de um arquivo de definição de navegador mapeia o controle de menu para a classe MenuAdapter:
+Você pode desenvolver seu próprio adaptador personalizado herdando do ControlAdapter. Além disso, você pode herdar da classe abstrata PageAdapter nos casos em que um adaptador é necessário para uma página. O mapeamento dos controles para o seu &lt;adaptador&gt; personalizado é realizado através do elemento controlAdapters no arquivo de definição do navegador. Por exemplo, o XML a seguir de um arquivo de definição de navegador mapeia o controle menu para a classe MenuAdapter:
 
 [!code-html[Main](server-controls/samples/sample10.html)]
 
-Usando esse modelo, torna-se muito fácil para um desenvolvedor de controle direcionar a um determinado dispositivo ou navegador. Também é muito simples para um desenvolvedor ter controle total sobre como as páginas são renderizadas em cada dispositivo.
+Usando este modelo, torna-se bastante fácil para um desenvolvedor de controle atingir um determinado dispositivo ou navegador. Também é bastante simples para um desenvolvedor ter controle completo sobre como as páginas renderizam em cada dispositivo.
 
 ## <a name="per-device-rendering"></a>Renderização por dispositivo
 
-As propriedades de controle de servidor no ASP.NET 2,0 podem ser especificadas por dispositivo usando um prefixo específico do navegador. Por exemplo, o código a seguir alterará o texto de um rótulo, dependendo de qual dispositivo está sendo usado para navegar na página.
+As propriedades de controle do servidor em ASP.NET 2.0 podem ser especificadas por dispositivo usando um prefixo específico do navegador. Por exemplo, o código abaixo alterará o texto de um rótulo dependendo de qual dispositivo está sendo usado para navegar na página.
 
 [!code-aspx[Main](server-controls/samples/sample11.aspx)]
 
-Quando a página que contém esse rótulo for navegada pelo Internet Explorer, o rótulo exibirá o texto dizendo "você está navegando no Internet Explorer". Quando a página for navegada no Firefox, o rótulo exibirá o texto "você está navegando no Firefox". Quando a página for navegada de qualquer outro dispositivo, ela exibirá "você está navegando em um dispositivo desconhecido". Qualquer propriedade pode ser especificada usando essa sintaxe especial.
+Quando a página que contém este rótulo for navegada pelo Internet Explorer, o rótulo exibirá um texto dizendo "Você está navegando no Internet Explorer". Quando a página é navegada pelo Firefox, o rótulo exibirá o texto "Você está navegando no Firefox". Quando a página é navegada a partir de qualquer outro dispositivo, ela exibirá "Você está navegando a partir de um dispositivo desconhecido". Qualquer propriedade pode ser especificada usando esta sintaxe especial.
 
-## <a name="setting-focus"></a>Definindo o foco
+## <a name="setting-focus"></a>Definindo foco
 
-Os desenvolvedores de ASP.NET 1. x frequentemente perguntaram como definir o foco inicial em um controle específico. Por exemplo, em uma página de logon, é útil fazer com que a caixa de texto ID de usuário obtenha o foco quando a página for carregada pela primeira vez. No ASP.NET 1. x, fazer isso exigiu a gravação de algum script do lado do cliente. Mesmo que tal script seja uma tarefa trivial, ele não é mais necessário no ASP.NET 2,0 graças ao método SetFocus. O método SetFocus usa um argumento que indica o controle que deve receber o foco. Esse argumento pode ser a ID do cliente do controle como uma cadeia de caracteres ou o nome do controle de servidor como um objeto de controle. Por exemplo, para definir o foco inicial para um controle TextBox chamado txtUserID quando a página é carregada pela primeira vez, adicione o seguinte código à página\_carregar:
+ASP.NET desenvolvedores do 1.x frequentemente perguntados sobre como definir o foco inicial em um determinado controle. Por exemplo, em uma página de login, é útil que a caixa de texto do ID do usuário obtenha o foco quando a página é carregada pela primeira vez. Em ASP.NET 1.x, fazer isso exigiu escrever algum script do lado do cliente. Embora tal script seja uma tarefa trivial, ele não é mais necessário em ASP.NET 2.0 graças ao método SetFocus. O método SetFocus tem um argumento indicando o controle que deve receber foco. Esse argumento pode ser o ID do cliente do controle como uma string ou o nome do controle do Servidor como um objeto de controle. Por exemplo, para definir o foco inicial em um controle textbox chamado txtUserID\_quando a página for carregada pela primeira vez, adicione o seguinte código à Carga de Página:
 
 [!code-csharp[Main](server-controls/samples/sample12.cs)]
 
---ou
+- ou
 
 [!code-csharp[Main](server-controls/samples/sample13.cs)]
 
-O ASP.NET 2,0 usa o manipulador WebResource. axd (discutido anteriormente) para renderizar uma função do lado do cliente que define o foco. O nome da função do lado do cliente é o WebForms\_autofocus, como mostrado aqui:
+ASP.NET 2.0 usa o manipulador Webresource.axd (discutido anteriormente) para renderizar uma função do lado do cliente que define o foco. O nome da função lado do\_cliente é WebForm AutoFocus como mostrado aqui:
 
 [!code-html[Main](server-controls/samples/sample14.html)]
 
-Como alternativa, você pode usar o método Focus para um controle para definir o foco inicial para esse controle. O método Focus deriva da classe Control e está disponível para todos os controles ASP.NET 2,0. Também é possível definir o foco para um controle específico quando ocorre um erro de validação. Isso será abordado em um módulo posterior.
+Alternativamente, você pode usar o método Focus para um controle para definir o foco inicial para esse controle. O método Focus deriva da classe Controle e está disponível para todos os controles ASP.NET 2.0. Também é possível definir o foco para um controle específico quando ocorre um erro de validação. Isso será coberto em um módulo posterior.
 
-## <a name="new-server-controls-in-aspnet-20"></a>Novos controles de servidor no ASP.NET 2,0
+## <a name="new-server-controls-in-aspnet-20"></a>Novos controles de servidor em ASP.NET 2.0
 
-Veja a seguir novos controles de servidor no ASP.NET 2,0. Entraremos em mais detalhes em alguns deles em módulos posteriores.
+A seguir, novos controles de servidor em ASP.NET 2.0. Vamos entrar em mais detalhes sobre alguns deles em módulos posteriores.
 
-## <a name="imagemap-control"></a>Controle ImageMap
+## <a name="imagemap-control"></a>Controle de ImageMap
 
-O controle ImageMap permite que você adicione hotspots a uma imagem que pode iniciar um postback ou navegar para uma URL. Há três tipos de hotspots disponíveis; CircleHotSpot, RectangleHotSpot e PolygonHotSpot. Os hotspots são adicionados por meio de um editor de coleção no Visual Studio ou programaticamente no código. Não há nenhuma interface do usuário disponível para o desenho de hotspots em uma imagem. As coordenadas e o tamanho ou o raio do ponto de interativo deve ser especificado declarativamente. Também não há nenhuma representação visual de um ponto de interativação no designer. Se um ponto de HotSpot estiver configurado para navegar para uma URL, a URL será especificada por meio da propriedade NavigateUrl do hotspot. No caso de um ponto de acesso de postback, a propriedade PostBackValue permite que você passe uma cadeia de caracteres no postback que pode ser recuperado no código do servidor.
+O controle ImageMap permite adicionar pontos de acesso a uma imagem que pode iniciar uma postagem de volta ou navegar para uma URL. Existem três tipos de hotspots disponíveis; CircleHotSpot, RectangleHotSpot e PolygonHotSpot. Os hotspots são adicionados através de um editor de coleção no Visual Studio ou programáticamente em código. Não há interface de usuário disponível para desenhar pontos de acesso em uma imagem. As coordenadas e o tamanho ou raio do ponto de acesso devem ser especificados declarativamente. Também não há representação visual de um hotspot no designer. Se um hotspot estiver configurado para navegar até uma URL, a URL será especificada através da propriedade NavigateUrl do hotspot. No caso de um hotspot post back, a propriedade PostBackValue permite que você passe uma seqüência no post de volta que pode ser recuperada no código do lado do servidor.
 
-![Editor de coleção HotSpot no Visual Studio](server-controls/_static/image1.jpg)
+![Editor de coleção hotspot em visual studio](server-controls/_static/image1.jpg)
 
-**Figura 1**: editor de coleção do hotspot no Visual Studio
+**Figura 1**: Editor de coleção hotspot em Visual Studio
 
-## <a name="bulletedlist-control"></a>Controle BulletedList
+## <a name="bulletedlist-control"></a>Controle bulletedlist
 
-O controle BulletedList é uma lista com marcadores que pode ser facilmente associada a dados. A lista pode ser ordenada (numerada) ou desordenada por meio da propriedade BulletStyle. Cada item na lista é representado por um objeto ListItem.
+O controle BulletedList é uma lista de balas que pode ser facilmente vinculada a dados. A lista pode ser encomendada (numerada) ou não ordenada através da propriedade BulletStyle. Cada item da lista é representado por um objeto ListItem.
 
-![Controle BulletedList no Visual Studio](server-controls/_static/image1.gif)
+![Controle bulletedlist no Visual Studio](server-controls/_static/image1.gif)
 
-**Figura 2**: controle BulletedList no Visual Studio
+**Figura 2**: Controle de bulletedList no Visual Studio
 
-## <a name="hiddenfield-control"></a>Controle HiddenField
+## <a name="hiddenfield-control"></a>Controle de Campo Oculto
 
-O controle HiddenField adiciona um campo de formulário oculto à sua página, o valor que está disponível no código do servidor. Geralmente, o valor de um campo de formulário oculto permanece inalterado entre os postbacks. No entanto, é possível que um usuário mal-intencionado altere o valor antes de lançá-lo novamente. Se isso acontecer, o controle HiddenField irá gerar o evento ValueChanged. Se você tiver informações confidenciais no controle HiddenField e quiser garantir que elas permaneçam inalteradas, você deve manipular o evento ValueChanged em seu código.
+O controle HiddenField adiciona um campo de formulário oculto à sua página, o valor do qual está disponível no código do lado do servidor. Espera-se que o valor de um campo de formulário oculto permaneça inalterado entre os postbacks. No entanto, é possível que um usuário mal-intencionado altere o valor antes de postar de volta. Se isso acontecer, o controle HiddenField aumentará o evento ValueChanged. Se você tiver informações confidenciais no controle HiddenField e quiser garantir que elas permaneçam inalteradas, você deve lidar com o evento ValueChanged em seu código.
 
-## <a name="fileupload-control"></a>Controle FileUpload
+## <a name="fileupload-control"></a>Controle fileupload
 
-O controle FileUpload no ASP.NET 2,0 torna possível carregar arquivos em um servidor Web por meio de uma página ASP.NET. Esse controle é bastante semelhante à classe ASP.NET 1. x HtmlInputFile com algumas exceções. No ASP.NET 1. x, era recomendável que a propriedade Postfile seja verificada como nula para determinar se você tinha um bom arquivo. O controle FileUpload no ASP.NET 2,0 adiciona uma nova propriedade HasFile que você pode usar para a mesma finalidade e é um pouco mais eficiente.
+O controle FileUpload em ASP.NET 2.0 torna possível carregar arquivos para um servidor da Web através de uma página ASP.NET. Este controle é bastante semelhante ao ASP.NET classe HtmlInputFile 1.x com algumas exceções. Em ASP.NET 1.x, foi recomendado que a propriedade PostedFile fosse verificada como nula, a fim de determinar se você tinha um bom arquivo. O controle FileUpload em ASP.NET 2.0 adiciona uma nova propriedade HasFile que você pode usar para o mesmo propósito e é um pouco mais eficiente.
 
-A propriedade Postfile ainda está disponível para acesso a um objeto HttpPostedFile, mas algumas das funcionalidades do HttpPostedFile agora estão disponíveis intrinsecamente com o controle FileUpload. Por exemplo, para salvar um arquivo carregado no ASP.NET 1. x, chame o método SaveAs no objeto HttpPostedFile. Usando o controle FileUpload no ASP.NET 2,0, você chamaria o método SaveAs no próprio controle FileUpload.
+A propriedade PostedFile ainda está disponível para acesso a um objeto HttpPostedFile, mas algumas das funcionalidades do HttpPostedFile estão agora disponíveis intrinsecamente com o controle FileUpload. Por exemplo, para salvar um arquivo carregado em ASP.NET 1.x, você chama o método SaveAs no objeto HttpPostedFile. Usando o controle FileUpload em ASP.NET 2.0, você chamaria o método SaveAs no próprio controle FileUpload.
 
-Outra alteração significativa no comportamento de 2,0 (e provavelmente a alteração mais significativa) é que não é mais necessário carregar um arquivo carregado inteiro na memória antes de salvá-lo. Em 1. x, qualquer arquivo carregado é salvo inteiramente na memória antes de ser gravado no disco. Essa arquitetura impede o upload de arquivos grandes.
+Outra mudança significativa no comportamento 2.0 (e provavelmente a mudança mais significativa) é que não é mais necessário carregar um arquivo carregado inteiro na memória antes de salvá-lo. Em 1.x, qualquer arquivo que foi carregado é salvo inteiramente na memória antes de ser gravado em disco. Esta arquitetura impede o upload de arquivos grandes.
 
-No ASP.NET 2,0, o atributo requestLengthDiskThreshold do elemento httpRuntime permite que você configure quantos kilobytes são mantidos em um buffer na memória antes de serem gravados no disco.
+Em ASP.NET 2.0, o atributo requestLengthDiskThreshold do elemento httpRuntime permite configurar quantos Kilobytes são mantidos em um buffer na memória antes de serem gravados em disco.
 
-**Importante**: a documentação do MSDN (e a documentação em outro lugar) especifica que esse valor está em bytes (não quilobytes) e que o padrão é 256. O valor é realmente especificado em kilobytes e o valor padrão é 80. Com um valor padrão de 80K, garantimos que o buffer não termine na heap de objeto grande.
+**IMPORTANTE**: A documentação mSDN (e documentação em outros lugares) especifica que este valor está em bytes (não Kilobytes) e que o padrão é de 256. O valor é realmente especificado em Kilobytes e o valor padrão é 80. Ao ter um valor padrão de 80K, garantimos que o buffer não acabe no grande monte de objetos.
 
-## <a name="wizard-control"></a>Controle do assistente
+## <a name="wizard-control"></a>Controle de Assistente
 
-É muito comum encontrar os desenvolvedores de ASP.NET com a tentativa de reunir informações em uma série de "páginas" usando painéis ou transferindo de página para página. Com mais frequência do que não, o esforço é frustrante e consome tempo. O novo controle Wizard resolve os problemas, permitindo etapas lineares e não lineares em uma interface de assistente com a qual os usuários estão familiarizados. O controle Wizard apresenta formulários de entrada em uma série de etapas. Cada etapa é de um tipo específico especificado pela propriedade StepType do controle. Os tipos de etapa disponíveis são os seguintes:
+É bastante comum encontrar ASP.NET desenvolvedores que lutam para tentar coletar informações em uma série de "páginas" usando painéis ou transferindo de página em página. Na maioria das vezes, o esforço é frustrante e demorado. O novo controle do Assistente resolve os problemas permitindo etapas lineares e não lineares em uma interface de assistente com a qual os usuários estão familiarizados. O controle wizard apresenta formulários de entrada em uma série de etapas. Cada passo é de um tipo específico especificado pela propriedade StepType do controle. Os tipos de etapas disponíveis são os seguintes:
 
-| **Tipo de etapa** | **Explicação** |
+| **Tipo de passo** | **Explicação** |
 | --- | --- |
-| Auto | O assistente determina automaticamente o tipo de etapa com base na sua posição dentro da hierarquia de etapas. |
-| Iniciar | A primeira etapa, geralmente usada para apresentar uma instrução introdutória. |
-| Etapa | Uma etapa normal. |
-| Concluir | A etapa final, geralmente usada para apresentar um botão para concluir o assistente. |
-| Concluído | Apresenta uma mensagem que se comunica com êxito ou falha. |
+| Auto | O assistente determina automaticamente o tipo de passo com base em sua posição dentro da hierarquia de etapas. |
+| Iniciar | O primeiro passo, muitas vezes usado para apresentar uma declaração introdutória. |
+| Etapa | Um passo normal. |
+| Concluir | O passo final, geralmente usado para apresentar um botão para terminar o assistente. |
+| Concluído | Apresenta uma mensagem comunicando sucesso ou fracasso. |
 
 > [!NOTE]
-> O controle Wizard mantém o registro de seu estado usando o estado de controle ASP.NET. Portanto, a propriedade EnableViewState pode ser definida como false sem nenhum prejudicial.
+> O controle do Assistente mantém o controle de seu estado usando ASP.NET estado de controle. Portanto, a propriedade EnableViewState pode ser definida como falsa sem qualquer prejuízo.
 
-Este vídeo é uma explicação do controle do assistente.
+Este vídeo é um passo a passo do controle do Assistente.
 
 ![](server-controls/_static/image2.png)
 
-[Abrir vídeo de tela inteira](server-controls/_static/wizard1.wmv)
+[Abra o vídeo em tela cheia](server-controls/_static/wizard1.wmv)
 
-## <a name="localize-control"></a>Controle de localização
+## <a name="localize-control"></a>Controle localize
 
-O controle Localize é semelhante a um controle literal. No entanto, o controle Localize tem uma propriedade **Mode** que controla como a marcação que é adicionada a ela é renderizada. A propriedade Mode oferece suporte aos seguintes valores:
+O controle Localize é semelhante a um controle literal. No entanto, o controle Localize tem uma propriedade **Mode** que controla como a marcação que é adicionada a ele é renderizada. A propriedade Mode suporta os seguintes valores:
 
 | **Modo** | **Explicação** |
 | --- | --- |
 | Transformar | A marcação é transformada de acordo com o protocolo do navegador que faz a solicitação. |
 | Passagem | A marcação é renderizada como está. |
-| Codificar | A marcação que é adicionada ao controle é codificada usando HtmlEncode. |
+| Codificar | A marcação adicionada ao controle é codificada usando HtmlEncode. |
 
 ## <a name="multiview-and-view-controls"></a>Controles MultiView e View
 
-O controle MultiView atua como um contêiner para controles View, e o controle View atua como um contêiner (muito parecido com um controle de painel) para outros controles. Cada exibição em um controle MultiView é representada por um único controle de exibição. O primeiro controle de exibição no MultiView é o modo de exibição 0, o segundo é a exibição 1, etc. Você pode alternar os modos de exibição especificando o ActiveViewIndex do controle MultiView.
+O controle MultiView atua como um contêiner para controles view, e o controle Exibir atua como um contêiner (muito parecido com um controle de painel) para outros controles. Cada exibição em um controle MultiView é representada por um único controle de exibição. O primeiro controle de exibição no MultiView é o view 0, o segundo é view 1, etc. Você pode alternar visualizações especificando o ActiveViewIndex do controle MultiView.
 
-## <a name="substitution-control"></a>Controle de substituição
+## <a name="substitution-control"></a>Controle de Substituição
 
-O controle de substituição é usado em conjunto com o cache ASP.NET. Nos casos em que você deseja aproveitar o cache, mas tem partes de uma página que devem ser atualizadas em cada solicitação (em outras palavras, partes de uma página que são isentas do cache), o componente de substituição fornece uma ótima solução. Na verdade, o controle não renderiza nenhuma saída por conta própria. Em vez disso, ele está associado a um método no código do servidor. Quando a página é solicitada, o método é chamado e a marcação retornada é renderizada no lugar do controle de substituição.
+O controle de substituição é usado em conjunto com ASP.NET cache. Nos casos em que você deseja aproveitar o cache, mas você tem partes de uma página que devem ser atualizadas em cada solicitação (em outras palavras, partes de uma página que estão isentas de cache), o componente Substituição fornece uma ótima solução. O controle não produz nenhuma saída por conta própria. Em vez disso, ele está vinculado a um método no código do lado do servidor. Quando a página é solicitada, o método é chamado e a marcação retornada é renderizada no lugar do controle de substituição.
 
-O método ao qual o controle de substituição está associado é especificado por meio da propriedade **MethodName** . Esse método deve atender aos seguintes critérios:
+O método ao qual o controle de substituição está vinculado é especificado através da propriedade **MethodName.** Esse método deve atender aos seguintes critérios:
 
-- Ele deve ser um método estático (compartilhado no VB).
+- Deve ser um método estático (compartilhado em VB).
 - Ele aceita um parâmetro do tipo HttpContext.
-- Ele retorna uma cadeia de caracteres que representa a marcação que deve substituir o controle na página.
+- Ele retorna uma seqüência representando a marcação que deve substituir o controle na página.
 
-O controle de substituição não tem a capacidade de modificar nenhum outro controle na página, mas tem acesso ao HttpContext atual por meio de seu parâmetro.
+O controle de Substituição não tem a capacidade de modificar qualquer outro controle na página, mas ele tem acesso ao HttpContext atual através de seu parâmetro.
 
-## <a name="gridview-control"></a>Controle GridView
+## <a name="gridview-control"></a>Controle gridview
 
-O controle GridView é a substituição do controle DataGrid. Esse controle será abordado em mais detalhes em um módulo posterior.
+O controle GridView é a substituição do controle DataGrid. Este controle será coberto com mais detalhes em um módulo posterior.
 
-## <a name="detailsview-control"></a>Controle DetailsView
+## <a name="detailsview-control"></a>DetalhesVer Controle
 
-O controle DetailsView permite que você exiba um único registro de uma fonte de dados e edite ou exclua-o. Ele é abordado em mais detalhes em um módulo posterior.
+O controle DetailsView permite que você exiba um único registro de uma fonte de dados e edite ou exclua-o. Ele é coberto com mais detalhes em um módulo posterior.
 
 ## <a name="formview-control"></a>Controle FormView
 
-O controle FormView é usado para exibir um único registro de uma DataSource em uma interface configurável. Ele é abordado em mais detalhes em um módulo posterior.
+O controle FormView é usado para exibir um único registro de uma fonte de dados em uma interface configurável. Ele é coberto com mais detalhes em um módulo posterior.
 
-## <a name="accessdatasource-control"></a>Controle AccessDataSource
+## <a name="accessdatasource-control"></a>Controle de fonte de acessoDataData
 
-O controle AccessDataSource é usado para associar dados a um banco de dado do Access. Ele é abordado em mais detalhes em um módulo posterior.
+O controle AccessDataSource é usado para vincular dados a um banco de dados access. Ele é coberto com mais detalhes em um módulo posterior.
 
-## <a name="objectdatasource-control"></a>Controle ObjectDataSource
+## <a name="objectdatasource-control"></a>Controle objectDataSourceSource
 
-O controle ObjectDataSource é usado para dar suporte a uma arquitetura de três camadas para que os controles possam ser vinculados a dados a um objeto comercial de camada intermediária, em oposição a um modelo de duas camadas, onde os controles são associados diretamente à fonte de dados. Ele será discutido mais detalhadamente em um módulo posterior.
+O controle ObjectDataSource é usado para suportar uma arquitetura de três níveis para que os controles possam ser vinculados a um objeto de negócios de nível intermediário, em oposição a um modelo de dois níveis onde os controles estão vinculados diretamente à fonte de dados. Será discutido com mais detalhes em um módulo posterior.
 
-## <a name="xmldatasource-control"></a>Controle XmlDataSource
+## <a name="xmldatasource-control"></a>XmlDataSource Control
 
-O controle XmlDataSource é usado para associar dados a uma fonte de dados XML. Ele é abordado em mais detalhes em um módulo posterior.
+O controle XmlDataSource é usado para vincular dados a uma fonte de dados XML. Ele é coberto com mais detalhes em um módulo posterior.
 
-## <a name="sitemapdatasource-control"></a>Controle SiteMapDataSource
+## <a name="sitemapdatasource-control"></a>SiteMapDataSource Control
 
-O controle SiteMapDataSource fornece vinculação de dados para controles de navegação do site com base em um mapa do site. Ele será discutido mais detalhadamente em um módulo posterior.
+O controle SiteMapDataSource fornece vinculação de dados para controles de navegação do site com base em um mapa do site. Será discutido com mais detalhes em um módulo posterior.
 
-## <a name="sitemappath-control"></a>Controle SiteMapPath
+## <a name="sitemappath-control"></a>Controle do SiteMapPath
 
-O controle SiteMapPath exibe uma série de links de navegação comumente chamados de trilhas. Ele é abordado em mais detalhes em um módulo posterior.
+O controle SiteMapPath exibe uma série de links de navegação comumente referidos como migalhas de pão. Ele é coberto com mais detalhes em um módulo posterior.
 
 ## <a name="menu-control"></a>Controle de Menu
 
-O controle menu exibe menus dinâmicos usando DHTML. Ele é abordado em mais detalhes em um módulo posterior.
+O controle de menu exibe menus dinâmicos usando DHTML. Ele é coberto com mais detalhes em um módulo posterior.
 
 ## <a name="treeview-control"></a>Controle TreeView
 
-O controle TreeView é usado para exibir uma exibição de árvore hierárquica de dados. Ele é abordado em mais detalhes em um módulo posterior.
+O controle TreeView é usado para exibir uma exibição hierárquica de dados em árvores. Ele é coberto com mais detalhes em um módulo posterior.
 
-## <a name="login-control"></a>Controle de logon
+## <a name="login-control"></a>Controle de login
 
-O controle de logon fornece um mecanismo para fazer logon em um site da Web. Ele é abordado em mais detalhes em um módulo posterior.
+O controle de login fornece um mecanismo para fazer login em um site da Web. Ele é coberto com mais detalhes em um módulo posterior.
 
-## <a name="loginview-control"></a>Controle LoginView
+## <a name="loginview-control"></a>Controle de LoginView
 
-O controle LoginView permite a exibição de modelos diferentes com base no status de logon de um usuário. Ele é abordado em mais detalhes em um módulo posterior.
+O controle LoginView permite a exibição de diferentes modelos com base no status de login de um usuário. Ele é coberto com mais detalhes em um módulo posterior.
 
-## <a name="passwordrecovery-control"></a>Controle PasswordRecovery
+## <a name="passwordrecovery-control"></a>Controle de Recuperação de Senhas
 
-O controle PasswordRecovery é usado para recuperar senhas esquecidas por usuários de um aplicativo ASP.NET. Ele é abordado em mais detalhes em um módulo posterior.
+O controle PasswordRecovery é usado para recuperar senhas esquecidas pelos usuários de um aplicativo ASP.NET. Ele é coberto com mais detalhes em um módulo posterior.
 
 ## <a name="loginstatus"></a>LoginStatus
 
-O controle LoginStatus exibe o status de logon de um usuário. Ele é abordado em mais detalhes em um módulo posterior.
+O controle LoginStatus exibe o status de login do usuário. Ele é coberto com mais detalhes em um módulo posterior.
 
 ## <a name="loginname"></a>LoginName
 
-O controle LoginName exibe o nome de usuário de um User depois de ser conectado a um aplicativo ASP.NET. Ele é abordado em mais detalhes em um módulo posterior.
+O controle LoginName exibe o nome de usuário de um usuário após ser conectado a um aplicativo ASP.NET. Ele é coberto com mais detalhes em um módulo posterior.
 
-## <a name="createuserwizard"></a>CreateUserWizard
+## <a name="createuserwizard"></a>Createuserwizard
 
-O CreateUserWizard é um assistente configurável que fornece aos usuários a capacidade de criar uma conta de associação do ASP.NET para uso em um aplicativo ASP.NET. Ele é abordado em mais detalhes em um módulo posterior.
+O CreateUserWizard é um assistente configurável que oferece aos usuários a capacidade de criar uma conta de associação ASP.NET para uso em um aplicativo ASP.NET. Ele é coberto com mais detalhes em um módulo posterior.
 
 ## <a name="changepassword"></a>ChangePassword
 
-O controle ChangePassword permite que os usuários alterem sua senha para um aplicativo ASP.NET. Ele é abordado em mais detalhes em um módulo posterior.
+O controle ChangePassword permite que os usuários alterem sua senha para um aplicativo ASP.NET. Ele é coberto com mais detalhes em um módulo posterior.
 
-## <a name="various-webparts"></a>Várias Web Parts
+## <a name="various-webparts"></a>Várias WebParts
 
-O ASP.NET 2,0 é fornecido com vários Web Parts. Eles serão abordados em detalhes em um módulo posterior.
+ASP.NET 2.0 naves com várias Web Parts. Estes serão cobertos em detalhes em um módulo posterior.

@@ -1,73 +1,73 @@
 ---
 uid: web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
-title: Usando um CAPTCHA para impedir que os bots usem seu site do ASP.NET Web Razor) | Microsoft Docs
-author: microsoft
-description: Este artigo explica como usar o ReCaptcha (uma medida de segurança) para impedir que os bots (programas automatizados) executem tarefas em um Páginas da Web do ASP.NET (Razor)...
+title: Usando um site CAPTCHA para impedir que bots usem seu ASP.NET Web Razor) site | Microsoft Docs
+author: rick-anderson
+description: Este artigo explica como usar o ReCaptcha (uma medida de segurança) para impedir que programas automatizados (bots) realizem tarefas em uma ASP.NET Páginas da Web (Razor) nós...
 ms.author: riande
 ms.date: 05/21/2012
 ms.assetid: 2b381a41-2cb3-40c0-8545-1d393e22877f
 msc.legacyurl: /web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2647a3155893a3dfb3214795a5f9cf1e8931fa91
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 65f414ae3fed5e2fa28b1e57f5327c6411a43d55
+ms.sourcegitcommit: 022f79dbc1350e0c6ffaa1e7e7c6e850cdabf9af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78547043"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81543750"
 ---
-# <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>Usando um CAPTCHA para impedir que os bots usem seu site do ASP.NET Web Razor)
+# <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a>Usando um site CAPTCHA para impedir que bots usem o seu ASP.NET Web Razor)
 
 pela [Microsoft](https://github.com/microsoft)
 
-> Este artigo explica como usar o ReCaptcha (uma medida de segurança) para impedir que os bots (programas automatizados) executem tarefas em um site Páginas da Web do ASP.NET (Razor).
+> Este artigo explica como usar o ReCaptcha (uma medida de segurança) para impedir que programas automatizados (bots) realizem tarefas em um site de páginas da Web ASP.NET (Razor).
 > 
 > **O que você aprenderá:** 
 > 
-> - Como adicionar um teste do CAPTCHA ao seu site.
+> - Como adicionar um teste CAPTCHA ao seu site.
 > 
-> Estes são os recursos do ASP.NET apresentados no artigo:
+> Estas são as ASP.NET características introduzidas no artigo:
 > 
-> - O auxiliar de `ReCaptcha`.
+> - O `ReCaptcha` ajudante.
 > 
 > > [!NOTE]
-> > As informações neste artigo se aplicam a Páginas da Web do ASP.NET 1,0 e páginas da Web 2.
+> > As informações deste artigo se aplicam a ASP.NET Páginas da Web 1.0 e páginas da Web 2.
 
-## <a name="about-captchas"></a>Sobre o CAPTCHAs
+## <a name="about-captchas"></a>Sobre a CAPTCHAs
 
-Sempre que você permitir que as pessoas se registrem no seu site, ou mesmo apenas insiram um nome e uma URL (como para um comentário de blog), você poderá obter uma inundação de nomes falsos. Muitas vezes, eles são deixados por bots (programas automatizados) que tentam deixar URLs em todos os sites que eles podem encontrar. (Uma motivação comum é lançar as URLs de produtos para venda.)
+Sempre que você permite que as pessoas se registrem em seu site, ou mesmo apenas digite um nome e URL (como para um comentário de blog), você pode obter uma enxurrada de nomes falsos. Estes são muitas vezes deixados por programas automatizados (bots) que tentam deixar URLs em todos os sites que podem encontrar. (Uma motivação comum é colocar os URLs de produtos à venda.)
 
-Você pode ajudar a garantir que um usuário é uma pessoa real e não um programa de computador usando um *captcha* para validar os usuários quando eles se registram ou, de outra forma, inserem seu nome e site. CAPTCHA significa um teste de Turing público completamente automatizado para informar os computadores e os seres humanos. Um CAPTCHA é um teste de *desafio/resposta* no qual o usuário é solicitado a fazer algo que é fácil para uma pessoa, mas difícil de um programa automatizado. O tipo mais comum de CAPTCHA é aquele em que você vê algumas letras distorcidas e é solicitado a digitá-las. (A distorção deve dificultar a decifração das cartas pelos bots.)
+Você pode ajudar a garantir que um usuário seja uma pessoa real e não um programa de computador usando um *CAPTCHA* para validar os usuários quando eles se registram ou digitam seu nome e site. CAPTCHA significa teste de Turing público completamente automatizado para diferenciar computadores e humanos. Um CAPTCHA é um teste *de resposta a desafios* no qual o usuário é solicitado a fazer algo que é fácil para uma pessoa fazer, mas difícil para um programa automatizado fazer. O tipo mais comum de CAPTCHA é aquele em que você vê algumas letras distorcidas e é solicitado a digitá-las. (A distorção deve dificultar a decifração das letras pelos bots.)
 
-## <a name="adding-a-recaptcha-test"></a>Adicionando um teste do ReCaptcha
+## <a name="adding-a-recaptcha-test"></a>Adicionando um teste de ReCaptcha
 
-Em páginas ASP.NET, você pode usar o auxiliar de `ReCaptcha` para processar um teste CAPTCHA baseado no serviço ReCaptcha ([http://recaptcha.net](http://recaptcha.net)). O auxiliar de `ReCaptcha` exibe uma imagem de duas palavras distorcidas que os usuários precisam inserir corretamente antes que a página seja validada. A resposta do usuário é validada pelo serviço ReCaptcha.Net.
+Em ASP.NET páginas, você `ReCaptcha` pode usar o ajudante para renderizar um teste[http://recaptcha.net](http://recaptcha.net)CAPTCHA baseado no serviço ReCaptcha ( ). O `ReCaptcha` ajudante exibe uma imagem de duas palavras distorcidas que os usuários têm que inserir corretamente antes que a página seja validada. A resposta do usuário é validada pelo serviço ReCaptcha.Net.
 
 ![](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/_static/image1.jpg)
 
-1. Registre seu site em ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Quando você concluir o registro, obterá uma chave pública e uma chave privada.
-2. Adicione a biblioteca de auxiliares Web do ASP.NET ao seu site, conforme descrito em [instalando auxiliares em um páginas da Web do ASP.net site](https://go.microsoft.com/fwlink/?LinkId=252372), se ainda não tiver feito isso.
-3. Se você ainda não tiver um arquivo *\_AppStart. cshtml* , na pasta raiz de um site, crie um arquivo chamado *\_AppStart. cshtml*.
-4. Adicione as seguintes configurações auxiliares de `Recaptcha` no arquivo *\_AppStart. cshtml* : 
+1. Cadastre-se[http://recaptcha.net](http://recaptcha.net)no seu site em ReCaptcha.Net ( ). Quando você concluir o registro, você terá uma chave pública e uma chave privada.
+2. Adicione a biblioteca ASP.NET de ajudantes da Web ao seu site, conforme descrito na [instalação de ajudantes em um site de páginas da ASP.NET,](https://go.microsoft.com/fwlink/?LinkId=252372)se você ainda não tiver.
+3. Se você ainda não tiver um * \_arquivo AppStart.cshtml,* na pasta raiz de um site crie um arquivo chamado * \_AppStart.cshtml*.
+4. Adicione as `Recaptcha` seguintes configurações de ajuda no * \_arquivo AppStart.cshtml:* 
 
     [!code-cshtml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample1.cshtml?highlight=6-7)]
-5. Defina as propriedades `PublicKey` e `PrivateKey` usando suas próprias chaves públicas e privadas.
-6. Salve o arquivo *\_AppStart. cshtml* e feche-o.
-7. Na pasta raiz de um site, crie uma nova página chamada *reCAPTCHA. cshtml*.
+5. Defina `PublicKey` `PrivateKey` as propriedades usando suas próprias chaves públicas e privadas.
+6. Salve o arquivo * \_AppStart.cshtml* e feche-o.
+7. Na pasta raiz de um site, crie uma nova página chamada *Recaptcha.cshtml*.
 8. Substitua o conteúdo existente pelo seguinte: 
 
     [!code-cshtml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample2.cshtml)]
-9. Execute a página *reCAPTCHA. cshtml* em um navegador. Se o valor de `PrivateKey` for válido, a página exibirá o controle ReCaptcha e um botão. Se você não tiver definido as chaves globalmente em *\_AppStart. html*, a página exibiria um erro. 
+9. Execute a página *Recaptcha.cshtml* em um navegador. Se `PrivateKey` o valor for válido, a página exibirá o controle ReCaptcha e um botão. Se você não tivesse definido as teclas globalmente no * \_AppStart.html,* a página exibiria um erro. 
 
     ![](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/_static/image1.png)
-10. Insira as palavras para o teste. Se você passar no teste ReCaptcha, verá uma mensagem para esse efeito. Caso contrário, você verá uma mensagem de erro e o controle ReCaptcha será exibido novamente.
+10. Digite as palavras para o teste. Se você passar no teste ReCaptcha, verá uma mensagem nesse sentido. Caso contrário, você verá uma mensagem de erro e o controle ReCaptcha será reexibido.
 
 > [!NOTE]
-> Se o computador estiver em um domínio que usa o servidor proxy, talvez seja necessário configurar o elemento `defaultproxy` do arquivo *Web. config* . O exemplo a seguir mostra um arquivo *Web. config* com o elemento `defaultproxy` configurado para permitir que o serviço reCAPTCHA funcione.
+> Se o computador estiver em um domínio que usa servidor `defaultproxy` proxy, talvez seja necessário configurar o elemento do arquivo *Web.config.* O exemplo a seguir mostra um `defaultproxy` arquivo *Web.config* com o elemento configurado para permitir que o serviço ReCaptcha funcione.
 > 
 > [!code-xml[Main](using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site/samples/sample3.xml)]
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Personalizando o comportamento de todo o site para sites Páginas da Web do ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [Personalizando o comportamento em todo o site para sites de páginas da Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Site do ReCaptcha](https://www.google.com/recaptcha)

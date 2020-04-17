@@ -1,19 +1,19 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
-title: Exibindo uma tabela de dados de banco (VB) | Microsoft Docs
-author: microsoft
-description: Neste tutorial, demonstrarei dois métodos de exibição de um conjunto de registros de banco de dados. Eu mostro dois métodos de formatação de um conjunto de registros de banco de dados em um ta HTML...
+title: Exibindo uma Tabela de Dados de Banco de Dados (VB) | Microsoft Docs
+author: rick-anderson
+description: Neste tutorial, eu demonstrei dois métodos de exibição de um conjunto de registros de banco de dados. Eu mostro dois métodos de formatação de um conjunto de registros de banco de dados em um HTML ta...
 ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: 5bb4587f-5bcd-44f5-b368-3c1709162b35
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f2e2489ac8455913f55c746dbe05b9fe8272285b
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 9b03e6a0d2bf7d2bf59ba4dca3076fa306d3fed4
+ms.sourcegitcommit: 022f79dbc1350e0c6ffaa1e7e7c6e850cdabf9af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78543011"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81541891"
 ---
 # <a name="displaying-a-table-of-database-data-vb"></a>Exibir uma tabela de dados de banco de dados (VB)
 
@@ -21,147 +21,147 @@ pela [Microsoft](https://github.com/microsoft)
 
 [Baixar PDF](https://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_11_VB.pdf)
 
-> Neste tutorial, demonstrarei dois métodos de exibição de um conjunto de registros de banco de dados. Eu mostro dois métodos de formatação de um conjunto de registros de banco de dados em uma tabela HTML. Primeiro, mostro como é possível formatar os registros do banco de dados diretamente em uma exibição. Em seguida, demonstrarei como você pode aproveitar os parciais ao Formatar registros de banco de dados.
+> Neste tutorial, eu demonstrei dois métodos de exibição de um conjunto de registros de banco de dados. Eu mostro dois métodos de formatação de um conjunto de registros de banco de dados em uma tabela HTML. Primeiro, eu mostro como você pode formatar os registros do banco de dados diretamente dentro de uma exibição. Em seguida, eu demonstrei como você pode tirar proveito das parciais ao formatação de registros de banco de dados.
 
-O objetivo deste tutorial é explicar como você pode exibir uma tabela HTML de dados de banco de dado em um aplicativo MVC ASP.NET. Primeiro, você aprende a usar as ferramentas do scaffolding incluídas no Visual Studio para gerar uma exibição que exibe um conjunto de registros automaticamente. Em seguida, você aprenderá a usar um parcial como um modelo ao Formatar registros de banco de dados.
+O objetivo deste tutorial é explicar como você pode exibir uma tabela HTML de dados de banco de dados em um aplicativo mvc ASP.NET. Primeiro, você aprende a usar as ferramentas de andaimes incluídas no Visual Studio para gerar uma visualização que exibe um conjunto de registros automaticamente. Em seguida, você aprende a usar uma parcial como modelo ao formatação de registros de banco de dados.
 
-## <a name="create-the-model-classes"></a>Criar as classes de modelo
+## <a name="create-the-model-classes"></a>Criar as classes modelo
 
-Vamos exibir o conjunto de registros da tabela de banco de dados de filmes. A tabela de banco de dados de filmes contém as seguintes colunas:
+Vamos exibir o conjunto de registros da tabela de banco de dados Filmes. A tabela de banco de dados Filmes contém as seguintes colunas:
 
 <a id="0.4_table01"></a>
 
-| **Nome da Coluna** | **Tipo de Dados** | **Permitir Nulos** |
+| **Nome da coluna** | **Tipo de dados** | **Permitir Nulos** |
 | --- | --- | --- |
 | ID | Int | Falso |
 | Title | Nvarchar(200) | Falso |
 | Diretor | NVarchar(50) | Falso |
-| DateReleased | Datetime | Falso |
+| Data lançada | Datetime | Falso |
 
-Para representar a tabela de filmes em nosso aplicativo MVC ASP.NET, precisamos criar uma classe de modelo. Neste tutorial, usamos o Entity Framework da Microsoft para criar nossas classes de modelo.
+Para representar a tabela Filmes em nosso ASP.NET aplicativo MVC, precisamos criar uma classe modelo. Neste tutorial, usamos o Microsoft Entity Framework para criar nossas classes de modelos.
 
 > [!NOTE] 
 > 
-> Neste tutorial, usamos o Entity Framework da Microsoft. No entanto, é importante entender que você pode usar uma variedade de tecnologias diferentes para interagir com um banco de dados de um aplicativo MVC ASP.NET, incluindo LINQ to SQL, NHibernate ou ADO.NET.
+> Neste tutorial, usamos o Microsoft Entity Framework. No entanto, é importante entender que você pode usar uma variedade de tecnologias diferentes para interagir com um banco de dados de um aplicativo mvc ASP.NET, incluindo LINQ para SQL, NHibernate ou ADO.NET.
 
-Siga estas etapas para iniciar o assistente de Modelo de Dados de Entidade:
+Siga estas etapas para iniciar o Assistente do Modelo de Dados da Entidade:
 
-1. Clique com o botão direito do mouse na pasta modelos na janela Gerenciador de Soluções e selecione a opção de menu **Adicionar, novo item**.
-2. Selecione a categoria de **dados** e selecione o modelo de **modelo de dados de entidade ADO.net** .
-3. Dê ao seu modelo de dados o nome *MoviesDBModel. edmx* e clique no botão **Adicionar** .
+1. Clique com o botão direito do mouse na pasta Modelos na janela Solution Explorer e selecione a opção **menu Adicionar, Novo Item**.
+2. Selecione a categoria **Dados** e selecione o modelo **ADO.NET Modelo de Dados de Entidade.**
+3. Dê ao seu modelo de dados o nome *MoviesDBModel.edmx* e clique no botão **Adicionar.**
 
-Depois que você clicar no botão Adicionar, o assistente de Modelo de Dados de Entidade será exibido (consulte a Figura 1). Siga estas etapas para concluir o assistente:
+Depois de clicar no botão Adicionar, o Assistente do Modelo de Dados da Entidade aparecerá (consulte Figura 1). Siga estas etapas para completar o assistente:
 
-1. Na etapa **escolher conteúdo do modelo** , selecione a opção **gerar do banco de dados** .
-2. Na etapa **escolher sua conexão de dados** , use a conexão de dados *MoviesDB. MDF* e o nome *MoviesDBEntities* para as configurações de conexão. Clique no botão **Avançar**.
-3. Na etapa **escolher seus objetos de banco de dados** , expanda o nó tabelas, selecione a tabela filmes. Insira os *modelos* de namespace e clique no botão **concluir** .
+1. Na etapa **Escolher conteúdo de modelo,** selecione a opção **Gerar do banco de dados.**
+2. Na etapa **Escolha sua conexão de dados,** use a conexão de dados *MoviesDB.mdf* e o nome *MoviesDBEntities* para as configurações de conexão. Clique no botão **Avançar**.
+3. Na etapa **Escolher objetos do banco de dados,** expanda o nó Tabelas, selecione a tabela Filmes. Digite o namespace *Models* e clique no botão **Concluir.**
 
-[![criar classes de LINQ to SQL](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
+[![Criando aulas de LINQ para SQL](displaying-a-table-of-database-data-vb/_static/image1.jpg)](displaying-a-table-of-database-data-vb/_static/image1.png)
 
-**Figura 01**: Criando classes de LINQ to SQL ([clique para exibir a imagem em tamanho normal](displaying-a-table-of-database-data-vb/_static/image2.png))
+**Figura 01**: Criação de classes LINQ para SQL[(Clique para exibir imagem em tamanho real)](displaying-a-table-of-database-data-vb/_static/image2.png)
 
-Depois de concluir o assistente de Modelo de Dados de Entidade, o designer de Modelo de Dados de Entidade é aberto. O designer deve exibir a entidade filmes (veja a Figura 2).
+Depois de concluir o Assistente do Modelo de Dados da Entidade, o Designer de Modelo de Dados de Entidade será aberto. O Designer deve exibir a entidade Filmes (ver Figura 2).
 
-[![o designer de Modelo de Dados de Entidade](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
+[![O Designer de Modelos de Dados da Entidade](displaying-a-table-of-database-data-vb/_static/image2.jpg)](displaying-a-table-of-database-data-vb/_static/image3.png)
 
-**Figura 02**: o Designer de modelo de dados de entidade ([clique para exibir a imagem em tamanho normal](displaying-a-table-of-database-data-vb/_static/image4.png))
+**Figura 02**: O Designer do Modelo de Dados da Entidade[(Clique para ver a imagem em tamanho real)](displaying-a-table-of-database-data-vb/_static/image4.png)
 
-Precisamos fazer uma alteração antes de continuarmos. O assistente de dados de entidade gera uma classe de modelo denominada *filmes* que representa a tabela do banco de dados de filmes. Como usaremos a classe Movies para representar um filme específico, precisamos modificar o nome da classe como *filme* , em vez de *filmes* (singular, em vez de plural).
+Precisamos fazer uma mudança antes de continuarmos. O Entity Data Wizard gera uma classe modelo chamada *Filmes* que representa a tabela de banco de dados Filmes. Como usaremos a classe Filmes para representar um determinado filme, precisamos modificar o nome da classe para ser *Filme* em vez de *Filmes* (singular em vez de plural).
 
-Clique duas vezes no nome da classe na superfície do designer e altere o nome da classe de filmes para filme. Depois de fazer essa alteração, clique no botão **salvar** (o ícone do disquete) para gerar a classe de filme.
+Clique duas vezes no nome da classe na superfície do designer e mude o nome da classe de Filmes para Filme. Depois de fazer essa alteração, clique no botão **Salvar** (o ícone do disquete) para gerar a classe Movie.
 
 ## <a name="create-the-movies-controller"></a>Criar o controlador de filmes
 
-Agora que temos uma maneira de representar nossos registros de banco de dados, podemos criar um controlador que retorne a coleção de filmes. Na janela de Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse na pasta controladores e selecione a opção de menu **Adicionar, controlador** (consulte a Figura 3).
+Agora que temos uma maneira de representar nossos registros de banco de dados, podemos criar um controlador que retorna a coleção de filmes. Na janela Visual Studio Solution Explorer, clique com o botão direito do mouse na pasta Controladores e selecione a opção de menu **Adicionar, Controlador** (ver Figura 3).
 
-[![o menu Adicionar controlador](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
+[![O menu do controlador de adicionação](displaying-a-table-of-database-data-vb/_static/image3.jpg)](displaying-a-table-of-database-data-vb/_static/image5.png)
 
-**Figura 03**: o menu Adicionar controlador ([clique para exibir a imagem em tamanho normal](displaying-a-table-of-database-data-vb/_static/image6.png))
+**Figura 03**: O menu Adicionar controlador[(Clique para ver a imagem em tamanho real)](displaying-a-table-of-database-data-vb/_static/image6.png)
 
-Quando a caixa de diálogo **Adicionar controlador** for exibida, insira o nome do controlador MovieController (consulte a Figura 4). Clique no botão **Adicionar** para adicionar o novo controlador.
+Quando a caixa de diálogo **Adicionar controlador** for exibida, digite o nome do controlador MovieController (consulte Figura 4). Clique no botão **Adicionar** para adicionar o novo controlador.
 
-[![caixa de diálogo Adicionar controlador](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
+[![A caixa de diálogo Adicionar controlador](displaying-a-table-of-database-data-vb/_static/image4.jpg)](displaying-a-table-of-database-data-vb/_static/image7.png)
 
-**Figura 04**: a caixa de diálogo Adicionar controlador ([clique para exibir a imagem em tamanho normal](displaying-a-table-of-database-data-vb/_static/image8.png))
+**Figura 04**: A caixa de diálogo Adicionar controlador[(Clique para exibir a imagem em tamanho real)](displaying-a-table-of-database-data-vb/_static/image8.png)
 
-Precisamos modificar a ação de índice () exposta pelo controlador de filme para que ele retorne o conjunto de registros de banco de dados. Modifique o controlador para que fique parecido com o controlador na Listagem 1.
+Precisamos modificar a ação Index() exposta pelo controlador Movie para que ele retorne o conjunto de registros de banco de dados. Modifique o controlador para que ele se pareça com o controlador na Listagem 1.
 
-**Listagem 1 – Controllers\MovieController.vb**
+**Listagem 1 – Controladores\MovieController.vb**
 
 [!code-vb[Main](displaying-a-table-of-database-data-vb/samples/sample1.vb)]
 
-Na Listagem 1, a classe MoviesDBEntities é usada para representar o banco de dados MoviesDB. As entidades de expressão *. Movieset. ToList ()* retorna o conjunto de todos os filmes da tabela de banco de dados de filmes.
+Na Lista 1, a classe MoviesDBEntities é usada para representar o banco de dados MoviesDB. As *entidades de expressão. MovieSet.ToList()* retorna o conjunto de todos os filmes da tabela de banco de dados Filmes.
 
-## <a name="create-the-view"></a>Criar o modo de exibição
+## <a name="create-the-view"></a>Criar a exibição
 
-A maneira mais fácil de exibir um conjunto de registros de banco de dados em uma tabela HTML é tirar proveito do scaffolding fornecido pelo Visual Studio.
+A maneira mais fácil de exibir um conjunto de registros de banco de dados em uma tabela HTML é aproveitar os andaimes fornecidos pelo Visual Studio.
 
-Crie seu aplicativo selecionando a opção de menu **Compilar, Compilar solução**. Você deve compilar seu aplicativo antes de abrir a caixa de diálogo **Adicionar exibição** ou suas classes de dados não aparecerão na caixa de diálogo.
+Construa seu aplicativo selecionando a opção de menu **Build, Build Solution**. Você deve construir seu aplicativo antes de abrir a caixa de diálogo **Adicionar exibição** ou suas classes de dados não aparecerão na caixa de diálogo.
 
-Clique com o botão direito do mouse na ação index () e selecione a opção de menu **Add View** (consulte a Figura 5).
+Clique com o botão direito do mouse na ação Índice() e selecione a opção de menu **Adicionar exibição** (ver Figura 5).
 
-[![adicionar uma exibição](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
+[![Adicionando uma visualização](displaying-a-table-of-database-data-vb/_static/image5.jpg)](displaying-a-table-of-database-data-vb/_static/image9.png)
 
-**Figura 05**: adicionando uma exibição ([clique para exibir a imagem em tamanho normal](displaying-a-table-of-database-data-vb/_static/image10.png))
+**Figura 05**: Adicionando uma exibição[(Clique para exibir imagem em tamanho real)](displaying-a-table-of-database-data-vb/_static/image10.png)
 
-Na caixa de diálogo **Adicionar exibição** , marque a caixa de seleção **criar uma exibição fortemente tipada**. Selecione a classe filme como a **classe de dados de exibição**. Selecione *lista* como o **conteúdo de exibição** (veja a Figura 6). A seleção dessas opções irá gerar uma exibição fortemente tipada que exibe uma lista de filmes.
+Na **caixa de** diálogo Adicionar exibição, marque a caixa de seleção rotulada **Criar uma exibição fortemente digitada**. Selecione a classe Movie como a **classe de dados de exibição**. Selecione *Lista* como o conteúdo da **exibição** (ver Figura 6). A seleção dessas opções gerará uma exibição fortemente digitada que exibe uma lista de filmes.
 
-[![a caixa de diálogo Adicionar exibição](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
+[![A caixa de diálogo Adicionar exibição](displaying-a-table-of-database-data-vb/_static/image6.jpg)](displaying-a-table-of-database-data-vb/_static/image11.png)
 
-**Figura 06**: a caixa de diálogo Adicionar exibição ([clique para exibir a imagem em tamanho normal](displaying-a-table-of-database-data-vb/_static/image12.png))
+**Figura 06**: A caixa de diálogo Adicionar exibição[(Clique para exibir a imagem em tamanho real)](displaying-a-table-of-database-data-vb/_static/image12.png)
 
-Depois que você clicar no botão **Adicionar** , a exibição na Listagem 2 será gerada automaticamente. Essa exibição contém o código necessário para iterar na coleção de filmes e exibir cada uma das propriedades de um filme.
+Depois de clicar no botão **Adicionar,** a exibição na Listagem 2 é gerada automaticamente. Esta exibição contém o código necessário para iterar através da coleção de filmes e exibir cada uma das propriedades de um filme.
 
 **Listagem 2 – Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample2.aspx)]
 
-Você pode executar o aplicativo selecionando a opção de menu **depurar, iniciar a depuração** (ou pressionar a tecla F5). A execução do aplicativo inicia o Internet Explorer. Se você navegar até a URL do/Movie, verá a página na Figura 7.
+Você pode executar o aplicativo selecionando a opção de menu **Debug, Start Debugging** (ou apertando a tecla F5). A execução do aplicativo inicia o Internet Explorer. Se você navegar até a URL /Movie, então você verá a página na Figura 7.
 
-[![uma tabela de filmes](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
+[![Uma tabela de filmes](displaying-a-table-of-database-data-vb/_static/image7.jpg)](displaying-a-table-of-database-data-vb/_static/image13.png)
 
-**Figura 07**: uma tabela de filmes ([clique para exibir a imagem em tamanho normal](displaying-a-table-of-database-data-vb/_static/image14.png))
+**Figura 07**: Uma tabela de filmes[(Clique para ver imagem em tamanho real)](displaying-a-table-of-database-data-vb/_static/image14.png)
 
-Se você não gostar de nada sobre a aparência da grade de registros do banco de dados na Figura 7, poderá simplesmente modificar a exibição do índice. Por exemplo, você pode alterar o cabeçalho *DateReleased* para *data de lançamento* modificando a exibição de índice.
+Se você não gosta de nada sobre o aparecimento da grade de registros de banco de dados na Figura 7, então você pode simplesmente modificar a exibição Índice. Por exemplo, você pode alterar o cabeçalho *DateReleased* para *Date Released* modificando a exibição Índice.
 
-## <a name="create-a-template-with-a-partial"></a>Criar um modelo com um parcial
+## <a name="create-a-template-with-a-partial"></a>Crie um modelo com um parcial
 
-Quando uma exibição é muito complicada, é uma boa ideia começar a dividir a exibição em partes parciais. O uso de parciais torna suas exibições mais fáceis de entender e manter. Vamos criar um parcial que podemos usar como modelo para formatar cada um dos registros do banco de dados de filmes.
+Quando uma vista fica muito complicada, é uma boa ideia começar a dividir a vista em parciais. O uso de parciais torna seus pontos de vista mais fáceis de entender e manter. Criaremos uma parcial que podemos usar como modelo para formatar cada um dos registros do banco de dados de filmes.
 
-Siga estas etapas para criar o parcial:
+Siga estas etapas para criar a parcial:
 
-1. Clique com o botão direito do mouse na pasta Views\Movie e selecione a opção de menu **Adicionar modo de exibição**.
-2. Marque a caixa de seleção rotulada *criar uma exibição parcial (. ascx)* .
-3. Nomeie o *movietemplate*parcial.
-4. Marque a caixa de seleção rotulada **criar uma exibição fortemente tipada**.
-5. Selecione filme como a *classe de dados de exibição*.
-6. Selecione vazio como o *conteúdo de exibição*.
-7. Clique no botão **Adicionar** para adicionar o parcial ao seu projeto.
+1. Clique com o botão direito do mouse na pasta Views\Movie e selecione a opção de menu **Adicionar exibição**.
+2. Verifique a caixa de seleção rotulada *Criar uma exibição parcial (.ascx)*.
+3. Nomeie o Modelo de *Filme parcial*.
+4. Verifique a caixa de seleção rotulada **Criar uma exibição fortemente digitada**.
+5. Selecione Filme como a *classe de dados de exibição*.
+6. Selecione Esvaziar como o conteúdo da *exibição*.
+7. Clique no botão **Adicionar** para adicionar a parcial ao seu projeto.
 
-Depois de concluir essas etapas, modifique o Movietemplate parcial para se parecer com a listagem 3.
+Depois de concluir essas etapas, modifique a parcial MovieTemplate para parecer a Lista 3.
 
 **Listagem 3 – Views\Movie\MovieTemplate.ascx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample3.aspx)]
 
-O parcial na Listagem 3 contém um modelo para uma única linha de registros.
+A parcial na Lista 3 contém um modelo para uma única linha de registros.
 
-A exibição de índice modificada na Listagem 4 usa o Movietemplate parcial.
+A exibição Índice modificado na Listagem 4 usa a parcial MovieTemplate.
 
 **Listagem 4 – Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-vb/samples/sample4.aspx)]
 
-A exibição na Listagem 4 contém um loop for each que itera em todos os filmes. Para cada filme, o Movietemplate parcial é usado para formatar o filme. O Movietemplate é renderizado chamando o método auxiliar RenderPartial ().
+A exibição na Lista 4 contém um loop para cada loop que itera em todos os filmes. Para cada filme, a parcial MovieTemplate é usada para formatar o filme. O MovieTemplate é renderizado chamando o método de ajuda RenderPartial().
 
-A exibição de índice modificado renderiza a mesma tabela HTML de registros de banco de dados. No entanto, a exibição foi bastante simplificada.
+A exibição Índice modificado torna a mesma tabela HTML de registros de banco de dados. No entanto, a visão foi muito simplificada.
 
-O método RenderPartial () é diferente da maioria dos outros métodos auxiliares porque ele não retorna uma cadeia de caracteres. Portanto, você deve chamar o método RenderPartial () usando &lt;% HTML. RenderPartial ()%&gt; em vez de &lt;% = HTML. RenderPartial ()%&gt;.
+O método RenderPartial() é diferente da maioria dos outros métodos auxiliares porque não retorna uma string. Portanto, você deve chamar o método &lt;RenderPartial() usando %&gt; Html.RenderPartial() % em vez de &lt;%= Html.RenderPartial() % .&gt;
 
 ## <a name="summary"></a>Resumo
 
-O objetivo deste tutorial foi explicar como você pode exibir um conjunto de registros de banco de dados em uma tabela HTML. Primeiro, você aprendeu como retornar um conjunto de registros de banco de dados de uma ação de controlador aproveitando o Entity Framework da Microsoft. Em seguida, você aprendeu a usar o Visual Studio scaffolding para gerar uma exibição que exibe uma coleção de itens automaticamente. Por fim, você aprendeu a simplificar a exibição tirando proveito de um parcial. Você aprendeu a usar um parcial como um modelo para que possa Formatar cada registro de banco de dados.
+O objetivo deste tutorial foi explicar como você pode exibir um conjunto de registros de banco de dados em uma tabela HTML. Primeiro, você aprendeu como retornar um conjunto de registros de banco de dados de uma ação do controlador, aproveitando o Microsoft Entity Framework. Em seguida, você aprendeu a usar andaimes do Visual Studio para gerar uma visão que exibe uma coleção de itens automaticamente. Finalmente, você aprendeu a simplificar a visão aproveitando uma parcial. Você aprendeu a usar uma parcial como modelo para que você possa formatar cada registro de banco de dados.
 
 > [!div class="step-by-step"]
-> [Anterior](creating-model-classes-with-linq-to-sql-vb.md)
-> [Próximo](performing-simple-validation-vb.md)
+> [Próximo](creating-model-classes-with-linq-to-sql-vb.md)
+> [anterior](performing-simple-validation-vb.md)

@@ -1,72 +1,72 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 title: Criando rotas personalizadas (C#) | Microsoft Docs
-author: microsoft
-description: Saiba como adicionar rotas personalizadas a um aplicativo MVC ASP.NET. Neste tutorial, você aprenderá a modificar a tabela de rotas padrão no arquivo global. asax.
+author: rick-anderson
+description: Aprenda a adicionar rotas personalizadas a um aplicativo MVC ASP.NET. Neste tutorial, você aprende como modificar a tabela de rotas padrão no arquivo Global.asax.
 ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 3cd08f02-8763-490a-b625-2ac96a24b73f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 58f72e390f0053d136ef00ddbda0b071ba225d98
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: b66ccc5e0cd4f6d7e5884394c2b7555b76382d3d
+ms.sourcegitcommit: 022f79dbc1350e0c6ffaa1e7e7c6e850cdabf9af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78601328"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81542749"
 ---
 # <a name="creating-custom-routes-c"></a>Criação de rotas personalizadas (C#)
 
 pela [Microsoft](https://github.com/microsoft)
 
-> Saiba como adicionar rotas personalizadas a um aplicativo MVC ASP.NET. Neste tutorial, você aprenderá a modificar a tabela de rotas padrão no arquivo global. asax.
+> Aprenda a adicionar rotas personalizadas a um aplicativo MVC ASP.NET. Neste tutorial, você aprende como modificar a tabela de rotas padrão no arquivo Global.asax.
 
-Neste tutorial, você aprenderá a adicionar uma rota personalizada a um aplicativo MVC ASP.NET. Você aprende a modificar a tabela de rotas padrão no arquivo global. asax com uma rota personalizada.
+Neste tutorial, você aprende como adicionar uma rota personalizada a um aplicativo mvc ASP.NET. Você aprende como modificar a tabela de rota padrão no arquivo Global.asax com uma rota personalizada.
 
-Para muitos aplicativos ASP.NET MVC simples, a tabela de rotas padrão funcionará bem. No entanto, você pode descobrir que tem necessidades de roteamento especializadas. Nesse caso, você pode criar uma rota personalizada.
+Para muitos aplicativos simples de MVC ASP.NET, a tabela de rotas padrão funcionará muito bem. No entanto, você pode descobrir que você tem necessidades de roteamento especializadas. Nesse caso, você pode criar uma rota personalizada.
 
-Imagine, por exemplo, que você está criando um aplicativo de blog. Talvez você queira lidar com as solicitações de entrada parecidas com esta:
+Imagine, por exemplo, que você está construindo um aplicativo de blog. Você pode querer lidar com pedidos de entrada que se parecem com isso:
 
-/Archive/12-25-2009
+/Arquivo/12-25-2009
 
-Quando um usuário insere essa solicitação, você deseja retornar a entrada de blog que corresponde à data 12/25/2009. Para lidar com esse tipo de solicitação, você precisa criar uma rota personalizada.
+Quando um usuário insere essa solicitação, você deseja retornar a entrada do blog que corresponde à data de 25/12/2009. Para lidar com esse tipo de solicitação, você precisa criar uma rota personalizada.
 
-O arquivo global. asax na Listagem 1 contém uma nova rota personalizada, chamada blog, que lida com solicitações que se parecem com a*data de entrada*/Archive/.
+O arquivo Global.asax na Listagem 1 contém uma nova rota personalizada, chamada Blog, que lida com solicitações que se parecem com /Archive/data*de entrada*.
 
-**Listagem 1-global. asax (com rota personalizada)**
+**Listagem 1 - Global.asax (com rota personalizada)**
 
 [!code-csharp[Main](creating-custom-routes-cs/samples/sample1.cs)]
 
-A ordem das rotas que você adiciona à tabela de rotas é importante. Nossa nova rota de blog personalizada é adicionada antes da rota padrão existente. Se você inverter a ordem, a rota padrão sempre será chamada em vez da rota personalizada.
+A ordem das rotas que você adiciona à tabela de rotas é importante. Nossa nova rota personalizada do Blog é adicionada antes da rota Padrão existente. Se você inverteu a ordem, então a rota Padrão sempre será chamada em vez da rota personalizada.
 
-A rota de blog personalizada corresponde a qualquer solicitação que comece com/Archive/. Portanto, ele corresponde a todas as seguintes URLs:
+A rota do Blog personalizado corresponde a qualquer solicitação que comece com /Archive/. Então, corresponde a todas as seguintes URLs:
 
-- /Archive/12-25-2009
+- /Arquivo/12-25-2009
 
-- /Archive/10-6-2004
+- /Arquivo/10-6-2004
 
-- /Archive/apple
+- /Arquivo/maçã
 
-A rota personalizada mapeia a solicitação de entrada para um controlador chamado arquivo morto e invoca a ação de entrada (). Quando o método Entry () é chamado, a data de entrada é passada como um parâmetro chamado entryDate.
+A rota personalizada mapeia a solicitação recebida para um controlador chamado Archive e invoca a ação Entrada(). Quando o método Entry() é chamado, a data de entrada é passada como um parâmetro chamado entryDate.
 
-Você pode usar a rota personalizada do blog com o controlador na Listagem 2.
+Você pode usar a rota personalizada do Blog com o controlador na Lista 2.
 
-**Listagem 2-ArchiveController.cs**
+**Listagem 2 - ArchiveController.cs**
 
 [!code-csharp[Main](creating-custom-routes-cs/samples/sample2.cs)]
 
-Observe que o método Entry () na Listagem 2 aceita um parâmetro do tipo DateTime. A MVC Framework é inteligente o suficiente para converter a data de entrada da URL em um valor DateTime automaticamente. Se o parâmetro de data de entrada da URL não puder ser convertido em um DateTime, um erro será gerado (consulte a Figura 1).
+Observe que o método Entry() na Listagem 2 aceita um parâmetro do tipo DateTime. A estrutura MVC é inteligente o suficiente para converter a data de entrada da URL em um valor DateTime automaticamente. Se o parâmetro de data de entrada da URL não puder ser convertido em data-hora, um erro será levantado (consulte Figura 1).
 
-**Figura 1-erro ao converter parâmetro**
+**Figura 1 - Erro ao converter parâmetro**
 
-[![caixa de diálogo novo projeto](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
+[![A caixa de diálogo Novo Projeto](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
 
-**Figura 01**: erro ao converter o parâmetro ([clique para exibir a imagem em tamanho normal](creating-custom-routes-cs/_static/image2.png))
+**Figura 01**: Erro ao converter parâmetro[(Clique para exibir imagem em tamanho real)](creating-custom-routes-cs/_static/image2.png)
 
 ## <a name="summary"></a>Resumo
 
-O objetivo deste tutorial foi demonstrar como você pode criar uma rota personalizada. Você aprendeu a adicionar uma rota personalizada à tabela de rotas no arquivo global. asax que representa entradas de blog. Discutimos como mapear solicitações de entradas de blog para um controlador chamado ArchiveController e uma ação de controlador chamada Entry ().
+O objetivo deste tutorial foi demonstrar como você pode criar uma rota personalizada. Você aprendeu como adicionar uma rota personalizada à tabela de rotas no arquivo Global.asax que representa entradas de blog. Discutimos como mapear solicitações de entradas de blog para um controlador chamado ArchiveController e uma ação controladora chamada Entry().
 
 > [!div class="step-by-step"]
-> [Anterior](aspnet-mvc-controllers-overview-cs.md)
-> [Próximo](creating-a-route-constraint-cs.md)
+> [Próximo](aspnet-mvc-controllers-overview-cs.md)
+> [anterior](creating-a-route-constraint-cs.md)

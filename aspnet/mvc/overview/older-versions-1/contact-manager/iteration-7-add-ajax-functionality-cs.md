@@ -1,236 +1,236 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
-title: '#7 de iteração – adicionar funcionalidadeC#AJAX () | Microsoft Docs'
-author: microsoft
-description: Na sétima iteração, melhoramos a capacidade de resposta e o desempenho do nosso aplicativo adicionando suporte para AJAX.
+title: 'Iteração #7 – Adicionar funcionalidade Ajax (C#) | Microsoft Docs'
+author: rick-anderson
+description: Na sétima iteração, melhoramos a capacidade de resposta e o desempenho de nossa aplicação adicionando suporte ao Ajax.
 ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: f1b0809e-8909-444e-b6bb-a5cd1dea3f72
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c8eb3d3688674dd2c220b4bd1b5982f2610d0eb
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 12d7348382bc55af049567922bd6963970a9421b
+ms.sourcegitcommit: 022f79dbc1350e0c6ffaa1e7e7c6e850cdabf9af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78544173"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81542307"
 ---
-# <a name="iteration-7--add-ajax-functionality-c"></a>#7 de iteração – adicionar funcionalidadeC#AJAX ()
+# <a name="iteration-7--add-ajax-functionality-c"></a>Iteração nº 7 – adicionar funcionalidade do Ajax (C#)
 
 pela [Microsoft](https://github.com/microsoft)
 
 [Código de download](iteration-7-add-ajax-functionality-cs/_static/contactmanager_7_cs1.zip)
 
-> Na sétima iteração, melhoramos a capacidade de resposta e o desempenho do nosso aplicativo adicionando suporte para AJAX.
+> Na sétima iteração, melhoramos a capacidade de resposta e o desempenho de nossa aplicação adicionando suporte ao Ajax.
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Criando um aplicativo MVC de gerenciamento de contatosC#ASP.net ()
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Construindo um aplicativo mvc de gerenciamento de ASP.NET de contato (C#)
 
-Nesta série de tutoriais, criamos um aplicativo de gerenciamento de contatos inteiro do início ao fim. O aplicativo Contact Manager permite armazenar informações de contato-nomes, números de telefone e endereços de email – para obter uma lista de pessoas.
+Nesta série de tutoriais, construímos todo um aplicativo de Gerenciamento de Contatos do início ao fim. O aplicativo Contact Manager permite que você armazene informações de contato - nomes, números de telefone e endereços de e-mail - para uma lista de pessoas.
 
-Criamos o aplicativo em várias iterações. Com cada iteração, aprimoramos gradualmente o aplicativo. O objetivo dessa abordagem de várias iterações é permitir que você entenda o motivo de cada alteração.
+Nós construímos o aplicativo sobre várias iterações. A cada iteração, melhoramos gradualmente a aplicação. O objetivo desta abordagem de iteração múltipla é permitir que você entenda a razão de cada mudança.
 
-- #1 de iteração – crie o aplicativo. Na primeira iteração, criamos o gerente de contatos da maneira mais simples possível. Adicionamos suporte para operações básicas de banco de dados: criar, ler, atualizar e excluir (CRUD).
+- Iteração #1 - Crie o aplicativo. Na primeira iteração, criamos o Contact Manager da maneira mais simples possível. Adicionamos suporte para operações básicas de banco de dados: Criar, Ler, Atualizar e Excluir (CRUD).
 
-- #2 de iteração – faça com que o aplicativo fique bom. Nessa iteração, melhoramos a aparência do aplicativo modificando a página mestra de exibição do ASP.NET MVC padrão e a folha de estilos em cascata.
+- Iteração #2 - Faça a aplicação parecer bonita. Nesta iteração, melhoramos a aparência do aplicativo modificando o padrão ASP.NET página-mestre de exibição mVC e folha de estilo em cascata.
 
-- #3 de iteração – adicionar validação de formulário. Na terceira iteração, adicionamos a validação básica de formulário. Impedimos que as pessoas enviem um formulário sem concluir os campos de formulário necessários. Também validamos endereços de email e números de telefone.
+- Iteração #3 - Adicionar validação de formulário. Na terceira iteração, adicionamos validação de formulário básico. Impedimos que as pessoas enviem um formulário sem preencher os campos de formulário necessários. Também validamos endereços de e-mail e números de telefone.
 
-- #4 de iteração-torne o aplicativo levemente acoplado. Nesta quarta iteração, aproveitamos os vários padrões de design de software para facilitar a manutenção e a modificação do aplicativo Contact Manager. Por exemplo, podemos refatorar nosso aplicativo para usar o padrão de repositório e o padrão de injeção de dependência.
+- Iteração #4 - Faça a aplicação livremente acoplada. Nesta quarta iteração, aproveitamos vários padrões de design de software para facilitar a manutenção e modificação do aplicativo Contact Manager. Por exemplo, refatoramos nossa aplicação para usar o padrão repositório e o padrão de injeção de dependência.
 
-- #5 de iteração – criar testes de unidade. Na quinta iteração, tornamos o nosso aplicativo mais fácil de manter e modificar adicionando testes de unidade. Simulamos nossas classes de modelo de dados e criamos testes de unidade para nossos controladores e lógica de validação.
+- Iteração #5 - Crie testes unitários. Na quinta iteração, tornamos nossa aplicação mais fácil de manter e modificar adicionando testes unitários. Zombamos de nossas classes de modelo de dados e construímos testes unitários para nossos controladores e lógica de validação.
 
-- #6 de iteração – use o desenvolvimento controlado por testes. Na sexta-iteração, adicionamos nova funcionalidade ao nosso aplicativo escrevendo testes de unidade primeiro e escrevendo código em relação aos testes de unidade. Nessa iteração, adicionamos grupos de contatos.
+- Iteração #6 - Use o desenvolvimento orientado para o teste. Nesta sexta iteração, adicionamos nova funcionalidade ao nosso aplicativo escrevendo primeiro testes de unidade e escrevendo código satisfaz os testes da unidade. Nesta iteração, adicionamos grupos de contato.
 
-- #7 de iteração – adicione funcionalidade Ajax. Na sétima iteração, melhoramos a capacidade de resposta e o desempenho do nosso aplicativo adicionando suporte para AJAX.
+- Iteração #7 - Adicionar funcionalidade Ajax. Na sétima iteração, melhoramos a capacidade de resposta e o desempenho de nossa aplicação adicionando suporte ao Ajax.
 
-## <a name="this-iteration"></a>Esta iteração
+## <a name="this-iteration"></a>Esta Iteração
 
-Nesta iteração do aplicativo Contact Manager, podemos refatorar nosso aplicativo para fazer uso do Ajax. Aproveitando o Ajax, tornamos nosso aplicativo mais responsivo. Podemos evitar a renderização de uma página inteira quando precisamos atualizar apenas uma determinada região em uma página.
+Nesta iteração do aplicativo Contact Manager, refatoramos nosso aplicativo para fazer uso do Ajax. Aproveitando o Ajax, tornamos nossa aplicação mais responsiva. Podemos evitar renderizar uma página inteira quando precisamos atualizar apenas uma determinada região em uma página.
 
-Vamos refatorar nossa exibição de índice para que não seja necessário reexibir a página inteira sempre que alguém selecionar um novo grupo de contatos. Em vez disso, quando alguém clicar em um grupo de contatos, apenas atualizaremos a lista de contatos e deixaremos o resto da página sozinha.
+Vamos refatorar nossa visão de Índice para que não precisemos reexibir a página inteira sempre que alguém selecionar um novo grupo de contato. Em vez disso, quando alguém clica em um grupo de contatos, vamos atualizar a lista de contatos e deixar o resto da página em paz.
 
-Também alteraremos a maneira como o nosso link de exclusão funciona. Em vez de exibir uma página de confirmação separada, vamos exibir uma caixa de diálogo de confirmação de JavaScript. Se você confirmar que deseja excluir um contato, uma operação HTTP DELETE será executada no servidor para excluir o registro de contato do banco de dados.
+Também mudaremos a forma como nosso link de exclusão funciona. Em vez de exibir uma página de confirmação separada, exibiremos uma caixa de confirmação JavaScript. Se você confirmar que deseja excluir um contato, uma operação HTTP DELETE será realizada contra o servidor para excluir o registro de contato do banco de dados.
 
-Além disso, aproveitaremos o jQuery para adicionar efeitos de animação à nossa exibição de índice. Vamos exibir uma animação quando a nova lista de contatos estiver sendo buscada a partir do servidor.
+Além disso, aproveitaremos o jQuery para adicionar efeitos de animação à nossa exibição de Índice. Exibiremos uma animação quando a nova lista de contatos estiver sendo buscada no servidor.
 
-Por fim, aproveitaremos o suporte do ASP.NET AJAX Framework para gerenciar o histórico do navegador. Criaremos pontos de histórico sempre que executarmos uma chamada AJAX para atualizar a lista de contatos. Dessa forma, os botões para trás e para frente do navegador funcionarão.
+Finalmente, aproveitaremos o suporte ASP.NET a estrutura AJAX para gerenciar o histórico do navegador. Criaremos pontos de histórico sempre que realizarmos uma chamada do Ajax para atualizar a lista de contatos. Dessa forma, os botões para trás e para frente do navegador funcionarão.
 
-## <a name="why-use-ajax"></a>Por que usar o Ajax?
+## <a name="why-use-ajax"></a>Por que usar a Jax?
 
-O uso do AJAX tem muitos benefícios. Primeiro, a adição da funcionalidade Ajax a um aplicativo resulta em uma melhor experiência do usuário. Em um aplicativo Web normal, a página inteira deve ser postada de volta ao servidor cada e sempre que um usuário executar uma ação. Sempre que você executar uma ação, o navegador será bloqueado e o usuário deverá aguardar até que toda a página seja buscada e exibida novamente.
+Usar o Ajax tem muitos benefícios. Primeiro, adicionar a funcionalidade do Ajax a um aplicativo resulta em uma melhor experiência do usuário. Em um aplicativo web normal, toda a página deve ser postada de volta ao servidor toda vez que um usuário executa uma ação. Sempre que você executar uma ação, o navegador bloqueia e o usuário deve esperar até que toda a página seja buscada e reexibida.
 
-Essa seria uma experiência inaceitável no caso de um aplicativo de desktop. Mas, tradicionalmente, acabamos com essa experiência de usuário inadequada no caso de um aplicativo Web, pois não sabíamos que poderíamos fazer melhor. Achamos que era uma limitação de aplicativos Web quando, na realidade, era apenas uma limitação de nossas imaginaçãos.
+Esta seria uma experiência inaceitável no caso de um aplicativo de desktop. Mas, tradicionalmente, convivemos com essa má experiência de usuário no caso de um aplicativo web porque não sabíamos que poderíamos fazer melhor. Pensamos que era uma limitação das aplicações web quando, na verdade, era apenas uma limitação de nossa imaginação.
 
-Em um aplicativo AJAX, você não precisa levar a experiência do usuário a parar apenas para atualizar uma página. Em vez disso, você pode executar uma solicitação assíncrona em segundo plano para atualizar a página. Você não força o usuário a aguardar enquanto parte da página é atualizada.
+Em um aplicativo Ajax, você não precisa parar a experiência do usuário apenas para atualizar uma página. Em vez disso, você pode executar uma solicitação assíncrona em segundo plano para atualizar a página. Você não força o usuário a esperar enquanto parte da página é atualizada.
 
-Aproveitando o Ajax, você também pode melhorar o desempenho do seu aplicativo. Considere como o aplicativo Contact Manager funciona agora sem a funcionalidade do Ajax. Quando você clica em um grupo de contatos, o modo de exibição de índice inteiro deve ser exibido novamente. A lista de contatos e a lista de grupos de contatos devem ser recuperados do servidor de banco de dados. Todos esses dados devem ser passados pela conexão do servidor Web para o navegador da Web.
+Aproveitando o Ajax, você também pode melhorar o desempenho da sua aplicação. Considere como o aplicativo contact manager funciona agora sem a funcionalidade do Ajax. Quando você clica em um grupo de contato, toda a exibição Índice deve ser reexibida. A lista de contatos e lista de grupos de contato deve ser recuperada do servidor de banco de dados. Todos esses dados devem ser transmitidos através do fio do servidor web para o navegador da Web.
 
-No entanto, depois de adicionarmos a funcionalidade Ajax ao nosso aplicativo, podemos evitar a reexibição da página inteira quando um usuário clica em um grupo de contatos. Não precisamos mais pegar os grupos de contatos do banco de dados. Também não precisamos enviar por push toda a exibição do índice pela conexão. Aproveitando o Ajax, reduzimos a quantidade de trabalho que nosso servidor de banco de dados deve executar e reduzimos a quantidade de tráfego de rede exigido pelo nosso aplicativo.
+Depois de adicionar mos a funcionalidade do Ajax ao nosso aplicativo, no entanto, podemos evitar a reexibição de toda a página quando um usuário clica em um grupo de contato. Não precisamos mais pegar os grupos de contato do banco de dados. Também não precisamos empurrar toda a visão do Índice através do fio. Aproveitando o Ajax, reduzimos a quantidade de trabalho que nosso servidor de banco de dados deve realizar e reduzimos a quantidade de tráfego de rede exigido pelo nosso aplicativo.
 
-## <a name="don-t-be-afraid-of-ajax"></a>Don t não seja medo do AJAX
+## <a name="don-t-be-afraid-of-ajax"></a>Não tenha medo do Ajax
 
-Alguns desenvolvedores evitam usar o Ajax porque se preocupam com navegadores de nível inferior. Eles querem garantir que seus aplicativos Web ainda funcionarão quando acessados por um navegador que não ofereça suporte a JavaScript. Como o Ajax depende do JavaScript, alguns desenvolvedores evitam o uso do Ajax.
+Alguns desenvolvedores evitam usar o Ajax porque se preocupam com navegadores de baixo nível. Eles querem ter certeza de que seus aplicativos web ainda funcionarão quando acessados por um navegador que não suporta JavaScript. Como o Ajax depende do JavaScript, alguns desenvolvedores evitam usar o Ajax.
 
-No entanto, se você tiver cuidado ao implementar o Ajax, poderá criar aplicativos que funcionem com navegadores uplevel e de nível inferior. Nosso aplicativo Contact Manager funcionará com navegadores que dão suporte a JavaScript e navegadores que não o fazem.
+No entanto, se você for cuidadoso sobre como implementar o Ajax, então você pode criar aplicativos que funcionam com navegadores de nível superior e de baixo. Nosso aplicativo Contact Manager funcionará com navegadores que suportam JavaScript e navegadores que não o fazem.
 
-Se você usar o aplicativo Contact Manager com um navegador que dê suporte a JavaScript, terá uma experiência de usuário melhor. Por exemplo, quando você clica em um grupo de contatos, somente a região da página que exibe os contatos será atualizada.
+Se você usar o aplicativo Contact Manager com um navegador que suporta JavaScript, então você terá uma melhor experiência de usuário. Por exemplo, quando você clica em um grupo de contato, apenas a região da página que exibe contatos será atualizada.
 
-Se, por outro lado, você usar o aplicativo Contact Manager com um navegador que não ofereça suporte a JavaScript (ou que tenha o JavaScript desabilitado), terá uma experiência de usuário um pouco menos desejável. Por exemplo, quando você clica em um grupo de contatos, a exibição do índice inteiro deve ser enviada de volta ao navegador para exibir a lista correspondente de contatos.
+Se, por outro lado, você usar o aplicativo Contact Manager com um navegador que não suporta JavaScript (ou que tem JavaScript desativado) então você terá uma experiência de usuário um pouco menos desejável. Por exemplo, quando você clica em um grupo de contato, toda a exibição Índice deve ser postada de volta no navegador para exibir a lista correspondente de contatos.
 
 ## <a name="adding-the-required-javascript-files"></a>Adicionando os arquivos JavaScript necessários
 
-Precisaremos usar três arquivos JavaScript para adicionar a funcionalidade Ajax ao nosso aplicativo. Todos esses três arquivos estão incluídos na pasta scripts de um novo aplicativo MVC ASP.NET.
+Precisaremos usar três arquivos JavaScript para adicionar a funcionalidade Ajax ao nosso aplicativo. Todos os três arquivos estão incluídos na pasta Scripts de um novo aplicativo mvc ASP.NET.
 
-Se você planeja usar o AJAX em várias páginas em seu aplicativo, faz sentido incluir os arquivos JavaScript necessários na página mestra de exibição do seu aplicativo. Dessa forma, os arquivos JavaScript serão incluídos em todas as páginas em seu aplicativo automaticamente.
+Se você planeja usar o Ajax em várias páginas do seu aplicativo, então faz sentido incluir os arquivos JavaScript necessários na página-mestre de exibição do aplicativo. Dessa forma, os arquivos JavaScript serão incluídos em todas as páginas do seu aplicativo automaticamente.
 
-Adicione o seguinte JavaScript inclui dentro da marca &lt;Head&gt; da sua página mestra de exibição:
+Adicione o seguinte JavaScript &lt;inclui&gt; dentro da tag principal da página-mestre do seu visor:
 
 [!code-html[Main](iteration-7-add-ajax-functionality-cs/samples/sample1.html)]
 
 ## <a name="refactoring-the-index-view-to-use-ajax"></a>Refatorando a exibição de índice para usar o Ajax
 
-Vamos começar modificando nossa exibição de índice para que clicar em um grupo de contatos Atualize apenas a região da exibição que exibe os contatos. A caixa vermelha na Figura 1 contém a região que queremos atualizar.
+Vamos começar modificando nossa exibição índice para que clicar em um grupo de contato só atualize a região da exibição que exibe contatos. A caixa vermelha na Figura 1 contém a região que queremos atualizar.
 
-[![atualizar somente contatos](iteration-7-add-ajax-functionality-cs/_static/image1.jpg)](iteration-7-add-ajax-functionality-cs/_static/image1.png)
+[![Atualizando apenas contatos](iteration-7-add-ajax-functionality-cs/_static/image1.jpg)](iteration-7-add-ajax-functionality-cs/_static/image1.png)
 
-**Figura 01**: Atualizando somente contatos ([clique para exibir a imagem em tamanho normal](iteration-7-add-ajax-functionality-cs/_static/image2.png))
+**Figura 01**: Atualização apenas contatos[(Clique para ver imagem em tamanho real)](iteration-7-add-ajax-functionality-cs/_static/image2.png)
 
-A primeira etapa é separar a parte da exibição que queremos atualizar de forma assíncrona em um parcial separado (View User Control). A seção do modo de exibição de índice que exibe a tabela de contatos foi movida para o parcial na Listagem 1.
+O primeiro passo é separar a parte da visão que queremos atualizar assíncronamente em uma parcial separada (exibir controle do usuário). A seção da exibição Índice que exibe a tabela de contatos foi movida para a parcial na Listagem 1.
 
-**Listagem 1-Views\Contact\ContactList.ascx**
+**Listagem 1 - Views\Contact\ContactList.ascx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample2.aspx)]
 
-Observe que o parcial na Listagem 1 tem um modelo diferente do modo de exibição de índice. O atributo *Inherits* na diretiva &lt;% @ page%&gt; especifica que as herda parciais da classe&gt; do grupo de&lt;ViewUserControl.
+Observe que a parcial na Listagem 1 tem um modelo diferente da exibição índice. O atributo *Herda* &lt;na&gt; diretiva %@ Page % especifica que&lt;a&gt; parte herda da classe ExibirUserControl Group.
 
-A exibição de índice atualizada está contida na Listagem 2.
+A visão de índice atualizada está contida na Listagem 2.
 
-**Listagem 2-Views\Contact\Index.aspx**
+**Listagem 2 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample3.aspx)]
 
-Há duas coisas que você deve observar sobre a exibição atualizada na Listagem 2. Primeiro, observe que todo o conteúdo movido para o parcial é substituído por uma chamada para HTML. RenderPartial (). O método html. RenderPartial () é chamado quando a exibição do índice é solicitada pela primeira vez para exibir o conjunto inicial de contatos.
+Existem duas coisas que você deve notar sobre a exibição atualizada na Listagem 2. Primeiro, observe que todo o conteúdo movido para a parcial é substituído por uma chamada para Html.RenderPartial(). O método Html.RenderPartial() é chamado quando a exibição Índice é solicitada pela primeira vez para exibir o conjunto inicial de contatos.
 
-Em segundo lugar, observe que o HTML. ActionLink () usado para exibir os grupos de contatos foi substituído por um Ajax. ActionLink (). O Ajax. ActionLink () é chamado com os seguintes parâmetros:
+Em segundo lugar, observe que o Html.ActionLink() usado para exibir grupos de contato foi substituído por um Ajax.ActionLink(). O Ajax.ActionLink() é chamado com os seguintes parâmetros:
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample4.aspx)]
 
-O primeiro parâmetro representa o texto a ser exibido para o link, o segundo parâmetro representa os valores de rota e o terceiro parâmetro representa as opções do Ajax. Nesse caso, usamos a opção UpdateTargetId Ajax para apontar para a marca HTML &lt;div&gt; que desejamos atualizar após a conclusão da solicitação Ajax. Queremos atualizar a marca &lt;div&gt; com a nova lista de contatos.
+O primeiro parâmetro representa o texto a ser exibido para o link, o segundo parâmetro representa os valores de rota e o terceiro parâmetro representa as opções Ajax. Neste caso, usamos a opção UpdateTargetId Ajax &lt;para&gt; apontar para a tag de div HTML que queremos atualizar após a solicitação do Ajax ser concluída. Queremos atualizar &lt;a&gt; tag div com a nova lista de contatos.
 
-O método de índice () atualizado do controlador de contato está contido na Listagem 3.
+O método de índice atualizado() do controlador de contato está contido na Lista 3.
 
-**Listagem 3-Controllers\ContactController.cs (método de índice)**
+**Listagem 3 - Controladores\ContactController.cs (método de índice)**
 
 [!code-csharp[Main](iteration-7-add-ajax-functionality-cs/samples/sample5.cs)]
 
-A ação atualizar índice () condicionalmente retorna uma das duas coisas. Se a ação index () for invocada por uma solicitação Ajax, o controlador retornará um parcial. Caso contrário, a ação index () retornará uma exibição inteira.
+A ação do Índice atualizado retorna condicionalmente uma das duas coisas. Se a ação Index() for invocada por uma solicitação ajax, o controlador retorna uma parcial. Caso contrário, a ação Index() retorna uma visão inteira.
 
-Observe que a ação index () não precisa retornar tantos dados quando invocados por uma solicitação Ajax. No contexto de uma solicitação normal, a ação de índice retorna uma lista de todos os grupos de contatos e o grupo de contatos selecionado. No contexto de uma solicitação Ajax, a ação index () retorna apenas o grupo selecionado. Ajax significa menos trabalho no servidor de banco de dados.
+Observe que a ação Index() não precisa retornar tantos dados quando invocada por uma solicitação do Ajax. No contexto de uma solicitação normal, a ação Índice retorna uma lista de todos os grupos de contato e do grupo de contato selecionado. No contexto de uma solicitação do Ajax, a ação Index() retorna apenas o grupo selecionado. Ajax significa menos trabalho no seu servidor de banco de dados.
 
-Nossa exibição de índice modificada funciona no caso de navegadores uplevel e de nível inferior. Se você clicar em um grupo de contatos e seu navegador oferecer suporte a JavaScript, somente a região da exibição que contém a lista de contatos será atualizada. Se, por outro lado, o navegador não oferecer suporte a JavaScript, a exibição inteira será atualizada.
+Nossa visão de índice modificado funciona no caso de navegadores de nível superior e de baixo. Se você clicar em um grupo de contatos e seu navegador suportar JavaScript, apenas a região da exibição que contém a lista de contatos será atualizada. Se, por outro lado, seu navegador não suportar JavaScript, então toda a visualização será atualizada.
 
-Nosso modo de exibição de índice atualizado tem um problema. Quando você clica em um grupo de contatos, o grupo selecionado não é realçado. Como a lista de grupos é exibida fora da região que é atualizada durante uma solicitação Ajax, o grupo correto não é realçado. Corrigiremos esse problema na próxima seção.
+Nossa visão atualizada do Índice tem um problema. Quando você clica em um grupo de contato, o grupo selecionado não é destacado. Como a lista de grupos é exibida fora da região que é atualizada durante uma solicitação do Ajax, o grupo certo não é destacado. Vamos resolver esse problema na próxima seção.
 
 ## <a name="adding-jquery-animation-effects"></a>Adicionando efeitos de animação jQuery
 
-Normalmente, quando você clica em um link em uma página da Web, pode usar a barra de progresso do navegador para detectar se o navegador está ou não buscando ativamente o conteúdo atualizado. Ao executar uma solicitação Ajax, por outro lado, a barra de progresso do navegador não mostra nenhum progresso. Isso pode tornar os usuários preocupados. Como saber se o navegador está congelado?
+Normalmente, quando você clica em um link em uma página da Web, você pode usar a barra de progresso do navegador para detectar se o navegador está ou não buscando ativamente o conteúdo atualizado. Ao executar uma solicitação ajax, por outro lado, a barra de progresso do navegador não mostra nenhum progresso. Isso pode deixar os usuários nervosos. Como você sabe se o navegador congelou?
 
-Há várias maneiras que você pode indicar a um usuário que o trabalho está sendo executado durante a execução de uma solicitação Ajax. Uma abordagem é exibir uma animação simples. Por exemplo, você pode esmaecer uma região quando uma solicitação Ajax começa e esmaece na região quando a solicitação é concluída.
+Existem várias maneiras que você pode indicar a um usuário que o trabalho está sendo executado durante a execução de uma solicitação ajax. Uma abordagem é exibir uma animação simples. Por exemplo, você pode desaparecer uma região quando uma solicitação do Ajax começa e desaparece na região quando a solicitação é concluída.
 
-Usaremos a biblioteca jQuery, que está incluída com o Microsoft ASP.NET MVC Framework, para criar os efeitos de animação. A exibição de índice atualizada está contida na Listagem 4.
+Usaremos a biblioteca jQuery que está incluída na estrutura mVC do Microsoft ASP.NET, para criar os efeitos de animação. A visão de índice atualizada está contida na Listagem 4.
 
-**Listagem 4-Views\Contact\Index.aspx**
+**Listagem 4 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample6.aspx)]
 
-Observe que a exibição de índice atualizada contém três novas funções JavaScript. As duas primeiras funções usam jQuery para esmaecer e esmaecer na lista de contatos quando você clica em um novo grupo de contatos. A terceira função exibe uma mensagem de erro quando uma solicitação Ajax resulta em um erro (por exemplo, tempo limite de rede).
+Observe que a exibição Index atualizada contém três novas funções JavaScript. As duas primeiras funções usam jQuery para desaparecer e desaparecer na lista de contatos quando você clica em um novo grupo de contato. A terceira função exibe uma mensagem de erro quando uma solicitação do Ajax resulta em um erro (por exemplo, tempo livre da rede).
 
-A primeira função também cuida do realce do grupo selecionado. Um atributo Class = Selected é adicionado ao elemento pai (o elemento LI) do elemento clicado. Mais uma vez, o jQuery facilita a seleção do elemento correto e a adição da classe CSS.
+A primeira função também se dá para destacar o grupo selecionado. Um atributo selecionado classe= é adicionado ao elemento pai (o elemento LI) do elemento clicado. Novamente, jQuery facilita a seleção do elemento certo e a adição da classe CSS.
 
-Esses scripts estão vinculados aos links de grupo com a ajuda do parâmetro Ajax. ActionLink () AjaxOptions. A chamada do método Ajax. ActionLink () atualizada é parecida com esta:
+Esses scripts estão vinculados aos links de grupo com a ajuda do parâmetro Ajax.ActionLink() AjaxOptions. A chamada atualizada do método Ajax.ActionLink é assim:
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample7.aspx)]
 
 ## <a name="adding-browser-history-support"></a>Adicionando suporte ao histórico do navegador
 
-Normalmente, quando você clica em um link para atualizar uma página, o histórico do navegador é atualizado. Dessa forma, você pode clicar no botão voltar do navegador para voltar no tempo para o estado anterior da página. Por exemplo, se você clicar no grupo de contatos amigos e, em seguida, clicar no grupo contato comercial, poderá clicar no botão voltar do navegador para navegar de volta para o estado da página quando o grupo de contatos amigos tiver sido selecionado.
+Normalmente, quando você clica em um link para atualizar uma página, o histórico do seu navegador é atualizado. Dessa forma, você pode clicar no botão Voltar do navegador para voltar no tempo para o estado anterior da página. Por exemplo, se você clicar no grupo de contato Amigos e clicar no grupo de contato negócios, você pode clicar no botão 'Voltar do navegador' para navegar de volta para o estado da página quando o grupo de contato amigos foi selecionado.
 
-Infelizmente, a execução de uma solicitação Ajax não atualiza o histórico do navegador automaticamente. Se você clicar em um grupo de contatos e a lista de contatos correspondentes for recuperada com uma solicitação Ajax, o histórico do navegador não será atualizado. Você não pode usar o botão voltar do navegador para navegar de volta para um grupo de contatos depois de selecionar um novo grupo de contatos.
+Infelizmente, a execução de uma solicitação ajax não atualiza o histórico do navegador automaticamente. Se você clicar em um grupo de contatos e a lista de contatos correspondentes for recuperada com uma solicitação do Ajax, o histórico do navegador não será atualizado. Não é possível usar o botão 'Voltar' do navegador para navegar de volta a um grupo de contato depois de selecionar um novo grupo de contato.
 
-Se você quiser que os usuários possam usar o botão voltar do navegador depois de executar as solicitações do Ajax, você precisará executar um pouco mais de trabalho. Você precisa tirar proveito da funcionalidade de gerenciamento de histórico do navegador criada na estrutura do ASP.NET AJAX.
+Se você quiser que os usuários possam usar o botão De volta do navegador depois de executar as solicitações do Ajax, então você precisa realizar um pouco mais de trabalho. Você precisa aproveitar a funcionalidade de gerenciamento do histórico do navegador incorporada no ASP.NET AJAX Framework.
 
-ASP.NET o histórico do navegador AJAX, você precisa fazer três coisas:
+ASP.NET histórico do navegador AJAX, você precisa fazer três coisas:
 
 1. Habilite o histórico do navegador definindo a propriedade enableBrowserHistory como true.
-2. Salve os pontos do histórico quando o estado de uma exibição for alterado chamando o método addHistoryPoint ().
-3. Reconstrua o estado da exibição quando o evento de navegação é gerado.
+2. Salvar pontos de histórico quando o estado de uma exibição é alterado chamando o método addHistoryPoint().
+3. Reconstrua o estado da visão quando o evento de navegação for levantado.
 
-A exibição de índice atualizado está contida na listagem 5.
+A visão de índice atualizada está contida na Lista 5.
 
-**Listagem 5-Views\Contact\Index.aspx**
+**Listagem 5 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample8.aspx)]
 
-Na listagem 5, o histórico do navegador é habilitado na função pageInit (). A função pageInit () também é usada para configurar o manipulador de eventos para o evento Navigate. O evento Navigate é gerado sempre que o botão Avançar ou voltar do navegador faz com que o estado da página seja alterado.
+Na Lista 5, o histórico do navegador está habilitado na função pageInit(). A função pageInit() também é usada para configurar o manipulador de eventos para o evento de navegação. O evento de navegação é levantado sempre que o botão Para frente ou para trás do navegador faz com que o estado da página seja alterado.
 
-O método beginContactList () é chamado quando você clica em um grupo de contatos. Esse método cria um novo ponto de histórico chamando o método addHistoryPoint (). A ID do grupo de contatos clicada é adicionada ao histórico.
+O método beginContactList() é chamado quando você clica em um grupo de contato. Este método cria um novo ponto de história chamando o método addHistoryPoint(). O id do grupo de contato clicado é adicionado ao histórico.
 
-A ID do grupo é recuperada de um atributo expando no link do grupo de contatos. O link é processado com a chamada a seguir para AJAX. ActionLink ().
+O id do grupo é recuperado de um atributo expando no link do grupo de contato. O link é renderizado com a seguinte chamada para Ajax.ActionLink().
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample9.aspx)]
 
-O último parâmetro passado para AJAX. ActionLink () adiciona um atributo expando chamado GroupId ao link (em minúsculas para compatibilidade com XHTML).
+O último parâmetro passado para o Ajax.ActionLink() adiciona um atributo expando chamado groupid ao link (minúscula para compatibilidade XHTML).
 
-Quando um usuário pressiona o botão voltar ou avançar do navegador, o evento Navigate é gerado e o método Navigate () é chamado. Esse método atualiza os contatos exibidos na página para corresponder ao estado da página que corresponde ao ponto de histórico do navegador passado para o método Navigate.
+Quando um usuário aperta o botão Para trás ou para frente do navegador, o evento de navegação é levantado e o método de navegação é chamado. Este método atualiza os contatos exibidos na página para corresponder ao estado da página que corresponde ao ponto de histórico do navegador passado para o método de navegação.
 
-## <a name="performing-ajax-deletes"></a>Executando exclusões do AJAX
+## <a name="performing-ajax-deletes"></a>Realizando Ajax Deletes
 
-Atualmente, para excluir um contato, você precisa clicar no link excluir e, em seguida, clicar no botão excluir exibido na página excluir confirmação (consulte a Figura 2). Isso parece muitas solicitações de página para fazer algo simples, como excluir um registro de banco de dados.
+Atualmente, para excluir um contato, você precisa clicar no link Excluir e, em seguida, clicar no botão Excluir exibido na página de confirmação de exclusão (ver Figura 2). Isso parece um monte de pedidos de página para fazer algo simples como excluir um registro de banco de dados.
 
-[![a página de confirmação de exclusão](iteration-7-add-ajax-functionality-cs/_static/image2.jpg)](iteration-7-add-ajax-functionality-cs/_static/image3.png)
+[![A página de confirmação de exclusão](iteration-7-add-ajax-functionality-cs/_static/image2.jpg)](iteration-7-add-ajax-functionality-cs/_static/image3.png)
 
-**Figura 02**: a página de confirmação de exclusão ([clique para exibir a imagem em tamanho normal](iteration-7-add-ajax-functionality-cs/_static/image4.png))
+**Figura 02**: A página de confirmação de exclusão[(Clique para exibir imagem em tamanho real)](iteration-7-add-ajax-functionality-cs/_static/image4.png)
 
-É tentador ignorar a página de confirmação de exclusão e excluir um contato diretamente da exibição de índice. Você deve evitar essa tentação porque levar essa abordagem abre seu aplicativo para brechas de segurança. Em geral, você não deseja executar uma operação HTTP GET ao invocar uma ação que modifica o estado do seu aplicativo Web. Ao executar uma exclusão, você deseja executar um HTTP POST, ou melhor ainda, uma operação HTTP DELETE.
+É tentador pular a página de confirmação de exclusão e excluir um contato diretamente da exibição Índice. Você deve evitar essa tentação, porque tomar essa abordagem abre sua aplicação para falhas de segurança. Em geral, você não deseja realizar uma operação HTTP GET ao invocar uma ação que modifique o estado do seu aplicativo web. Ao executar uma exclusão, você deseja executar um HTTP POST, ou melhor ainda, uma operação HTTP DELETE.
 
-O link de exclusão está contido na ContactList parcial. Uma versão atualizada da lista de contatos parcial está contida na Listagem 6.
+O link Excluir está contido na parcial Da Lista de Contatos. Uma versão atualizada da parcial contactlist está contida na Lista 6.
 
-**Listagem 6-Views\Contact\ContactList.ascx**
+**Lista 6 - Views\Contact\ContactList.ascx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample10.aspx)]
 
-O link de exclusão é processado com a seguinte chamada para o método Ajax. ImageActionLink ():
+O link Excluir é renderizado com a seguinte chamada para o método Ajax.ImageActionLink(:
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample11.aspx)]
 
 > [!NOTE] 
 > 
-> O Ajax. ImageActionLink () não é uma parte padrão da estrutura MVC do ASP.NET. O Ajax. ImageActionLink () é um método auxiliar personalizado incluído no projeto Contact Manager.
+> O Ajax.ImageActionLink() não é uma parte padrão da estrutura ASP.NET MVC. O Ajax.ImageActionLink() é um método de ajuda personalizado incluído no projeto Contact Manager.
 
-O parâmetro AjaxOptions tem duas propriedades. Primeiro, a propriedade Confirm é usada para exibir uma caixa de diálogo de confirmação de JavaScript pop-up. Em segundo lugar, a propriedade HttpMethod é usada para executar uma operação HTTP DELETE.
+O parâmetro AjaxOptions tem duas propriedades. Primeiro, a propriedade Confirmar é usada para exibir uma caixa de confirmação JavaScript popup. Em segundo lugar, a propriedade HttpMethod é usada para executar uma operação HTTP DELETE.
 
-A listagem 7 contém uma nova ação AjaxDelete () que foi adicionada ao controlador de contato.
+A lista 7 contém uma nova ação AjaxDelete() que foi adicionada ao controlador de contato.
 
-**Listagem 7-Controllers\ContactController.cs (AjaxDelete)**
+**Lista 7 - Controladores\ContactController.cs (AjaxDelete)**
 
 [!code-csharp[Main](iteration-7-add-ajax-functionality-cs/samples/sample12.cs)]
 
-A ação AjaxDelete () é decorada com um atributo AcceptVerbs. Esse atributo impede que a ação seja invocada, exceto por qualquer operação HTTP diferente de uma operação HTTP DELETE. Em particular, não é possível invocar essa ação com um HTTP GET.
+A ação AjaxDelete() é decorada com um atributo AcceptVerbs. Este atributo impede que a ação seja invocada, exceto por qualquer operação HTTP que não seja uma operação HTTP DELETE. Em particular, você não pode invocar esta ação com um HTTP GET.
 
-Depois de excluir o registro do banco de dados, você precisa exibir a lista atualizada de contatos que não contém o registro excluído. O método AjaxDelete () retorna a lista de contatos parciais e atualizada.
+Depois de excluir o registro do banco de dados, você precisa exibir a lista atualizada de contatos que não contêm o registro excluído. O método AjaxDelete() retorna a parcial da Lista de Contatos e a lista atualizada de contatos.
 
 ## <a name="summary"></a>Resumo
 
-Nessa iteração, adicionamos a funcionalidade Ajax ao nosso aplicativo Contact Manager. Usamos o Ajax para melhorar a capacidade de resposta e o desempenho de nosso aplicativo.
+Nesta iteração, adicionamos a funcionalidade do Ajax ao nosso aplicativo de Contact Manager. Usamos o Ajax para melhorar a capacidade de resposta e o desempenho da nossa aplicação.
 
-Primeiro, refatorei a exibição de índice para que clicar em um grupo de contatos não atualize a exibição inteira. Em vez disso, clicar em um grupo de contatos apenas atualiza a lista de contatos.
+Primeiro, refatoriamos a exibição Índice para que clicar em um grupo de contato não atualize toda a exibição. Em vez disso, clicar em um grupo de contato apenas atualiza a lista de contatos.
 
-Em seguida, usamos os efeitos de animação jQuery para esmaecer e esmaecer na lista de contatos. Adicionar animação a um aplicativo AJAX pode ser usado para fornecer aos usuários do aplicativo o equivalente de uma barra de progresso do navegador.
+Em seguida, usamos efeitos de animação jQuery para desaparecer e desaparecer na lista de contatos. Adicionar animação a um aplicativo Ajax pode ser usado para fornecer aos usuários do aplicativo o equivalente a uma barra de progresso do navegador.
 
-Também adicionamos suporte a histórico de navegador ao nosso aplicativo AJAX. Permitimos que os usuários clicassem nos botões voltar e avançar do navegador para alterar o estado da exibição do índice.
+Também adicionamos suporte ao histórico do navegador ao nosso aplicativo Ajax. Permitimos que os usuários clicassem nos botões De volta e para frente do navegador para alterar o estado da exibição Índice.
 
-Por fim, criamos um link de exclusão que dá suporte a operações HTTP DELETE. Ao executar exclusões do Ajax, habilitamos os usuários a excluir registros de banco de dados sem exigir que o usuário solicite uma página de confirmação de exclusão adicional.
+Finalmente, criamos um link de exclusão que suporta operações HTTP DELETE. Ao realizar exclusões do Ajax, permitimos que os usuários excluam registros de banco de dados sem exigir que o usuário solicite uma página de confirmação de exclusão adicional.
 
 > [!div class="step-by-step"]
-> [Anterior](iteration-6-use-test-driven-development-cs.md)
-> [Próximo](iteration-1-create-the-application-vb.md)
+> [Próximo](iteration-6-use-test-driven-development-cs.md)
+> [anterior](iteration-1-create-the-application-vb.md)

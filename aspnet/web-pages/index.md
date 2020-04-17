@@ -1,26 +1,26 @@
 ---
 uid: web-pages/index
-title: Páginas da Web do ASP.NET | Microsoft Docs
+title: páginas da Web ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Baixe o WebMatrix & saiba como criar rapidamente páginas da Web de forma leve para combinar o código do servidor com HTML.
+description: Baixe O WebMatrix & aprender a criar páginas da Web rapidamente de forma leve para combinar código de servidor com HTML.
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 5418ba96-ff49-4a43-9cbb-09dea4949d23
 msc.legacyurl: /web-pages
 msc.type: categoryindex
-ms.openlocfilehash: 56bf82e22b3562893ef842a90d42aa7b6ff5858f
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: d767325a376e5daa0ea4236f67c88e6b97ae71a7
+ms.sourcegitcommit: 022f79dbc1350e0c6ffaa1e7e7c6e850cdabf9af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78640948"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81543516"
 ---
 # <a name="aspnet-web-pages"></a>Páginas da Web do ASP.NET
 
 > [!NOTE] 
-> O WebMatrix não é mais recomendado como um ambiente de desenvolvimento integrado para Páginas da Web do ASP.NET. Use o [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) ou o [Visual Studio Code](https://code.visualstudio.com/).
+> O WebMatrix não é mais recomendado como um ambiente de desenvolvimento integrado para ASP.NET Páginas da Web. Use [visual studio](xref:web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) ou visual studio [code](https://code.visualstudio.com/).
 
-- [Diretrizes](overview/index.md)
+- [Orientação](overview/index.md)
 
     - [Introdução](overview/getting-started/index.md)
 
@@ -46,11 +46,11 @@ ms.locfileid: "78640948"
         - [Criação de URLs legíveis em sites de Páginas da Web do ASP.NET](overview/routing/creating-readable-urls-in-aspnet-web-pages-sites.md)
     - [Interface do usuário, layouts e temas](overview/ui-layouts-and-themes/index.md)
 
-        - [Trabalhando com formulários](overview/ui-layouts-and-themes/4-working-with-forms.md)
+        - [Trabalhando com Formulários](overview/ui-layouts-and-themes/4-working-with-forms.md)
         - [Validação da entrada do usuário em sites de Páginas da Web do ASP.NET](overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites.md)
         - [Criar uma aparência consistente](overview/ui-layouts-and-themes/3-creating-a-consistent-look.md)
         - [Personalizar o comportamento de todo o site](overview/ui-layouts-and-themes/18-customizing-site-wide-behavior.md)
-        - [Trabalhando com imagens](overview/ui-layouts-and-themes/9-working-with-images.md)
+        - [Trabalhando com Imagens](overview/ui-layouts-and-themes/9-working-with-images.md)
         - [Trabalhando com vídeo](overview/ui-layouts-and-themes/10-working-with-video.md)
         - [Criação e uso de um auxiliar em um site de Páginas da Web do ASP.NET](overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site.md)
         - [Instalação de um auxiliar](overview/ui-layouts-and-themes/installing-helpers.md)
@@ -59,12 +59,12 @@ ms.locfileid: "78640948"
     - [Móvel](overview/mobile/index.md)
 
         - [Renderização de sites de Páginas da Web do ASP.NET para dispositivos móveis](overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
-    - [Trabalhando com os Dados](overview/data/index.md)
+    - [Trabalhando com Dados](overview/data/index.md)
 
-        - [Trabalhando com os Dados](overview/data/5-working-with-data.md)
+        - [Trabalhando com Dados](overview/data/5-working-with-data.md)
         - [Exibindo dados em um gráfico](overview/data/7-displaying-data-in-a-chart.md)
         - [Trabalhando com arquivos](overview/data/working-with-files.md)
-    - [Teste e depuração](overview/testing-and-debugging/index.md)
+    - [Teste e Depuração](overview/testing-and-debugging/index.md)
 
         - [Introdução à depuração](overview/testing-and-debugging/introduction-to-debugging.md)
         - [Guia de solução de problemas de Páginas da Web do ASP.NET (Razor)](overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide.md)
@@ -78,7 +78,7 @@ ms.locfileid: "78640948"
         - [Cache para melhorar o desempenho do seu site](overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website.md)
         - [Análise de tráfego](overview/performance-and-traffic/14-analyzing-traffic.md)
         - [Agrupamento e minificação de ativos em um site de Páginas da Web do ASP.NET (Razor)](overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
-    - [Referência de API](overview/api-reference/index.md)
+    - [Referência da API](overview/api-reference/index.md)
 
         - [Guia de Referência Rápida da API do ASP.NET](overview/api-reference/asp-net-web-pages-api-reference.md)
     - [Lançamentos](overview/releases/index.md)
@@ -102,7 +102,7 @@ ms.locfileid: "78640948"
         - [Criar uma página de edição de dados no WebMatrix](videos/introduction/create-an-edit-data-page-in-webmatrix.md)
         - [Criar uma página de exclusão de dados no WebMatrix](videos/introduction/create-a-delete-data-page-in-webmatrix.md)
         - [Publicar um site na Internet usando o WebMatrix](videos/introduction/publish-a-website-to-the-internet-using-webmatrix.md)
-    - [Razor Pages ASP.NET](videos/aspnet-razor-pages/index.md)
+    - [páginas de barbear ASP.NET](videos/aspnet-razor-pages/index.md)
 
         - [Introdução ao WebMatrix e às Páginas da Web do ASP.NET](videos/aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
         - [Introdução à sintaxe Razor de programação da Web do ASP.NET](videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
@@ -116,7 +116,7 @@ ms.locfileid: "78640948"
         - [Exibindo dados em um gráfico (parte 1)](videos/aspnet-razor-pages/displaying-data-in-a-chart-part-1.md)
         - [Exibindo dados em um gráfico (parte 2)](videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2.md)
         - [Trabalhando com arquivos](videos/aspnet-razor-pages/working-with-files.md)
-        - [Trabalhando com imagens](videos/aspnet-razor-pages/working-with-images.md)
+        - [Trabalhando com Imagens](videos/aspnet-razor-pages/working-with-images.md)
         - [Trabalhando com vídeo](videos/aspnet-razor-pages/working-with-video.md)
         - [Adição de email ao seu site](videos/aspnet-razor-pages/adding-email-to-your-web-site.md)
         - [Adição de pesquisa ao seu site](videos/aspnet-razor-pages/adding-search-to-your-web-site.md)

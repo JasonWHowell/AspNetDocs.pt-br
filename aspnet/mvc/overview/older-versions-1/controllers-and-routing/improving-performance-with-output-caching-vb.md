@@ -1,164 +1,164 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
-title: Melhorando o desempenho com o cache de saída (VB) | Microsoft Docs
-author: microsoft
-description: Neste tutorial, você aprenderá a melhorar drasticamente o desempenho de seus aplicativos Web ASP.NET MVC aproveitando o cache de saída. Você...
+title: Melhorando o desempenho com cache de saída (VB) | Microsoft Docs
+author: rick-anderson
+description: Neste tutorial, você aprende como pode melhorar drasticamente o desempenho de suas aplicações web ASP.NET MVC aproveitando o cache de saída. Você...
 ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 0e7b4d85-2c46-4eaf-b6a8-6cd566a67334
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b713b56e149f196794b3223ba88e3b41bf3e34c4
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: e18d4c5132d4dccc97f1465e7885c9c47a0edab1
+ms.sourcegitcommit: 022f79dbc1350e0c6ffaa1e7e7c6e850cdabf9af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78601244"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81542684"
 ---
 # <a name="improving-performance-with-output-caching-vb"></a>Melhorar o desempenho com o cache de saída (VB)
 
 pela [Microsoft](https://github.com/microsoft)
 
-> Neste tutorial, você aprenderá a melhorar drasticamente o desempenho de seus aplicativos Web ASP.NET MVC aproveitando o cache de saída. Você aprende a armazenar em cache o resultado retornado de uma ação do controlador para que o mesmo conteúdo não precise ser criado cada um e sempre que um novo usuário chamar a ação.
+> Neste tutorial, você aprende como pode melhorar drasticamente o desempenho de suas aplicações web ASP.NET MVC aproveitando o cache de saída. Você aprende a armazenar o resultado retornado de uma ação do controlador para que o mesmo conteúdo não precise ser criado toda vez que um novo usuário invoca a ação.
 
-O objetivo deste tutorial é explicar como é possível melhorar drasticamente o desempenho de um aplicativo MVC ASP.NET aproveitando o cache de saída. O cache de saída permite que você armazene em cache o conteúdo retornado por uma ação do controlador. Dessa forma, o mesmo conteúdo não precisa ser gerado cada e sempre que a mesma ação do controlador for invocada.
+O objetivo deste tutorial é explicar como você pode melhorar drasticamente o desempenho de um aplicativo mVC ASP.NET aproveitando o cache de saída. O cache de saída permite que você faça o cache do conteúdo retornado por uma ação do controlador. Dessa forma, o mesmo conteúdo não precisa ser gerado toda vez que a mesma ação do controlador é invocada.
 
-Imagine, por exemplo, que seu aplicativo ASP.NET MVC exiba uma lista de registros de banco de dados em uma exibição denominada index. Normalmente, cada e sempre que um usuário invoca a ação do controlador que retorna a exibição do índice, o conjunto de registros do banco de dados deve ser recuperado do banco de dados executando uma consulta de banco de dados.
+Imagine, por exemplo, que seu aplicativo mvc ASP.NET exibe uma lista de registros de banco de dados em uma exibição chamada Index. Normalmente, toda e qualquer vez que um usuário invoca a ação do controlador que retorna a exibição Índice, o conjunto de registros de banco de dados deve ser recuperado do banco de dados executando uma consulta de banco de dados.
 
-Se, por outro lado, você tirar proveito do cache de saída, poderá evitar a execução de uma consulta de banco de dados sempre que qualquer usuário chamar a mesma ação do controlador. O modo de exibição pode ser recuperado do cache em vez de ser regenerado a partir da ação do controlador. O Caching permite evitar a execução de trabalho redundante no servidor.
+Se, por outro lado, você tirar proveito do cache de saída, então você pode evitar executar uma consulta de banco de dados toda vez que qualquer usuário invocar a mesma ação do controlador. A exibição pode ser recuperada do cache em vez de ser regenerada a partir da ação do controlador. O cache permite que você evite realizar trabalhos redundantes no servidor.
 
-#### <a name="enabling-output-caching"></a>Habilitando o cache de saída
+#### <a name="enabling-output-caching"></a>Ativando o cache de saída
 
-Você habilita o cache de saída adicionando um atributo de&gt; &lt;OutputCache a uma ação de controlador individual ou a uma classe de controlador inteira. Por exemplo, o controlador na Listagem 1 expõe uma ação chamada index (). A saída da ação index () é armazenada em cache por 10 segundos.
+Você habilita o cache &lt;de&gt; saída adicionando um atributo OutputCache a uma ação de controlador individual ou a uma classe de controlador inteiro. Por exemplo, o controlador na Listagem 1 expõe uma ação chamada Index(). A saída da ação Index() é armazenada em cache por 10 segundos.
 
-**Listagem 1 – Controllers\HomeController.vb**
+**Listagem 1 – Controladores\HomeController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample1.vb)]
 
-Nas versões beta do ASP.NET MVC, o cache de saída não funciona para uma URL como [http://www.MySite.com/](http://www.mysite.com/). Em vez disso, você deve inserir uma URL como [http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index).
+Nas versões Beta do ASP.NET MVC, o cache [http://www.MySite.com/](http://www.mysite.com/)de saída não funciona para uma URL como . Em vez disso, você [http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index)deve inserir uma URL como .
 
-Na Listagem 1, a saída da ação index () é armazenada em cache por 10 segundos. Se preferir, você pode especificar uma duração de cache muito maior. Por exemplo, se você quiser armazenar em cache a saída de uma ação do controlador para um dia, poderá especificar uma duração de cache de 86400 segundos (60 segundos \* 60 minutos \* 24 horas).
+Na Listagem 1, a saída da ação Index() é armazenada em cache por 10 segundos. Se preferir, você pode especificar uma duração de cache muito maior. Por exemplo, se você quiser armazenar a saída de uma ação do controlador por um dia, então \* você \* pode especificar uma duração de cache de 86400 segundos (60 segundos 60 minutos 24 horas).
 
-Não há nenhuma garantia de que o conteúdo será armazenado em cache pelo período de tempo especificado. Quando os recursos de memória ficarem baixos, o cache começará a remover o conteúdo automaticamente.
+Não há garantia de que o conteúdo será armazenado em cache pelo tempo que você especificar. Quando os recursos de memória ficam baixos, o cache começa a despejar conteúdo automaticamente.
 
-O controlador Home na Listagem 1 retorna a exibição de índice na Listagem 2. Não há nada de especial sobre essa exibição. A exibição índice simplesmente exibe a hora atual (consulte a Figura 1).
+O controlador Home na Listagem 1 retorna a exibição Índice na Listagem 2. Não há nada de especial nessa visão. A exibição Índice simplesmente exibe o tempo atual (ver Figura 1).
 
 **Listagem 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](improving-performance-with-output-caching-vb/samples/sample2.aspx)]
 
-**Figura 1 – exibição de índice em cache**
+**Figura 1 – Exibição de índice em cache**
 
 ![clip_image002](improving-performance-with-output-caching-vb/_static/image1.jpg)
 
-Se você invocar a ação index () várias vezes inserindo a URL/Home/Index na barra de endereços do seu navegador e pressionando o botão atualizar/recarregar no navegador repetidamente, o horário exibido pela exibição do índice não será alterado por 10 segundos. O mesmo horário é exibido porque a exibição é armazenada em cache.
+Se você invocar a ação Index() várias vezes inserindo a URL /Home/Index na barra de endereços do seu navegador e apertando o botão Atualizar/Recarregar no seu navegador repetidamente, então o tempo exibido pela exibição Índice não mudará por 10 segundos. O mesmo tempo é exibido porque a exibição é armazenada em cache.
 
-É importante entender que a mesma exibição é armazenada em cache para todos que visitam seu aplicativo. Qualquer pessoa que invoque a ação index () obterá a mesma versão armazenada em cache da exibição de índice. Isso significa que a quantidade de trabalho que o servidor Web deve executar para atender à exibição do índice é drasticamente reduzida.
+É importante entender que a mesma visualização é armazenada em cache para todos que visitam sua aplicação. Qualquer pessoa que invoque a ação Index() receberá a mesma versão em cache da exibição Índice. Isso significa que a quantidade de trabalho que o servidor web deve realizar para atender à exibição Índice é drasticamente reduzida.
 
-A exibição na Listagem 2 acontece para fazer algo realmente simples. A exibição apenas exibe a hora atual. No entanto, você poderia facilmente armazenar em cache uma exibição que exibe um conjunto de registros de banco de dados. Nesse caso, o conjunto de registros de banco de dados não precisa ser recuperado do banco de dados cada e sempre que a ação do controlador que retorna a exibição é invocada. O Caching pode reduzir a quantidade de trabalho que o servidor Web e o servidor de banco de dados devem executar.
+A visão na Lista 2 está fazendo algo muito simples. A exibição apenas exibe a hora atual. No entanto, você poderia facilmente armazenar uma exibição que exibe um conjunto de registros de banco de dados. Nesse caso, o conjunto de registros de banco de dados não precisaria ser recuperado do banco de dados toda vez que a ação do controlador que retorna a exibição for invocada. O cache pode reduzir a quantidade de trabalho que seu servidor web e servidor de banco de dados devem realizar.
 
-Não use a &lt;da página% @ OutputCache%&gt; diretiva em uma exibição do MVC. Essa diretiva está se comportando do mundo Web Forms e não deve ser usada em um aplicativo MVC ASP.NET. 
+Não use a &lt;diretiva %@&gt; OutputCache % em uma exibição de MVC. Esta diretiva está sangrando sobre o mundo formulários web e não deve ser usada em uma aplicação mVC ASP.NET. 
 
 #### <a name="where-content-is-cached"></a>Onde o conteúdo é armazenado em cache
 
-Por padrão, quando você usa o atributo &lt;OutputCache&gt;, o conteúdo é armazenado em cache em três locais: o servidor Web, quaisquer servidores proxy e o navegador da Web. Você pode controlar exatamente onde o conteúdo é armazenado em cache modificando a propriedade Location do atributo &lt;OutputCache&gt;.
+Por padrão, quando &lt;você&gt; usa o atributo OutputCache, o conteúdo é armazenado em cache em três locais: o servidor web, quaisquer servidores proxy e o navegador da Web. Você pode controlar exatamente onde o conteúdo é armazenado &lt;em&gt; cache modificando a propriedade Location do atributo OutputCache.
 
-Você pode definir a propriedade Location para qualquer um dos seguintes valores:
+Você pode definir a propriedade Localização para qualquer um dos seguintes valores:
 
-> · Outro
+> · Qualquer
 > 
 > · Cliente
 > 
-> · Inferior
+> · Jusante
 > 
 > · Servidor
 > 
-> · None
+> · Nenhum
 > 
-> · ServerAndClient
+> · Servidore cliente
 
-Por padrão, a propriedade Location tem o valor any. No entanto, há situações em que você talvez queira armazenar em cache somente no navegador ou somente no servidor. Por exemplo, se você estiver armazenando em cache informações personalizadas para cada usuário, não deverá armazenar em cache as informações no servidor. Se você estiver exibindo informações diferentes para usuários diferentes, deverá armazenar em cache as informações somente no cliente.
+Por padrão, a propriedade Localização tem o valor Qualquer. No entanto, há situações em que você pode querer fazer cache apenas no navegador ou apenas no servidor. Por exemplo, se você estiver armazenando informações personalizadas para cada usuário, então você não deve armazenar as informações no servidor. Se você estiver exibindo informações diferentes para diferentes usuários, então você deve armazenar as informações apenas no cliente.
 
-Por exemplo, o controlador na Listagem 3 expõe uma ação chamada GetName () que retorna o nome de usuário atual. Se o Jack fizer logon no site e invocar a ação GetName (), a ação retornará a cadeia de caracteres "ficha Hi". Se, subsequentemente, Jill fizer logon no site e invocar a ação GetName (), ela também receberá a cadeia de caracteres "Hi Jack". A cadeia de caracteres é armazenada em cache no servidor Web para todos os usuários após a tomada inicialmente invocar a ação do controlador.
+Por exemplo, o controlador na Lista 3 expõe uma ação chamada GetName() que retorna o nome de usuário atual. Se Jack entrar no site e invocar a ação GetName(), a ação retorna a string "Hi Jack". Se, posteriormente, Jill entrar no site e invocar a ação GetName(), então ela também receberá a string "Hi Jack". A seqüência é armazenada em cache no servidor web para todos os usuários depois que Jack inicialmente invoca a ação do controlador.
 
-**Listagem 3 – Controllers\BadUserController.vb**
+**Listagem 3 – Controladores\BadUserController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample3.vb)]
 
-Provavelmente, o controlador na Listagem 3 não funciona da maneira desejada. Você não quer exibir a mensagem "Hi Jack" para Jill.
+Provavelmente, o controlador na Lista 3 não funciona da maneira que você deseja. Você não quer exibir a mensagem "Oi Jack" para Jill.
 
-Você nunca deve armazenar em cache o conteúdo personalizado no cache do servidor. No entanto, talvez você queira armazenar em cache o conteúdo personalizado no cache do navegador para melhorar o desempenho. Se você armazenar em cache o conteúdo no navegador e um usuário invocar a mesma ação do controlador várias vezes, o conteúdo poderá ser recuperado do cache do navegador em vez do servidor.
+Você nunca deve armazenar conteúdo personalizado no cache do servidor. No entanto, você pode querer armazenar o conteúdo personalizado no cache do navegador para melhorar o desempenho. Se você armazenar conteúdo no navegador e um usuário invocar a mesma ação do controlador várias vezes, então o conteúdo pode ser recuperado do cache do navegador em vez do servidor.
 
-O controlador modificado na Listagem 4 armazena em cache a saída da ação GetName (). No entanto, o conteúdo é armazenado em cache somente no navegador e não no servidor. Dessa forma, quando vários usuários chamam o método GetName (), cada pessoa obtém seu próprio nome de usuário e não o nome de usuário de outra pessoa.
+O controlador modificado na Listagem 4 armazena a saída da ação GetName(). No entanto, o conteúdo é armazenado apenas no navegador e não no servidor. Dessa forma, quando vários usuários invocam o método GetName(), cada pessoa obtém seu próprio nome de usuário e não o nome de usuário de outra pessoa.
 
-**Listagem 4 – Controllers\UserController.vb**
+**Lista 4 – Controladores\UserController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample4.vb)]
 
-Observe que o &lt;OutputCache&gt; atributo na Listagem 4 inclui uma propriedade Location definida como o valor OutputCacheLocation. Client. O atributo &lt;OutputCache&gt; também inclui uma propriedade NoStore. A propriedade NoStore é usada para informar aos servidores proxy e navegadores que eles não devem armazenar uma cópia permanente do conteúdo armazenado em cache.
+Observe que &lt;o&gt; atributo OutputCache na Listagem 4 inclui uma propriedade De localização definida para o valor OutputCacheLocation.Client. O &lt;atributo OutputCache&gt; também inclui uma propriedade NoStore. A propriedade NoStore é usada para informar servidores proxy e navegadores que eles não devem armazenar uma cópia permanente do conteúdo armazenado em cache.
 
 #### <a name="varying-the-output-cache"></a>Variando o cache de saída
 
-Em algumas situações, talvez você queira diferentes versões em cache do mesmo conteúdo. Imagine, por exemplo, que você está criando uma página mestra/de detalhes. A página mestra exibe uma lista de títulos de filmes. Ao clicar em um título, você obtém detalhes do filme selecionado.
+Em algumas situações, você pode querer versões diferentes em cache do mesmo conteúdo. Imagine, por exemplo, que você está criando uma página de mestre/detalhe. A página-mestre exibe uma lista de títulos de filmes. Quando você clica em um título, você recebe detalhes para o filme selecionado.
 
-Se você armazenar em cache a página de detalhes, os detalhes do mesmo filme serão exibidos, independentemente do filme em que você clicar. O primeiro filme selecionado pelo primeiro usuário será exibido para todos os usuários futuros.
+Se você armazenar a página de detalhes, os detalhes para o mesmo filme serão exibidos não importa qual filme você clique. O primeiro filme selecionado pelo primeiro usuário será exibido para todos os futuros usuários.
 
-Você pode corrigir esse problema tirando proveito da propriedade VaryByParam do atributo &lt;OutputCache&gt;. Essa propriedade permite que você crie diferentes versões em cache do mesmo conteúdo quando um parâmetro de formulário ou parâmetro de cadeia de caracteres de consulta varia.
+Você pode corrigir esse problema aproveitando a propriedade &lt;VaryByParam do atributo OutputCache.&gt; Essa propriedade permite que você crie diferentes versões em cache do mesmo conteúdo quando um parâmetro de parâmetro de formulário ou parâmetro de seqüência de consultas varia.
 
-Por exemplo, o controlador na listagem 5 expõe duas ações chamadas Master () e Details (). A ação mestre () retorna uma lista de títulos de filmes e a ação detalhes () retorna os detalhes do filme selecionado.
+Por exemplo, o controlador na Lista 5 expõe duas ações denominadas Master() e Detalhes(). A ação Master() retorna uma lista de títulos do filme e a ação Detalhes() retorna os detalhes para o filme selecionado.
 
-**Listagem 5 – Controllers\MoviesController.vb**
+**Lista 5 – Controladores\MoviesController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample5.vb)]
 
-A ação mestre () inclui uma propriedade VaryByParam com o valor "None". Quando a ação mestre () é invocada, a mesma versão em cache do modo de exibição mestre é retornada. Quaisquer parâmetros de formulário ou parâmetros de cadeia de caracteres de consulta são ignorados (consulte a Figura 2).
+A ação Master() inclui uma propriedade VaryByParam com o valor "nenhum". Quando a ação Master() é invocada, a mesma versão armazenada em cache da exibição Master é devolvida. Quaisquer parâmetros de formulário ou parâmetros de seqüência de consulta são ignorados (ver Figura 2).
 
-**Figura 2 – a exibição/Movies/Master**
+**Figura 2 – A visão /Filmes/Mestre**
 
 ![clip_image004](improving-performance-with-output-caching-vb/_static/image2.jpg)
 
-**Figura 3 – a exibição/Movies/Details**
+**Figura 3 – A exibição /Filmes/Detalhes**
 
 ![clip_image006](improving-performance-with-output-caching-vb/_static/image3.jpg)
 
-A ação Details () inclui uma propriedade VaryByParam com o valor "ID". Quando valores diferentes do parâmetro ID são passados para a ação do controlador, diferentes versões armazenadas em cache do modo de exibição de detalhes são geradas.
+A ação Detalhes() inclui uma propriedade VaryByParam com o valor "Id". Quando diferentes valores do parâmetro Id são passados para a ação do controlador, diferentes versões em cache da exibição Detalhes são geradas.
 
-É importante entender que o uso da propriedade VaryByParam resulta em mais cache e não menos. Uma versão armazenada em cache diferente da exibição de detalhes é criada para cada versão diferente do parâmetro ID.
+É importante entender que o uso da propriedade VaryByParam resulta em mais cache e não menos. Uma versão em cache diferente da exibição Detalhes é criada para cada versão diferente do parâmetro Id.
 
-Você pode definir a propriedade VaryByParam com os seguintes valores:
+Você pode definir a propriedade VaryByParam para os seguintes valores:
 
-> \* = crie uma versão armazenada em cache diferente sempre que um parâmetro de cadeia de caracteres de formulário ou de consulta varia.
+> \*= Crie uma versão em cache diferente sempre que um parâmetro de seqüência de formulários ou consultas variar.
 > 
-> nenhum = nunca criar diferentes versões em cache
+> nenhum = Nunca crie diferentes versões em cache
 > 
-> Lista de pontos-e-vírgulas de parâmetros = criar diferentes versões armazenadas em cache sempre que qualquer um dos parâmetros de cadeia de caracteres de consulta ou formulário na lista varia
+> Lista de parâmetros do ponto e vírgula = Criar diferentes versões em cache sempre que qualquer um dos parâmetros de seqüência de formulários ou consulta na lista varia
 
 #### <a name="creating-a-cache-profile"></a>Criando um perfil de cache
 
-Como alternativa para configurar as propriedades do cache de saída modificando as propriedades do atributo &lt;OutputCache&gt;, você pode criar um perfil de cache no arquivo de configuração da Web (Web. config). A criação de um perfil de cache no arquivo de configuração da Web oferece algumas vantagens importantes.
+Como alternativa à configuração das propriedades do &lt;cache&gt; de saída modificando propriedades do atributo OutputCache, você pode criar um perfil de cache no arquivo de configuração web (web.config). Criar um perfil de cache no arquivo de configuração da Web oferece algumas vantagens importantes.
 
-Primeiro, ao configurar o cache de saída no arquivo de configuração da Web, você pode controlar como as ações do controlador armazenam o conteúdo em cache em um local central. Você pode criar um perfil de cache e aplicar o perfil a vários controladores ou ações de controlador.
+Primeiro, configurando o cache de saída no arquivo de configuração da Web, você pode controlar como o controlador adere ao conteúdo de cache em um local central. Você pode criar um perfil de cache e aplicar o perfil a vários controladores ou ações do controlador.
 
-Em segundo lugar, você pode modificar o arquivo de configuração da Web sem recompilar seu aplicativo. Se você precisar desabilitar o cache para um aplicativo que já foi implantado na produção, poderá simplesmente modificar os perfis de cache definidos no arquivo de configuração da Web. Todas as alterações no arquivo de configuração da Web serão detectadas automaticamente e aplicadas.
+Em segundo lugar, você pode modificar o arquivo de configuração da Web sem recompilar seu aplicativo. Se você precisar desativar o cache de um aplicativo que já foi implantado para produção, então você pode simplesmente modificar os perfis de cache definidos no arquivo de configuração da Web. Quaisquer alterações no arquivo de configuração da Web serão detectadas automaticamente e aplicadas.
 
-Por exemplo, a seção de configuração da Web do &lt;Caching&gt; na Listagem 6 define um perfil de cache chamado Cache1Hour. A seção&gt; do &lt;Caching deve aparecer na seção do &lt;System. Web&gt; de um arquivo de configuração da Web.
+Por exemplo, &lt;a&gt; seção de configuração da Web de cache na Lista 6 define um perfil de cache chamado Cache1Hour. A &lt;seção de&gt; cache &lt;deve&gt; aparecer na seção system.web de um arquivo de configuração web.
 
-**Listagem 6 – seção de cache para Web. config**
+**Listagem 6 - Seção de cache para web.config**
 
 [!code-xml[Main](improving-performance-with-output-caching-vb/samples/sample6.xml)]
 
-O controlador na Listagem 7 ilustra como você pode aplicar o perfil Cache1Hour a uma ação do controlador com o atributo &lt;OutputCache&gt;.
+O controlador na Lista 7 ilustra como você pode aplicar o &lt;perfil&gt; Cache1Hour a uma ação do controlador com o atributo OutputCache.
 
-**Listagem 7 – Controllers\ProfileController.vb**
+**Lista 7 – Controladores\ProfileController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample7.vb)]
 
-Se você invocar a ação index () exposta pelo controlador na Listagem 7, a mesma hora será retornada por 1 hora.
+Se você invocar a ação Índice() exposta pelo controlador na Listagem 7, o mesmo horário será devolvido por 1 hora.
 
 #### <a name="summary"></a>Resumo
 
-O cache de saída fornece um método muito fácil de melhorar drasticamente o desempenho de seus aplicativos MVC ASP.NET. Neste tutorial, você aprendeu a usar o atributo &lt;OutputCache&gt; para armazenar em cache a saída de ações do controlador. Você também aprendeu como modificar as propriedades do atributo &lt;OutputCache&gt;, como as propriedades Duration e VaryByParam para modificar como o conteúdo é armazenado em cache. Por fim, você aprendeu como definir perfis de cache no arquivo de configuração da Web.
+O cache de saída fornece um método muito fácil de melhorar drasticamente o desempenho de seus ASP.NET aplicativos MVC. Neste tutorial, você aprendeu &lt;como&gt; usar o atributo OutputCache para armazenar em cache a saída de ações do controlador. Você também aprendeu como &lt;modificar&gt; propriedades do atributo OutputCache, como as propriedades Duration e VaryByParam para modificar a forma como o conteúdo é armazenado em cache. Finalmente, você aprendeu como definir perfis de cache no arquivo de configuração da Web.
 
 > [!div class="step-by-step"]
-> [Anterior](understanding-action-filters-vb.md)
-> [Próximo](adding-dynamic-content-to-a-cached-page-vb.md)
+> [Próximo](understanding-action-filters-vb.md)
+> [anterior](adding-dynamic-content-to-a-cached-page-vb.md)

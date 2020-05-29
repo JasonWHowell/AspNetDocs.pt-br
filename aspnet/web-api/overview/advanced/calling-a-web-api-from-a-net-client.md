@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/advanced/calling-a-web-api-from-a-net-client
-title: Chamar uma API da Web de um cliente .NETC#()-ASP.NET 4. x
+title: Chamar uma API da Web de um cliente .NET (C#)-ASP.NET 4. x
 author: MikeWasson
 description: Este tutorial mostra como chamar uma API da Web de um aplicativo .NET 4. x.
 ms.author: riande
@@ -8,14 +8,14 @@ ms.date: 11/24/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: ab3ba71839123e848dffaa59871f9dac8c1a88d0
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 484d927eeb0ba49f5f00d476f4658ebc081d0a4a
+ms.sourcegitcommit: a4c3c7e04e5f53cf8cd334f036d324976b78d154
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78622615"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84172933"
 ---
-# <a name="call-a-web-api-from-a-net-client-c"></a>Chamar uma API da Web de um cliente .NETC#()
+# <a name="call-a-web-api-from-a-net-client-c"></a>Chamar uma API da Web de um cliente .NET (C#)
 
 por [Mike Wasson](https://github.com/MikeWasson) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,6 +37,11 @@ Para saber como implementar essa API com ASP.NET Web API, consulte [criando uma 
 
 Para simplificar, o aplicativo cliente neste tutorial é um aplicativo de console do Windows. O **HttpClient** também tem suporte para aplicativos Windows Phone e da Windows Store. Para obter mais informações, consulte [escrevendo código de cliente da API Web para várias plataformas usando bibliotecas portáteis](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)
 
+**Observação:** Se você passar URLs de base e URIs relativos como valores embutidos em código, lembre-se das regras para utilizar a `HttpClient` API. A `HttpClient.BaseAddress` propriedade deve ser definida como um endereço com uma barra à direita ( `/` ). Por exemplo, ao passar URIs de recursos embutidos em código para o `HttpClient.GetAsync` método, não inclua uma barra à esquerda. Para obter um `Product` por ID:
+
+1. Defina `client.BaseAddress = new Uri("https://localhost:5001/");`
+1. Solicite um `Product` . Por exemplo, `client.GetAsync<Product>("api/products/4");`.
+
 <a id="CreateConsoleApp"></a>
 ## <a name="create-the-console-application"></a>Criar o aplicativo de console
 
@@ -46,7 +51,7 @@ No Visual Studio, crie um novo aplicativo de console do Windows chamado **HttpCl
 
 O código anterior é o aplicativo cliente completo.
 
-`RunAsync` é executado e bloqueia até que seja concluído. A maioria dos métodos **HttpClient** são Async, pois eles executam e/s de rede. Todas as tarefas assíncronas são feitas dentro de `RunAsync`. Normalmente, um aplicativo não bloqueia o thread principal, mas esse aplicativo não permite nenhuma interação.
+`RunAsync`executa e bloqueia até que seja concluído. A maioria dos métodos **HttpClient** são Async, pois eles executam e/s de rede. Todas as tarefas assíncronas são feitas dentro do `RunAsync` . Normalmente, um aplicativo não bloqueia o thread principal, mas esse aplicativo não permite nenhuma interação.
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
@@ -61,7 +66,7 @@ No menu **Ferramentas** selecione **Gerenciador de Pacotes NuGet** > **Console d
 
 O comando anterior adiciona os seguintes pacotes NuGet ao projeto:
 
-* Microsoft.AspNet.WebApi.Client
+* Microsoft. AspNet. WebApi. Client
 * Newtonsoft.Json
 
 O Netwonsoft. JSON (também conhecido como Json.NET) é uma estrutura JSON popular de alto desempenho para .NET.
@@ -73,7 +78,7 @@ Examine a classe `Product`:
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_prod)]
 
-Essa classe corresponde ao modelo de dados usado pela API Web. Um aplicativo pode usar **HttpClient** para ler uma instância de `Product` de uma resposta http. O aplicativo não precisa escrever nenhum código de desserialização.
+Essa classe corresponde ao modelo de dados usado pela API Web. Um aplicativo pode usar **HttpClient** para ler uma `Product` instância de uma resposta http. O aplicativo não precisa escrever nenhum código de desserialização.
 
 <a id="InitClient"></a>
 ## <a name="create-and-initialize-httpclient"></a>Criar e inicializar HttpClient
@@ -105,9 +110,9 @@ O código a seguir envia uma solicitação GET para um produto:
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_GetProductAsync)]
 
-O método **getasync** envia a solicitação HTTP Get. Quando o método é concluído, ele retorna um **HttpResponseMessage** que contém a resposta http. Se o código de status na resposta for um código de êxito, o corpo da resposta conterá a representação JSON de um produto. Chame **ReadAsAsync** para desserializar a carga JSON para uma instância de `Product`. O método **ReadAsAsync** é assíncrono porque o corpo da resposta pode ser arbitrariamente grande.
+O método **getasync** envia a solicitação HTTP Get. Quando o método é concluído, ele retorna um **HttpResponseMessage** que contém a resposta http. Se o código de status na resposta for um código de êxito, o corpo da resposta conterá a representação JSON de um produto. Chame **ReadAsAsync** para desserializar a carga JSON para uma `Product` instância. O método **ReadAsAsync** é assíncrono porque o corpo da resposta pode ser arbitrariamente grande.
 
-**HttpClient** não lança uma exceção quando a resposta http contém um código de erro. Em vez disso, a propriedade **IsSuccessStatusCode** será **false** se o status for um código de erro. Se você preferir tratar códigos de erro HTTP como exceções, chame [HttpResponseMessage. EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) no objeto de resposta. `EnsureSuccessStatusCode` gera uma exceção se o código de status ficar fora do intervalo de 200&ndash;299. Observe que o **HttpClient** pode gerar exceções por outros motivos &mdash; por exemplo, se a solicitação atingir o tempo limite.
+**HttpClient** não lança uma exceção quando a resposta http contém um código de erro. Em vez disso, a propriedade **IsSuccessStatusCode** será **false** se o status for um código de erro. Se você preferir tratar códigos de erro HTTP como exceções, chame [HttpResponseMessage. EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) no objeto de resposta. `EnsureSuccessStatusCode`gera uma exceção se o código de status cair fora do intervalo de 200 a &ndash; 299. Observe que o **HttpClient** pode gerar exceções por outros motivos &mdash; , por exemplo, se a solicitação atingir o tempo limite.
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>Formatadores de tipo de mídia para desserialização
@@ -129,7 +134,7 @@ Para obter mais informações, consulte [formatadores de mídia no ASP.NET Web A
 
 ## <a name="sending-a-post-request-to-create-a-resource"></a>Enviando uma solicitação POST para criar um recurso
 
-O código a seguir envia uma solicitação POST que contém uma instância de `Product` no formato JSON:
+O código a seguir envia uma solicitação POST que contém uma `Product` instância no formato JSON:
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_CreateProductAsync)]
 

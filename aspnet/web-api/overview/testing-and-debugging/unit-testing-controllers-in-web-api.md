@@ -8,12 +8,12 @@ ms.date: 06/11/2014
 ms.assetid: 43a6cce7-a3ef-42aa-ad06-90d36d49f098
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: cdb1700537021e276669de1a9e0330a62659746c
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 3b89009a375e766f1c5b439dfe3fffd43b4963b3
+ms.sourcegitcommit: a4c3c7e04e5f53cf8cd334f036d324976b78d154
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78554988"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84172920"
 ---
 # <a name="unit-testing-controllers-in-aspnet-web-api-2"></a>Controladores de teste de unidade no ASP.NET Web API 2
 
@@ -30,7 +30,7 @@ por [Mike Wasson](https://github.com/MikeWasson)
 > [!NOTE]
 > Usei MOQ, mas a mesma ideia se aplica a qualquer estrutura fictícia. O MOQ 4.5.30 (e posterior) dá suporte ao Visual Studio 2017, Roslyn e .NET 4,5 e versões posteriores.
 
-Um padrão comum em testes de unidade é &quot;o Arrange-Act-Assert&quot;:
+Um padrão comum em testes de unidade é &quot; Arrange-Act-Assert &quot; :
 
 - Organizar: configure todos os pré-requisitos para que o teste seja executado.
 - Act: execute o teste.
@@ -53,7 +53,7 @@ Aqui está um exemplo de um controlador cujas ações retornam **HttpResponseMes
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample1.cs)]
 
-Observe que o controlador usa injeção de dependência para injetar um `IProductRepository`. Isso torna o controlador mais testado, pois você pode injetar um repositório fictício. O teste de unidade a seguir verifica se o método `Get` grava um `Product` no corpo da resposta. Suponha que `repository` seja uma simulação `IProductRepository`.
+Observe que o controlador usa injeção de dependência para injetar um `IProductRepository` . Isso torna o controlador mais testado, pois você pode injetar um repositório fictício. O teste de unidade a seguir verifica se o `Get` método grava um `Product` no corpo da resposta. Suponha que `repository` seja uma simulação `IProductRepository` .
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample2.cs)]
 
@@ -61,7 +61,7 @@ Observe que o controlador usa injeção de dependência para injetar um `IProduc
 
 ## <a name="testing-link-generation"></a>Testando a geração de link
 
-O método `Post` chama **UrlHelper. link** para criar links na resposta. Isso requer um pouco mais de configuração no teste de unidade:
+O `Post` método chama **UrlHelper. link** para criar links na resposta. Isso requer um pouco mais de configuração no teste de unidade:
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample3.cs)]
 
@@ -85,7 +85,7 @@ Este exemplo mostra alguns padrões comuns usando **IHttpActionResult**. Vamos v
 
 ### <a name="action-returns-200-ok-with-a-response-body"></a>A ação retorna 200 (OK) com um corpo de resposta
 
-O método `Get` chama `Ok(product)` se o produto for encontrado. No teste de unidade, verifique se o tipo de retorno é **OkNegotiatedContentResult** e se o produto retornado tem a ID correta.
+O `Get` método chamará `Ok(product)` se o produto for encontrado. No teste de unidade, verifique se o tipo de retorno é **OkNegotiatedContentResult** e se o produto retornado tem a ID correta.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample6.cs)]
 
@@ -93,30 +93,30 @@ Observe que o teste de unidade não executa o resultado da ação. Você pode as
 
 ### <a name="action-returns-404-not-found"></a>A ação retorna 404 (não encontrado)
 
-O método `Get` chama `NotFound()` se o produto não for encontrado. Para esse caso, o teste de unidade apenas verifica se o tipo de retorno é **NotFoundResult**.
+O `Get` método chamará `NotFound()` se o produto não for encontrado. Para esse caso, o teste de unidade apenas verifica se o tipo de retorno é **NotFoundResult**.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample7.cs)]
 
 ### <a name="action-returns-200-ok-with-no-response-body"></a>A ação retorna 200 (OK) sem corpo de resposta
 
-O método `Delete` chama `Ok()` para retornar uma resposta HTTP 200 vazia. Como no exemplo anterior, o teste de unidade verifica o tipo de retorno, neste caso, **OkResult**.
+O `Delete` método chama `Ok()` para retornar uma resposta http 200 vazia. Como no exemplo anterior, o teste de unidade verifica o tipo de retorno, neste caso, **OkResult**.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample8.cs)]
 
 ### <a name="action-returns-201-created-with-a-location-header"></a>A ação retorna 201 (criado) com um cabeçalho de local
 
-O método `Post` chama `CreatedAtRoute` para retornar uma resposta HTTP 201 com um URI no cabeçalho de local. No teste de unidade, verifique se a ação define os valores de roteamento corretos.
+O `Post` método chama `CreatedAtRoute` para retornar uma resposta http 201 com um URI no cabeçalho Location. No teste de unidade, verifique se a ação define os valores de roteamento corretos.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample9.cs)]
 
 ### <a name="action-returns-another-2xx-with-a-response-body"></a>A ação retorna outro 2xx com um corpo de resposta
 
-O método `Put` chama `Content` para retornar uma resposta HTTP 202 (aceito) com um corpo de resposta. Esse caso é semelhante a retornar 200 (OK), mas o teste de unidade também deve verificar o código de status.
+O `Put` método chama `Content` para retornar uma resposta http 202 (aceito) com um corpo de resposta. Esse caso é semelhante a retornar 200 (OK), mas o teste de unidade também deve verificar o código de status.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample10.cs)]
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - [Simulação de Entity Framework quando o teste de unidade ASP.NET Web API 2](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)
-- [Gravando testes para um serviço de ASP.NET Web API](https://blogs.msdn.com/b/youssefm/archive/2013/01/28/writing-tests-for-an-asp-net-webapi-service.aspx) (postagem de blog de Youssef Moussaoui).
-- [Depurando ASP.NET Web API com o depurador de rota](https://blogs.msdn.com/b/webdev/archive/2013/04/04/debugging-asp-net-web-api-with-route-debugger.aspx)
+- [Gravando testes para um serviço de ASP.NET Web API](https://docs.microsoft.com/en-gb/archive/blogs/youssefm/writing-tests-for-an-asp-net-web-api-service) (postagem de blog de Youssef Moussaoui).
+- [Depuração do ASP.NET Web API com depurador de rota](https://blogs.msdn.com/b/webdev/archive/2013/04/04/debugging-asp-net-web-api-with-route-debugger.aspx)

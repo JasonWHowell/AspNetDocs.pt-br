@@ -8,12 +8,12 @@ ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: 81cca22cb4752d071d2a68986ae9ac2bed737594
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: d5f1982196c5985b001ca42c2711174e036bb1ec
+ms.sourcegitcommit: 0cf7d06071a8ff986e6c028ac9daf0c0e7490412
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78640192"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85240739"
 ---
 # <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Recuperando e exibindo dados com associação de modelo e formulários da Web
 
@@ -23,10 +23,10 @@ ms.locfileid: "78640192"
 > 
 > Dentro desse método, você fornece a lógica para recuperar os dados. No próximo tutorial, você definirá valores para UpdateMethod, DeleteMethod e InsertMethod.
 >
-> Você pode [baixar](https://go.microsoft.com/fwlink/?LinkId=286116) o projeto completo no C# ou Visual Basic. O código que pode ser baixado funciona com o Visual Studio 2012 e posterior. Ele usa o modelo do Visual Studio 2012, que é ligeiramente diferente do modelo do Visual Studio 2017 mostrado neste tutorial.
+> Você pode [baixar](https://go.microsoft.com/fwlink/?LinkId=286116) o projeto completo em C# ou Visual Basic. O código que pode ser baixado funciona com o Visual Studio 2012 e posterior. Ele usa o modelo do Visual Studio 2012, que é ligeiramente diferente do modelo do Visual Studio 2017 mostrado neste tutorial.
 > 
 > No tutorial, você executa o aplicativo no Visual Studio. Você também pode implantar o aplicativo em um provedor de hospedagem e disponibilizá-lo pela Internet. A Microsoft oferece hospedagem na Web gratuita para até 10 sites em um  
-> [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604). Para obter informações sobre como implantar um projeto Web do Visual Studio em aplicativos Web do Azure App Service, consulte a [implantação da Web do ASP.NET usando o Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md) Series. Esse tutorial também mostra como usar Migrações do Entity Framework Code First para implantar o banco de dados do SQL Server no banco de dados SQL do Azure.
+> [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/dotnet/). Para obter informações sobre como implantar um projeto Web do Visual Studio em aplicativos Web do Azure App Service, consulte a [implantação da Web do ASP.NET usando o Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md) Series. Esse tutorial também mostra como usar Migrações do Entity Framework Code First para implantar o banco de dados do SQL Server no banco de dados SQL do Azure.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versões de software usadas no tutorial
 > 
@@ -107,13 +107,13 @@ Na pasta **modelos** , adicione uma classe chamada **UniversityModels.cs**.
 
    3. Nomeie a classe **UniversityModels.cs** e selecione **Adicionar**.
 
-      Nesse arquivo, defina as classes `SchoolContext`, `Student`, `Enrollment`e `Course` da seguinte maneira:
+      Nesse arquivo, defina as `SchoolContext` classes, `Student` , `Enrollment` e da `Course` seguinte maneira:
 
       [!code-csharp[Main](retrieving-data/samples/sample4.cs)]
 
-      A classe de `SchoolContext` deriva de `DbContext`, que gerencia a conexão de banco de dados e as alterações nos mesmos.
+      A `SchoolContext` classe é derivada de `DbContext` , que gerencia a conexão de banco de dados e as alterações em data.
 
-      Na classe `Student`, observe os atributos aplicados às propriedades `FirstName`, `LastName`e `Year`. Este tutorial usa esses atributos para validação de dados. Para simplificar o código, somente essas propriedades são marcadas com atributos de validação de dados. Em um projeto real, você aplicaria atributos de validação a todas as propriedades que precisam de validação.
+      Na `Student` classe, observe os atributos aplicados às `FirstName` `LastName` Propriedades, e `Year` . Este tutorial usa esses atributos para validação de dados. Para simplificar o código, somente essas propriedades são marcadas com atributos de validação de dados. Em um projeto real, você aplicaria atributos de validação a todas as propriedades que precisam de validação.
 
    4. Salve UniversityModels.cs.
 
@@ -130,13 +130,13 @@ Este tutorial usa [migrações do Code First](https://docs.microsoft.com/ef/ef6/
 
       ![Habilitar migrações](retrieving-data/_static/image8.png)
 
-      Observe que um arquivo chamado *Configuration.cs* foi criado. A classe `Configuration` tem um método `Seed`, que pode preencher previamente as tabelas de banco de dados com dado de teste.
+      Observe que um arquivo chamado *Configuration.cs* foi criado. A `Configuration` classe tem um `Seed` método, que pode preencher previamente as tabelas de banco de dados com dado de teste.
 
 ## <a name="pre-populate-the-database"></a>Preencher previamente o banco de dados
 
    1. Abra Configuration.cs.
    
-   2. Adicione o seguinte código ao `Seed` método. Além disso, adicione uma instrução `using` para o namespace `ContosoUniversityModelBinding. Models`.
+   2. Adicione o seguinte código ao `Seed` método. Além disso, adicione uma `using` instrução para o `ContosoUniversityModelBinding. Models` namespace.
 
       [!code-csharp[Main](retrieving-data/samples/sample5.cs)]
 
@@ -146,7 +146,7 @@ Este tutorial usa [migrações do Code First](https://docs.microsoft.com/ef/ef6/
 
    5. Execute o comando **Update-Database**.
 
-      Se você receber uma exceção ao executar esse comando, os valores `StudentID` e `CourseID` poderão ser diferentes dos valores do método `Seed`. Abra essas tabelas de banco de dados e encontre os valores existentes para `StudentID` e `CourseID`. Adicione esses valores ao código para propagar a tabela `Enrollments`.
+      Se você receber uma exceção ao executar esse comando, os `StudentID` `CourseID` valores e poderão ser diferentes dos `Seed` valores de método. Abra essas tabelas de banco de dados e encontre os valores existentes para `StudentID` e `CourseID` . Adicione esses valores ao código para propagar a `Enrollments` tabela.
 
 ## <a name="add-a-gridview-control"></a>Adicionar um controle GridView
 
@@ -154,36 +154,36 @@ Com os dados populados do banco, agora você está pronto para recuperar esses d
 
 1. Abra o students. aspx.
 
-2. Localize o espaço reservado `MainContent`. Dentro desse espaço reservado, adicione um controle **GridView** que inclua esse código.
+2. Localize o `MainContent` espaço reservado. Dentro desse espaço reservado, adicione um controle **GridView** que inclua esse código.
 
    [!code-aspx-csharp[Main](retrieving-data/samples/sample6.aspx)]
 
-   Itens a serem observados:
-   * Observe o valor definido para a propriedade `SelectMethod` no elemento GridView. Esse valor especifica o método usado para recuperar dados GridView, que você cria na próxima etapa. 
+   Aspectos a considerar:
+   * Observe o valor definido para a `SelectMethod` propriedade no elemento GridView. Esse valor especifica o método usado para recuperar dados GridView, que você cria na próxima etapa. 
    
-   * A propriedade `ItemType` é definida como a classe `Student` criada anteriormente. Essa configuração permite que você referencie Propriedades de classe na marcação. Por exemplo, a classe `Student` tem uma coleção chamada `Enrollments`. Você pode usar `Item.Enrollments` para recuperar essa coleção e, em seguida, usar a [sintaxe LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) para recuperar a soma dos créditos registrados de cada aluno.
+   * A `ItemType` propriedade é definida como a `Student` classe criada anteriormente. Essa configuração permite que você referencie Propriedades de classe na marcação. Por exemplo, a `Student` classe tem uma coleção chamada `Enrollments` . Você pode usar `Item.Enrollments` para recuperar essa coleção e, em seguida, usar a [sintaxe LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) para recuperar a soma dos créditos registrados de cada aluno.
    
 3. Salve students. aspx.
 
 ## <a name="add-code-to-retrieve-data"></a>Adicionar código para recuperar dados
 
-   No arquivo code-behind dos alunos. aspx, adicione o método especificado para o valor `SelectMethod`. 
+   No arquivo code-behind dos alunos. aspx, adicione o método especificado para o `SelectMethod` valor. 
    
    1. Abra Students.aspx.cs.
    
-   2. Adicione `using` instruções para os namespaces de `ContosoUniversityModelBinding. Models` e `System.Data.Entity`.
+   2. Adicione `using` instruções para os `ContosoUniversityModelBinding. Models` `System.Data.Entity` namespaces e.
 
       [!code-csharp[Main](retrieving-data/samples/sample7.cs)]
 
-   3. Adicione o método especificado para `SelectMethod`:
+   3. Adicione o método que você especificou para `SelectMethod` :
 
       [!code-csharp[Main](retrieving-data/samples/sample8.cs)]
 
-      A cláusula `Include` melhora o desempenho da consulta, mas não é necessária. Sem a cláusula `Include`, os dados são recuperados usando o [*carregamento lento*](https://en.wikipedia.org/wiki/Lazy_loading), o que envolve o envio de uma consulta separada para o banco de dados cada vez que forem recuperados. Com a cláusula `Include`, os dados são recuperados usando o *carregamento adiantado*, o que significa que uma única consulta de banco de dados recupera todos os dados relacionados. Se os dados relacionados não forem usados, o carregamento adiantado é menos eficiente, pois mais dados são recuperados. No entanto, nesse caso, o carregamento adiantado oferece o melhor desempenho porque os dados relacionados são exibidos para cada registro.
+      A `Include` cláusula melhora o desempenho da consulta, mas não é necessária. Sem a `Include` cláusula, os dados são recuperados usando o [*carregamento lento*](https://en.wikipedia.org/wiki/Lazy_loading), o que envolve o envio de uma consulta separada para o banco de dados cada vez que são recuperados. Com a `Include` cláusula, os dados são recuperados usando o *carregamento adiantado*, o que significa que uma única consulta de banco de dados recupera todos os dados relacionados. Se os dados relacionados não forem usados, o carregamento adiantado é menos eficiente, pois mais dados são recuperados. No entanto, nesse caso, o carregamento adiantado oferece o melhor desempenho porque os dados relacionados são exibidos para cada registro.
 
       Para obter mais informações sobre considerações de desempenho ao carregar dados relacionados, consulte a seção **carregamento lento, adiantado e explícito de dados relacionados** no artigo [lendo dados relacionados com o Entity Framework em um aplicativo MVC ASP.net](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) .
 
-      Por padrão, os dados são classificados pelos valores da propriedade marcada como a chave. Você pode adicionar uma cláusula `OrderBy` para especificar um valor de classificação diferente. Neste exemplo, a propriedade de `StudentID` padrão é usada para classificação. No artigo [classificando, paginando e Filtrando dados](sorting-paging-and-filtering-data.md) , o usuário está habilitado para selecionar uma coluna para classificação.
+      Por padrão, os dados são classificados pelos valores da propriedade marcada como a chave. Você pode adicionar uma `OrderBy` cláusula para especificar um valor de classificação diferente. Neste exemplo, a propriedade padrão `StudentID` é usada para classificação. No artigo [classificando, paginando e Filtrando dados](sorting-paging-and-filtering-data.md) , o usuário está habilitado para selecionar uma coluna para classificação.
  
    4. Salve Students.aspx.cs.
 
@@ -197,11 +197,11 @@ Execute seu aplicativo Web (**F5**) e navegue até a página **alunos** , que ex
 
 Ao trabalhar nesta série de tutoriais, você pode simplesmente copiar o código do tutorial para o seu projeto. No entanto, uma desvantagem dessa abordagem é que você pode não estar ciente do recurso fornecido pelo Visual Studio para gerar automaticamente o código para métodos de associação de modelo. Ao trabalhar em seus próprios projetos, a geração automática de código pode poupar tempo e ajudá-lo a ter uma noção de como implementar uma operação. Esta seção descreve o recurso de geração de código automático. Esta seção é informativa apenas e não contém nenhum código que você precise implementar em seu projeto. 
 
-Ao definir um valor para as propriedades `SelectMethod`, `UpdateMethod`, `InsertMethod`ou `DeleteMethod` no código de marcação, você pode selecionar a opção **criar novo método** .
+Ao definir um valor para as `SelectMethod` `UpdateMethod` Propriedades,, `InsertMethod` ou `DeleteMethod` no código de marcação, você pode selecionar a opção **criar novo método** .
 
 ![criar um método](retrieving-data/_static/image18.png)
 
-O Visual Studio não apenas cria um método no code-behind com a assinatura apropriada, mas também gera código de implementação para executar a operação. Se você definir primeiro a propriedade `ItemType` antes de usar o recurso de geração de código automático, o código gerado usará esse tipo para as operações. Por exemplo, ao definir a propriedade `UpdateMethod`, o código a seguir é gerado automaticamente:
+O Visual Studio não apenas cria um método no code-behind com a assinatura apropriada, mas também gera código de implementação para executar a operação. Se você primeiro definir a `ItemType` propriedade antes de usar o recurso de geração de código automático, o código gerado usará esse tipo para as operações. Por exemplo, ao definir a `UpdateMethod` propriedade, o código a seguir é gerado automaticamente:
 
 [!code-csharp[Main](retrieving-data/samples/sample9.cs)]
 
@@ -214,4 +214,4 @@ Neste tutorial, você criou classes de modelo de dados e gerou um banco de dado 
 No próximo [tutorial](updating-deleting-and-creating-data.md) desta série, você habilitará a atualização, a exclusão e a criação de dados.
 
 > [!div class="step-by-step"]
-> [Próximo](updating-deleting-and-creating-data.md)
+> [Avançar](updating-deleting-and-creating-data.md)

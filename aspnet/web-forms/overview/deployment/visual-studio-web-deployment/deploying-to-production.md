@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: ddc3d15f0436c4c3a24491cf0377111768da67df
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: ec025e757d00cbfbfbcda9408739d2593908bc07
+ms.sourcegitcommit: 0cf7d06071a8ff986e6c028ac9daf0c0e7490412
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78632779"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85240630"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Implantação da Web do ASP.NET usando o Visual Studio: implantando na produção
 
@@ -33,7 +33,7 @@ Lembrete: se você receber uma mensagem de erro ou algo não funcionar enquanto 
 
 ## <a name="get-a-microsoft-azure-account"></a>Obter uma conta de Microsoft Azure
 
-Se você ainda não tiver uma conta do Azure, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Se você ainda não tiver uma conta do Azure, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/dotnet/).
 
 ## <a name="create-a-staging-environment"></a>Criar um ambiente de preparo
 
@@ -117,7 +117,7 @@ Agora que você criou um aplicativo Web e um banco de dados para o ambiente de p
 1. No Visual Studio, clique com o botão direito do mouse no projeto ContosoUniversity em **Gerenciador de soluções** e selecione **publicar** no menu de contexto.
 
     O assistente de **Publicar Web** é aberto.
-2. Clique na guia **Perfil**.
+2. Clique na guia **perfil** .
 3. Clique em **Importar**.
 4. Navegue até o arquivo *. publishsettings* baixado anteriormente e clique em **abrir**.
 
@@ -130,7 +130,7 @@ Agora que você criou um aplicativo Web e um banco de dados para o ambiente de p
 6. Clique em **Próximo**.
 
     ![ícone de conexão com êxito e botão Avançar na guia conexão](deploying-to-production/_static/image8.png)
-7. Na guia **configurações** , expanda **Opções de publicação de arquivo**e, em seguida, selecione **Excluir arquivos da pasta de dados de\_de aplicativos**.
+7. Na guia **configurações** , expanda **Opções de publicação de arquivo**e, em seguida, selecione **Excluir arquivos na \_ pasta dados do aplicativo**.
 
     Para obter informações sobre as outras opções em **Opções de publicação de arquivo**, consulte o tutorial [implantando no IIS](deploying-to-iis.md) . A captura de tela que mostra o resultado dessa etapa e as seguintes etapas de configuração do banco de dados estão no final das etapas de configuração do banco de dados.
 8. Em **DefaultConnection** na seção **bancos** de dados, configure Database Deployment for the Membership Database.
@@ -141,9 +141,9 @@ Agora que você criou um aplicativo Web e um banco de dados para o ambiente de p
       3. Na caixa de diálogo **Configurar atualizações de banco de dados** , clique em **adicionar script SQL**.
       4. Na caixa **adicionar script SQL** , navegue até o script *ASPNET-data-prod. SQL* que você salvou anteriormente na pasta da solução e clique em **abrir**.
       5. Feche a caixa de diálogo **Configurar atualizações de banco de dados** .
-10. Em **SchoolContext** na seção **bancos de dados** , selecione **executar migrações do Code First (é executado no início do aplicativo)** .
+10. Em **SchoolContext** na seção **bancos de dados** , selecione **executar migrações do Code First (é executado no início do aplicativo)**.
 
-    O Visual Studio exibe **executar migrações do Code First** em vez de **atualizar o banco de dados** para `DbContext` classes. Se você quiser usar o provedor dbDacFx em vez de migrações para implantar um banco de dados que você acessa usando uma classe `DbContext`, consulte [como fazer implantar um banco de dados Code First sem migrações?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) nas perguntas frequentes sobre implantação na Web para Visual Studio e ASP.net no msdn.
+    O Visual Studio exibe a **execução de migrações do Code First** em vez de atualizar o **banco de dados** para `DbContext` classes. Se você quiser usar o provedor dbDacFx em vez de migrações para implantar um banco de dados que você acessa usando uma `DbContext` classe, consulte [como fazer implantar um banco de dados Code First sem migrações?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) nas perguntas frequentes sobre implantação na Web para Visual Studio e ASP.net no msdn.
 
     A guia **configurações** agora é semelhante ao exemplo a seguir:
 
@@ -160,22 +160,22 @@ Agora que você criou um aplicativo Web e um banco de dados para o ambiente de p
 ### <a name="configure-a-publish-profile-transform-for-the-environment-indicator"></a>Configurar uma transformação publicar perfil para o indicador do ambiente
 
 > [!NOTE]
-> Esta seção mostra como configurar uma transformação de Web. config para o indicador de ambiente. Como o indicador está no elemento `<appSettings>`, você tem outra alternativa para especificar a transformação quando estiver implantando no serviço Azure App. Para obter mais informações, consulte [especificando as configurações do Web. config no Azure](web-config-transformations.md#watransforms).
+> Esta seção mostra como configurar uma transformação de Web.config para o indicador de ambiente. Como o indicador está no `<appSettings>` elemento, você tem outra alternativa para especificar a transformação quando estiver implantando no serviço Azure app. Para obter mais informações, consulte [especificando configurações de Web.config no Azure](web-config-transformations.md#watransforms).
 
 1. Em **Gerenciador de soluções**, expanda **Propriedades**e, em seguida, expanda **PublishProfiles**.
 2. Clique com o botão direito do mouse em *preparo. pubxml*e clique em **Adicionar transformação de configuração**.
 
     ![Adicionar transformação de configuração para preparo](deploying-to-production/_static/image11.png)
 
-    O Visual Studio cria o arquivo de transformação *Web. staging. config* e o abre.
-3. No arquivo de transformação *Web. staging. config* , insira o código a seguir imediatamente após a marca de `configuration` de abertura.
+    O Visual Studio cria o arquivo de transformação *Web.Staging.config* e o abre.
+3. No arquivo de *Web.Staging.config* transformação, insira o código a seguir imediatamente após a `configuration` marca de abertura.
 
     [!code-xml[Main](deploying-to-production/samples/sample1.xml)]
 
     Quando você usa o perfil de publicação de preparo, essa transformação define o indicador de ambiente como "Prod". No aplicativo Web implantado, você não verá nenhum sufixo como "(dev)" ou "(teste)" após o título H1 "Contoso University".
-4. Clique com o botão direito do mouse no arquivo *Web. staging. config* e clique em **Visualizar transformação** para certificar-se de que a transformação codificada produz as alterações esperadas.
+4. Clique com o botão direito do mouse no arquivo *Web.Staging.config* e clique em **Visualizar transformação** para certificar-se de que a transformação codificada produz as alterações esperadas.
 
-    A janela de **Visualização Web. config** mostra o resultado da aplicação das transformações *Web. Release. config* e das transformações *Web. preparo. config* .
+    A janela de **visualização deWeb.config** mostra o resultado da aplicação das transformações de *Web.Release.config* e das transformações de *Web.Staging.config* .
 
 ### <a name="prevent-public-use-of-the-test-app"></a>Impedir o uso público do aplicativo de teste
 
@@ -183,18 +183,18 @@ Uma consideração importante para o aplicativo de preparo é que ele estará at
 
 - Defina as regras de firewall que permitem o acesso ao aplicativo de preparo somente de endereços IP que você usa para testar o preparo.
 - Use uma URL ofuscada que seria impossível de adivinhar.
-- Crie um arquivo *robots. txt* para garantir que os mecanismos de pesquisa não rastreiem o aplicativo de teste e os links de relatório para ele nos resultados da pesquisa.
+- Crie um arquivo de *robots.txt* para garantir que os mecanismos de pesquisa não rastreiem o aplicativo de teste e os links de relatório para ele nos resultados da pesquisa.
 
 O primeiro desses métodos é o mais eficiente, mas não é abordado neste tutorial porque ele exigiria que você implante em um serviço de nuvem do Azure em vez de Azure App serviço. Para obter mais informações sobre os serviços de nuvem e as restrições de IP no Azure, consulte [Opções de Hospedagem de computação fornecidas pelo Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) e [bloquear endereços IP específicos de acessar uma função Web](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Se você estiver implantando em um provedor de Hospedagem de terceiros, entre em contato com o provedor para descobrir como implementar restrições de IP.
 
-Para este tutorial, você criará um arquivo *robots. txt* .
+Para este tutorial, você criará um arquivo de *robots.txt* .
 
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto ContosoUniversity e clique em **Adicionar novo item**.
-2. Crie um novo **arquivo de texto** chamado *robots. txt*e coloque o seguinte texto nele:
+2. Crie um novo **arquivo de texto** chamado *robots.txt*e coloque o seguinte texto nele:
 
     [!code-console[Main](deploying-to-production/samples/sample2.cmd)]
 
-    A linha de `User-agent` informa aos mecanismos de pesquisa que as regras no arquivo se aplicam a todos os robôs (rastreadores da Web) do mecanismo de pesquisa e a linha de `Disallow` especifica que nenhuma página no site deve ser rastreada.
+    A `User-agent` linha informa aos mecanismos de pesquisa que as regras no arquivo se aplicam a todos os robôs (rastreadores da Web) do mecanismo de pesquisa e a `Disallow` linha especifica que nenhuma página do site deve ser rastreada.
 
     Você deseja que os mecanismos de pesquisa catálogom seu aplicativo de produção, portanto, você precisa excluir esse arquivo da implantação de produção. Para fazer isso, você definirá uma configuração no perfil de publicação de produção ao criá-lo.
 
@@ -208,7 +208,7 @@ Para este tutorial, você criará um arquivo *robots. txt* .
 
 ## <a name="test-in-the-staging-environment"></a>Testar no ambiente de preparo
 
-Observe que o indicador de ambiente está ausente (não há "(teste)" ou "(dev)" após o rumo H1, que mostra que a transformação *Web. config* do indicador de ambiente foi bem-sucedida.
+Observe que o indicador de ambiente está ausente (não há "(teste)" ou "(dev)" após o rumo H1, que mostra que a transformação *Web.config* para o indicador de ambiente foi bem-sucedida.
 
 ![Preparo da Home Page](deploying-to-production/_static/image12.png)
 
@@ -224,9 +224,9 @@ Solicite uma URL inválida para causar um erro que o ELMAH controlará e, em seg
 
 O aplicativo que você criou agora está em execução na nuvem em um aplicativo Web, assim como o que você usará para produção. Como tudo está funcionando corretamente, a próxima etapa é implantar na produção.
 
-## <a name="deploy-to-production"></a>Implantar na produção
+## <a name="deploy-to-production"></a>Implantar para a produção
 
-O processo de criação de um aplicativo Web de produção e implantação em produção é o mesmo para preparo, exceto pelo fato de que você precisa excluir o *robots. txt* da implantação. Para fazer isso, você editará o arquivo de perfil de publicação.
+O processo de criação de um aplicativo Web de produção e implantação em produção é o mesmo para preparo, exceto pelo fato de que você precisa excluir o *robots.txt* da implantação. Para fazer isso, você editará o arquivo de perfil de publicação.
 
 ### <a name="create-the-production-environment-and-the-production-publish-profile"></a>Criar o ambiente de produção e o perfil de publicação de produção
 
@@ -240,9 +240,9 @@ O processo de criação de um aplicativo Web de produção e implantação em pr
 4. Renomeie o perfil de publicação para *produção*.
 5. Configure uma transformação de perfil de publicação para o indicador de ambiente, seguindo o mesmo procedimento que você usou para preparo..
 
-### <a name="edit-the-pubxml-file-to-exclude-robotstxt"></a>Edite o arquivo. pubxml para excluir robots. txt
+### <a name="edit-the-pubxml-file-to-exclude-robotstxt"></a>Edite o arquivo. pubxml para excluir robots.txt
 
-Os arquivos de perfil de publicação são nomeados &lt;ProfileName&gt; *. pubxml* e estão localizados na pasta *PublishProfiles* A *pasta PublishProfiles* está sob a pasta *Propriedades* em um C# projeto de aplicativo Web, na pasta *meu projeto* em um projeto de aplicativo web vb ou na pasta *dados* do aplicativo\_em um projeto de aplicativo Web. Cada arquivo *. pubxml* contém configurações que se aplicam a um perfil de publicação. Os valores inseridos no assistente publicar Web são armazenados nesses arquivos, e você pode editá-los para criar ou alterar as configurações que não estão disponíveis na interface do usuário do Visual Studio.
+Os arquivos de perfil de publicação são nomeados como &lt; ProfileName &gt; *. pubxml* e estão localizados na pasta *PublishProfiles* . A pasta *PublishProfiles* está sob a pasta *Propriedades* em um projeto de aplicativo Web C#, na pasta *meu projeto* em um projeto de aplicativo Web vb ou na pasta * \_ dados de aplicativo* em um projeto de aplicativo Web. Cada arquivo *. pubxml* contém configurações que se aplicam a um perfil de publicação. Os valores inseridos no assistente publicar Web são armazenados nesses arquivos, e você pode editá-los para criar ou alterar as configurações que não estão disponíveis na interface do usuário do Visual Studio.
 
 Por padrão, os arquivos *. pubxml* são incluídos no projeto quando você cria um perfil de publicação, mas você pode excluí-los do projeto e o Visual Studio ainda os usará. O Visual Studio procura na pasta *PublishProfiles* arquivos *. pubxml* , independentemente de eles estarem incluídos no projeto.
 
@@ -255,7 +255,7 @@ Um arquivo *. pubxml* contém as configurações que pertencem a um perfil de pu
 
     ![Abra o arquivo. pubxml](deploying-to-production/_static/image13.png)
 3. Clique com o botão direito do mouse em *Production. pubxml* e clique em **abrir**.
-4. Adicione as seguintes linhas imediatamente antes do elemento `PropertyGroup` de fechamento:
+4. Adicione as seguintes linhas imediatamente antes do elemento de fechamento `PropertyGroup` :
 
     [!code-xml[Main](deploying-to-production/samples/sample3.xml)]
 
@@ -265,18 +265,18 @@ Um arquivo *. pubxml* contém as configurações que pertencem a um perfil de pu
 
     Para obter mais informações sobre como excluir arquivos e pastas, consulte posso [Excluir arquivos ou pastas específicas da implantação?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) nas **perguntas frequentes sobre implantação da Web para Visual Studio e ASP.net** no msdn.
 
-### <a name="deploy-to-production"></a>Implantar na produção
+### <a name="deploy-to-production"></a>Implantar para a produção
 
-1. Abra o assistente **publicar Web** Verifique se o perfil de publicação de **produção** está selecionado e, em seguida, clique em **Iniciar visualização** na guia **Visualizar** para verificar se o arquivo *robots. txt* não será copiado para o aplicativo de produção.
+1. Abra o assistente **publicar Web** Verifique se o perfil de publicação de **produção** está selecionado e, em seguida, clique em **Iniciar visualização** na guia **visualizar** para verificar se o arquivo de *robots.txt* não será copiado para o aplicativo de produção.
 
     ![Visualização de arquivos a serem publicados na produção](deploying-to-production/_static/image14.png)
 
-    Examine a lista de arquivos que serão copiados. Você verá que todos os arquivos *. cs* , incluindo arquivos *. aspx.cs*, *. aspx.designer.cs*, *Master.cs*e *Master.designer.cs* são omitidos. Todo esse código foi compilado nos arquivos *ContosoUniversity. dll* e *ContosoUniversity. pdb* que você encontrará na pasta *bin* . Como apenas o *. dll* é necessário para executar o aplicativo e você especificou anteriormente que somente os arquivos necessários para executar o aplicativo devem ser implantados, nenhum arquivo *. cs* foi copiado para o ambiente de destino. A pasta *obj* e os arquivos *ContosoUniversity. csproj* e *. csproj. User* são omitidos pelo mesmo motivo.
+    Examine a lista de arquivos que serão copiados. Você verá que todos os arquivos *. cs* , incluindo arquivos *. aspx.cs*, *. aspx.designer.cs*, *Master.cs*e *Master.designer.cs* são omitidos. Todo esse código foi compilado nos arquivos *ContosoUniversity.dll* e *ContosoUniversity. pdb* que você encontrará na pasta *bin* . Como apenas o *. dll* é necessário para executar o aplicativo e você especificou anteriormente que somente os arquivos necessários para executar o aplicativo devem ser implantados, nenhum arquivo *. cs* foi copiado para o ambiente de destino. A pasta *obj* e os arquivos *ContosoUniversity. csproj* e *. csproj. User* são omitidos pelo mesmo motivo.
 
     Clique em **publicar** para implantar no ambiente de produção.
 2. Teste em produção, seguindo o mesmo procedimento usado para preparo.
 
-    Tudo é idêntico ao preparo, exceto a URL e a ausência do arquivo *robots. txt* .
+    Tudo é idêntico ao preparo, exceto a URL e a ausência do arquivo de *robots.txt* .
 
 ## <a name="summary"></a>Resumo
 
@@ -294,5 +294,5 @@ No próximo tutorial, você atualizará o código do aplicativo e implantará a 
 > Neste tutorial, a edição SQL Server na qual você está implantando é o banco de dados SQL do Azure. Embora o processo de implantação seja semelhante a outras edições do SQL Server, um aplicativo de produção real pode exigir um código especial para o banco de dados SQL do Azure em alguns cenários. Para obter mais informações, consulte [trabalhando com o banco de dados SQL do Azure](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) e [escolhendo entre SQL Server e o banco de dados SQL do Azure](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
 > 
 > [!div class="step-by-step"]
-> [Anterior](setting-folder-permissions.md)
-> [Próximo](deploying-a-code-update.md)
+> [Anterior](setting-folder-permissions.md) 
+>  [Avançar](deploying-a-code-update.md)

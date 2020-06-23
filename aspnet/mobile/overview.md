@@ -8,12 +8,12 @@ ms.date: 01/28/2011
 ms.assetid: 1febce65-cdd4-47da-bdb5-1e6022ccd20a
 msc.legacyurl: /mobile
 msc.type: content
-ms.openlocfilehash: 7f631f5052060b3523a23fb8ee7799cc07a68e1c
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 769484ee505599eef48ff4a106ddd4f7ec7d99af
+ms.sourcegitcommit: 0cf7d06071a8ff986e6c028ac9daf0c0e7490412
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78583639"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85240729"
 ---
 # <a name="mobile-apps--sites-with-aspnet"></a>Aplicativos móveis & sites com ASP.NET
 
@@ -25,7 +25,7 @@ Na primeira parte de um artigo de duas partes, os autores exploram alguns dos pr
 
 ### <a name="cloud-connected-mobile-apps---build-a-xamarin-app-with-authentication-and-offline-supportpart-2"></a>[Aplicativos móveis conectados à nuvem-crie um aplicativo Xamarin com autenticação e suporte offline](https://msdn.microsoft.com/magazine/mt422581.aspx)(parte 2)
 
-No segundo artigo da série, os autores discutem como usar o Xamarin para atingir várias plataformas de cliente móvel e mostram como implementar a autenticação e manter um cache sincronizado do lado do cliente dos dados.
+No segundo artigo da série, os autores discutem como eles usam o Xamarin para direcionar várias plataformas de cliente móvel e mostram como implementar a autenticação e manter um cache de dados sincronizado do lado do cliente.
 
 ### <a name="calling-web-api-from-a-windows-phone-8-application"></a>[Chamando a API Web de um aplicativo Windows Phone 8](../web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application.md)
 
@@ -51,7 +51,7 @@ Este tutorial ensinará a você noções básicas de como implantar um aplicativ
 
 ### <a name="add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>[Adicionar páginas móveis ao seu aplicativo ASP.NET Web Forms/MVC](../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md)
 
-Esse manual descreve várias maneiras para servir páginas otimizadas para dispositivos móveis do seu Web Forms do ASP.NET / aplicativo MVC e sugere problemas de design e arquitetônicos a serem considerados ao direcionar uma ampla gama de dispositivos.
+Este "como" descreve várias maneiras de servir páginas otimizadas para dispositivos móveis do seu aplicativo ASP.NET Web Forms/MVC e sugere problemas de arquitetura e design a serem considerados ao direcionar uma ampla gama de dispositivos.
 
 ### <a name="detect-the-latest-mobile-devices-using-51degreesmobi-foundation"></a>[Detectar os dispositivos móveis mais recentes usando o 51degrees.mobi Foundation](https://github.com/51Degrees/dotNET-Device-Detection)
 
@@ -61,6 +61,6 @@ o 51degrees.mobi Foundation é um projeto de software livre de terceiros que apr
 
 Nesta conversa apresentada na conferência do Microsoft MIX, Scott Hanselman discute como você pode criar sites amigáveis para dispositivos móveis usando o ASP.NET MVC.
 
-### <a name="develop-iphone-applications-with-aspnet"></a>[Desenvolva aplicativos do iPhone com o ASP.NET](http://labs.componentone.com/iPhone/)
+### <a name="develop-iphone-applications-with-aspnet"></a>[Desenvolva aplicativos do iPhone com o ASP.NET](https://www.componentsource.com/product/componentone-studio-for-iphone)
 
 O ComponentOne Studio para iPhone é um conjunto de controles ASP.NET que imitam a aparência das interfaces de usuário do iPhone e do iPod Touch quando renderizadas no Mobile Safari.

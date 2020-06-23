@@ -8,16 +8,16 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 49a841dbda183bf1d59153b83f694c9f517e0b94
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: a09339a833ea0b4a2d3c3a9323cce777577ea048
+ms.sourcegitcommit: 0cf7d06071a8ff986e6c028ac9daf0c0e7490412
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78633612"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85240587"
 ---
 # <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Introdução ao Páginas da Web do ASP.NET-publicação de um site usando o WebMatrix
 
-por [Tom FitzMacken](https://github.com/tfitzmac)
+ por [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Este tutorial é a edição final do conjunto de tutoriais que apresenta Páginas da Web do ASP.NET e o Microsoft WebMatrix. Ele aborda como publicar seu site na Internet para que outras pessoas possam trabalhar com eles. Ele pressupõe que você concluiu a série por meio da [criação de uma aparência consistente para Sites páginas da Web do ASP.net](https://go.microsoft.com/fwlink/?LinkId=251585).
 > 
@@ -48,7 +48,7 @@ Este tutorial contém quatro seções:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Configurando a página padrão
 
-Quando um usuário navega para o endereço base do seu site, a página padrão do seu site é exibida para o usuário. Por exemplo, quando *Default. htm* é definido como a página padrão do site em `www.contoso.com`, navegar para `www.contoso.com` é o mesmo que navegar até `www.contoso.com/Default.htm`.
+Quando um usuário navega para o endereço base do seu site, a página padrão do seu site é exibida para o usuário. Por exemplo, quando *Default.htm* é definido como a página padrão do site em `www.contoso.com` , em seguida, navegar para `www.contoso.com` é o mesmo que navegar até `www.contoso.com/Default.htm` .
 
 Atualmente, seu site usa **Default. cshtml** como a página padrão. Esta página é adequada para sua página padrão, mas neste tutorial você não adicionou nenhum conteúdo a essa página para que ela exiba uma página em branco. Abra default. cshtml e substitua o conteúdo pelo código a seguir.
 
@@ -59,7 +59,7 @@ Agora seu site está pronto para publicação. Primeiro, você verá como implan
 <a id="azure"></a>
 ## <a name="publishing-your-site-to-microsoft-azure"></a>Publicando seu site no Microsoft Azure
 
-Este tutorial mostrará primeiro como implantar seu site no Microsoft Azure. Ao entrar com um conta Microsoft, você pode criar até 10 sites gratuitos no Azure. Esses sites gratuitos fornecem uma maneira conveniente de testar seus sites. Você sempre pode excluir este site de exemplo posteriormente para evitar o uso de todos os seus sites gratuitos. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Este tutorial mostrará primeiro como implantar seu site no Microsoft Azure. Ao entrar com um conta Microsoft, você pode criar até 10 sites gratuitos no Azure. Esses sites gratuitos fornecem uma maneira conveniente de testar seus sites. Você sempre pode excluir este site de exemplo posteriormente para evitar o uso de todos os seus sites gratuitos. Você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/dotnet/).
 
 Na faixa de faixas do WebMatrix, clique no botão **publicar** .
 
@@ -170,7 +170,7 @@ Se você estiver pronto para começar, vá em frente e clique em **continuar** p
 
 A lista de arquivos a serem publicados inclui as páginas da Web que você criou como *Movie. cshtml*. A lista também inclui arquivos para auxiliares que você instalou, os arquivos a serem executados SQL Server Compact edição para seu banco de dados e assim por diante. Como resultado, o processo de publicação inicial pode ser substancial.
 
-Clique em **Continuar**. O WebMatrix copia os arquivos para o servidor do provedor de hospedagem. Quando terminar, os resultados serão relatados na barra de status:
+Clique em **Continue**. O WebMatrix copia os arquivos para o servidor do provedor de hospedagem. Quando terminar, os resultados serão relatados na barra de status:
 
 ![Mensagem da barra de status quando o processo de publicação foi concluído com êxito](publishing/_static/image20.png)
 
@@ -181,9 +181,9 @@ Para ver seu site ativo, clique no link na barra de status. Adicione *filmes* à
 <a id="update"></a>
 ## <a name="updating-the-live-site-republishing"></a>Atualizando o site ativo: republicando
 
-Depois de publicar seu site (para o Azure ou uma empresa de hospedagem na Web), há duas cópias dele &mdash; a versão no seu computador e a versão no provedor de serviços. Você provavelmente desejará continuar desenvolvendo o site (se nada mais, como parte do próximo conjunto de tutorial). Quando fizer isso, você precisará republicar seu site para copiar as alterações do seu computador para o provedor de serviços. O processo de publicação no WebMatrix pode determinar quais arquivos foram alterados no seu site e publicar apenas esses arquivos.
+Depois de publicar seu site (para o Azure ou uma empresa de hospedagem na Web), há duas cópias dela &mdash; a versão em seu computador e a versão no provedor de serviços. Você provavelmente desejará continuar desenvolvendo o site (se nada mais, como parte do próximo conjunto de tutorial). Quando fizer isso, você precisará republicar seu site para copiar as alterações do seu computador para o provedor de serviços. O processo de publicação no WebMatrix pode determinar quais arquivos foram alterados no seu site e publicar apenas esses arquivos.
 
-Para ver como a republicação funciona, abra o site *Movies. cshtml* , faça algumas pequenas alterações e salve o arquivo. Por exemplo, altere o título para `Movies - Updated`.
+Para ver como a republicação funciona, abra o site *Movies. cshtml* , faça algumas pequenas alterações e salve o arquivo. Por exemplo, altere o título para `Movies - Updated` .
 
 Clique no botão **publicar** na faixa de faixas. O WebMatrix determina o que mudou e mostra uma visualização dos arquivos que ele publicará.
 
@@ -193,7 +193,7 @@ Clique no botão **publicar** na faixa de faixas. O WebMatrix determina o que mu
 > 
 > Por padrão, o WebMatrix publica seu banco de dados (arquivo *. sdf* ) somente na primeira vez que você publicar o site. Depois que o site é publicado e as pessoas estão interagindo com o site, o banco de dados no site ativo normalmente tem o real dado do site. Você precisa ter muito cuidado para não substituir o banco de dados ao vivo pelo arquivo *. sdf* que está em seu computador, que geralmente contém apenas dado de teste. É por isso que você vê que a publicação de aviso **substituirá todos os bancos de dados remotos**e por que a caixa de seleção de *WebPagesMovies. sdf* é desmarcada por padrão.
 
-Clique em **Continuar**. O WebMatrix publica os arquivos alterados e mostra uma mensagem de êxito, como na primeira vez que você publicou.
+Clique em **Continue**. O WebMatrix publica os arquivos alterados e mostra uma mensagem de êxito, como na primeira vez que você publicou.
 
 Vá para o site ativo (você pode clicar no link na mensagem de êxito se ele ainda estiver sendo exibido) e verificar se a alteração foi publicada.
 

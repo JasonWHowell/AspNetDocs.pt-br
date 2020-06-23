@@ -8,16 +8,16 @@ ms.date: 05/28/2015
 ms.assetid: a36d3bdf-ef1b-47a4-b932-3a0cf4cad716
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: bb863f8605e6f8faca3b285607b63a3e88e83012
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: ac2111980e6393388a0530375fb9ef78dbbfaff6
+ms.sourcegitcommit: 0cf7d06071a8ff986e6c028ac9daf0c0e7490412
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78547099"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85240758"
 ---
 # <a name="getting-started"></a>Introdução
 
-por [Tom FitzMacken](https://github.com/tfitzmac)
+ por [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE[](~/includes/rp.md)]
 
@@ -59,10 +59,10 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 Estamos supondo que você esteja familiarizado com:
 
 - **HTML**. Não é necessário nenhum conhecimento aprofundado. Não explicaremos HTML, mas também não usamos nada de complexidade. Forneceremos links para tutoriais em HTML onde achamos que são úteis.
-- **CSS (folhas de estilos em cascata)** . O mesmo que com HTML.
+- **CSS (folhas de estilos em cascata)**. O mesmo que com HTML.
 - **Ideias básicas do banco de dados**. Se você usou uma planilha para dados e classificou e filtrou os dados, esse é o nível de experiência que geralmente estamos supondo para este conjunto de tutorial.
 
-Também estamos supondo que você esteja interessado em aprender sobre a programação básica. Páginas da Web do ASP.NET usar uma linguagem de programação C#chamada. Você não precisa ter nenhum plano de fundo em programação, apenas um interesse. Se você já escreveu algum JavaScript em uma página da Web antes, você tem muita experiência em segundo plano.
+Também estamos supondo que você esteja interessado em aprender sobre a programação básica. Páginas da Web do ASP.NET usar uma linguagem de programação chamada C#. Você não precisa ter nenhum plano de fundo em programação, apenas um interesse. Se você já escreveu algum JavaScript em uma página da Web antes, você tem muita experiência em segundo plano.
 
 Observe que, se você estiver familiarizado com a programação, poderá descobrir que este conjunto de tutorial se move mais lentamente, enquanto colocamos novos programadores em velocidade. No entanto, à medida que passamos pelos primeiros tutoriais, haverá menos programação básica para explicar e as coisas serão movidas para um clipe mais rápido.
 
@@ -133,7 +133,7 @@ Para usar páginas da Web, você precisa ter pelo menos o Windows XP com SP3 ins
 
 Na [página páginas da Web](../../../index.md) do site do ASP.net, clique em **instalar**.
 
-![ASP.NET Web site mostrando &quot;botão instalar&quot; do WebMatrix](getting-started/_static/image3.png)
+![Site da ASP.NET mostrando o &quot; botão instalar o WebMatrix &quot;](getting-started/_static/image3.png)
 
 Você será solicitado a aceitar os termos de licença e a política de privacidade antes de instalar o WebMatrix.
 
@@ -149,11 +149,11 @@ O Web Platform Installer é exibido, pronto para instalar o WebMatrix. Clique em
 
 O processo de instalação descobre o que deve ser instalado no computador e inicia o processo. Dependendo do que exatamente precisa ser instalado, o processo pode levar de alguns minutos a vários segundos. Selecione aceito para aceitar os **termos de licença** .
 
-## <a name="hello-webmatrix"></a>Hello, WebMatrix
+## <a name="hello-webmatrix"></a>Olá, WebMatrix
 
 Quando terminar, o processo de instalação poderá iniciar o WebMatrix automaticamente. Se não estiver, no Windows, no menu **Iniciar** , inicie o **Microsoft WebMatrix**.
 
-Ao iniciar o WebMatrix pela primeira vez, você terá a oportunidade de entrar no Microsoft Azure com seu conta Microsoft. Ao entrar, você receberá 10 aplicativos Web gratuitos por meio do Azure. Esses aplicativos Web gratuitos fornecem uma maneira conveniente de testar seus aplicativos. Se você ainda não tiver uma conta do Azure, mas tiver uma assinatura do MSDN, poderá [ativar os benefícios da assinatura do MSDN](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). Caso contrário, você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Ao iniciar o WebMatrix pela primeira vez, você terá a oportunidade de entrar no Microsoft Azure com seu conta Microsoft. Ao entrar, você receberá 10 aplicativos Web gratuitos por meio do Azure. Esses aplicativos Web gratuitos fornecem uma maneira conveniente de testar seus aplicativos. Se você ainda não tiver uma conta do Azure, mas tiver uma assinatura do MSDN, poderá [ativar os benefícios da assinatura do MSDN](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). Caso contrário, você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/dotnet/).
 
 Você não precisa entrar no momento para continuar com este tutorial. Se você não entrar agora, ainda terá a opção de entrar mais tarde. O último [tópico](publishing.md) desta série de tutoriais aborda como implantar seu site no Azure; Portanto, você precisará entrar para concluir esse tópico.
 
@@ -199,7 +199,7 @@ No seletor de espaço de trabalho, selecione o espaço de trabalho **arquivos** 
 
 Na faixa de faixas, clique na seta em **novo** e, em seguida, clique em **novo arquivo**.
 
-![Usando o &quot;novo comando&quot; na faixa de faixas para criar um novo arquivo](getting-started/_static/image14.png)
+![Usando o &quot; novo &quot; comando na faixa de faixas para criar um novo arquivo](getting-started/_static/image14.png)
 
 O WebMatrix exibe uma lista de tipos de arquivo. Selecione **cshtml**e, na caixa **nome** , digite "HelloWorld". Uma página CSHTML é uma página Páginas da Web do ASP.NET.
 
@@ -217,9 +217,9 @@ Como você pode ver, a página contém a marcação HTML comum, com exceção de
 
 Isso é para adicionar código, como você verá em breve.
 
-Observe que as diferentes partes da página &mdash; os nomes de elemento, os atributos e o texto, além do bloco na parte superior — estão todas em cores diferentes. Isso é chamado de *realce de sintaxe*e torna mais fácil manter tudo claro. É um dos recursos que torna mais fácil trabalhar com páginas da Web no WebMatrix.
+Observe que as diferentes partes da página &mdash; os nomes de elementos, atributos e texto, além do bloco na parte superior — estão todas em cores diferentes. Isso é chamado de *realce de sintaxe*e torna mais fácil manter tudo claro. É um dos recursos que torna mais fácil trabalhar com páginas da Web no WebMatrix.
 
-Adicione conteúdo para os elementos `<head>` e `<body>` como no exemplo a seguir. (Se desejar, basta copiar o bloco a seguir e substituir toda a página existente por esse código.)
+Adicione conteúdo para os `<head>` `<body>` elementos e como no exemplo a seguir. (Se desejar, basta copiar o bloco a seguir e substituir toda a página existente por esse código.)
 
 [!code-cshtml[Main](getting-started/samples/sample2.cshtml)]
 
@@ -235,13 +235,13 @@ No espaço de trabalho **arquivos** , clique com o botão direito do mouse na p�
 
 O WebMatrix inicia um servidor Web interno (IIS Express) que você pode usar para testar páginas em seu computador. (Sem IIS Express no WebMatrix, você precisaria publicar sua página em um servidor Web em algum lugar antes de poder testá-la.) A página é exibida no navegador padrão.
 
-![&quot;Olá, Mundo página&quot; em execução no navegador](getting-started/_static/image19.png)
+![&quot;Olá, Mundo &quot; página em execução no navegador](getting-started/_static/image19.png)
 
 Observe que, quando você testa uma página no WebMatrix, a URL no navegador é algo como `http://localhost:33651/HelloWorld.cshtml.` o nome *localhost* refere-se a um servidor local, o que significa que a página é servida por um servidor Web que está no seu próprio computador. Como observado, o WebMatrix inclui um programa de servidor Web chamado IIS Express que é executado quando você inicia uma página.
 
 O número após *localhost* (por exemplo, *localhost: 33651*) refere-se a um *número de porta* em seu computador. Este é o número do "canal" que o IIS Express usa para esse site específico. O número da porta é selecionado aleatoriamente do intervalo de 1024 a 65536 quando você cria seu site e é diferente para cada site que você criar. (Quando você testa seu próprio site, o número da porta certamente será um número diferente de 33561.) Ao usar uma porta diferente para cada site, IIS Express pode manter diretamente em qual dos seus sites ele está conversando.
 
-Posteriormente, quando você publicar seu site em um servidor Web público, não verá mais *localhost* na URL. Nesse ponto, você verá uma URL mais típica, como `http://myhostingsite/mywebsite/HelloWorld.cshtml` ou qualquer que seja a página. Você aprenderá mais sobre a publicação de um site mais adiante nesta série de tutoriais.
+Posteriormente, quando você publicar seu site em um servidor Web público, não verá mais *localhost* na URL. Nesse ponto, você verá uma URL mais típica como `http://myhostingsite/mywebsite/HelloWorld.cshtml` ou qualquer que seja a página. Você aprenderá mais sobre a publicação de um site mais adiante nesta série de tutoriais.
 
 ## <a name="adding-some-server-side-code"></a>Adicionando um código do servidor
 
@@ -251,17 +251,17 @@ Adicione uma linha ao bloco de código para que seja semelhante ao seguinte cód
 
 [!code-cshtml[Main](getting-started/samples/sample3.cshtml)]
 
-Esse é um pouco de código do Razor. Provavelmente, é claro que ele obtém a data e a hora atuais e coloca esse valor em uma *variável* chamada `currentDateTime`. Você vai ler mais sobre sintaxe Razor no próximo tutorial.
+Esse é um pouco de código do Razor. Provavelmente, é claro que ele obtém a data e a hora atuais e coloca esse valor em uma *variável* chamada `currentDateTime` . Você vai ler mais sobre sintaxe Razor no próximo tutorial.
 
-No corpo da página, depois do elemento `<p>Hello World!</p>`, adicione o seguinte:
+No corpo da página, depois do `<p>Hello World!</p>` elemento, adicione o seguinte:
 
 [!code-html[Main](getting-started/samples/sample4.html)]
 
-Esse código obtém o valor que você coloca na variável `currentDateTime` na parte superior e a insere na marcação da página. O caractere `@` marca o código de Páginas da Web do ASP.NET na página.
+Esse código obtém o valor que você coloca na `currentDateTime` variável na parte superior e a insere na marcação da página. O `@` caractere marca o código de páginas da Web do ASP.net na página.
 
 Execute a página novamente (o WebMatrix salva as alterações para você antes de executar a página). Desta vez, você verá a data e a hora na página.
 
-![&quot;Olá, Mundo página&quot; em execução no navegador com uma exibição de hora gerada dinamicamente](getting-started/_static/image20.png)
+![&quot;Olá, Mundo &quot; página em execução no navegador com uma exibição de hora gerada dinamicamente](getting-started/_static/image20.png)
 
 Aguarde alguns instantes e, em seguida, atualize a página no navegador. A exibição de data e hora é atualizada.
 
@@ -269,7 +269,7 @@ No navegador, examine a origem da página. Ele é semelhante à seguinte marcaç
 
 [!code-html[Main](getting-started/samples/sample5.html)]
 
-Observe que o bloco de `@{ }` na parte superior não está lá. Observe também que a exibição de data e hora mostra uma cadeia de caracteres real (`1/18/2012 2:49:50 PM` ou qualquer que), não `@currentDateTime` como você tinha na página *. cshtml* . O que aconteceu aqui é que, quando você executou a página, ASP.NET processou todo o código (muito pouco nesse caso) que foi marcado com `@`. O código produz a saída e essa saída foi inserida na página.
+Observe que o `@{ }` bloco na parte superior não está lá. Observe também que a exibição de data e hora mostra uma cadeia de caracteres real ( `1/18/2012 2:49:50 PM` ou qualquer que seja), não `@currentDateTime` como você tinha na página *. cshtml* . O que aconteceu aqui é que, quando você executou a página, ASP.NET processou todo o código (muito pouco nesse caso) que foi marcado com `@` . O código produz a saída e essa saída foi inserida na página.
 
 ## <a name="this-is-what-aspnet-web-pages-are-about"></a>É isso que Páginas da Web do ASP.NET
 
@@ -288,4 +288,4 @@ No próximo tutorial desta série, você explora Páginas da Web do ASP.NET prog
 [Crie um site do ASP.net do zero](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Este é um tutorial que é especificamente sobre o uso do WebMatrix (não Páginas da Web do ASP.NET). Ele entra em um pouco mais de detalhes sobre alguns dos recursos adicionais do WebMatrix que não abordaremos neste conjunto de tutoriais.
 
 > [!div class="step-by-step"]
-> [Próximo](intro-to-web-pages-programming.md)
+> [Avançar](intro-to-web-pages-programming.md)

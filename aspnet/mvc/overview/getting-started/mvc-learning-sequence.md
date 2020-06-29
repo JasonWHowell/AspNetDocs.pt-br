@@ -8,12 +8,12 @@ ms.date: 05/22/2015
 ms.assetid: 8513a57a-2d45-4d6b-881c-15a01c5cbb1c
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
-ms.openlocfilehash: 46b089a896c6b1b92437ff1f5488214a3a0a9838
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 7dc81cf09309194df4471fedfc74d4051f0fdb78
+ms.sourcegitcommit: 8d34fb54e790cfba2d64097afc8276da5b22283e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78602511"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484211"
 ---
 # <a name="mvc-recommended-tutorials-and-articles"></a>Artigos e tutoriais de MVC recomendados
 
@@ -40,7 +40,7 @@ por [Rick Anderson](https://twitter.com/RickAndMSFT)
 - [Criar um aplicativo Web secure ASP.NET MVC 5 com logon, confirmação de email e redefinição de senha](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) Primeiro, em uma série sobre identidade, inclui código para [reenviar um link de confirmação](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend).
 - [Aplicativo ASP.NET MVC 5 com SMS e email autenticação de dois fatores](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md) Segundo na série de identidades.
 - [Melhores práticas para implantar senhas e outros dados confidenciais no ASP.NET e no Serviço de Aplicativo do Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
-- [Autenticação de dois fatores usando SMS e email com ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) `isPersistent` e o cookie de segurança, o código para exigir que um usuário tenha uma conta de email validada antes que possa fazer logon, como o SignInManager verifica o requisito de 2FA e muito mais.
+- [Autenticação de dois fatores usando SMS e email com ASP.net Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) `isPersistent` e o cookie de segurança, o código para exigir que um usuário tenha uma conta de email validada antes de poder fazer logon, como o SignInManager verifica o requisito de 2FA e muito mais.
 - [Confirmação de conta e recuperação de senha com ASP.net Identity](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) Fornece detalhes sobre a identidade não encontrada em [criar um aplicativo Web secure ASP.NET MVC 5 com logon, confirmação de email e redefinição de senha](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) , como permitir que os usuários redefinam sua senha esquecida.
 
 <a id="da"></a>
@@ -53,3 +53,16 @@ por [Rick Anderson](https://twitter.com/RickAndMSFT)
 ## <a name="performance-and-debugging"></a>Desempenho e depuração
 
 - [Analisar e depurar seu aplicativo do ASP.NET MVC com Glimpse](../performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
+
+## <a name="aspnet-mvc-dropdownlistfor-with-selectlistitem"></a>ASP.NET MVC DropDownListFor com SelectListItem
+
+Ao usar o <xref:System.Web.Mvc.Html.SelectExtensions.DropDownListFor%2A> auxiliar e passar para ele a coleção da `SelectListItem` qual ele está preenchido, o `DropdownListFor` modifica a coleção passada depois que ele é chamado. `DropdownListFor`altera as `SelectListItems` propriedades selecionadas para o que for selecionado pela lista suspensa. Isso leva a um comportamento inesperado.
+
+O <xref:System.Web.Mvc.Html.SelectExtensions.DropDownListFor%2A> , <xref:System.Web.Mvc.Html.SelectExtensions.DropDownList%2A> , <xref:System.Web.Mvc.Html.SelectExtensions.EnumDropDownListFor%2A> , <xref:System.Web.Mvc.Html.SelectExtensions.ListBox%2A> e <xref:System.Web.Mvc.Html.SelectExtensions.ListBoxFor%2A> atualiza a propriedade selected de qualquer `IEnumerable<SelectListItem>` passado ou encontrado em ViewData.
+
+A solução alternativa é criar enumeráveis separados, contendo instâncias distintas `SelectListItem` , para cada propriedade no modelo.
+
+Para obter mais informações, consulte
+
+* [DropdownListFor modifica a coleção SelectListItem passada para ela](http://web.archive.org/web/20140902031437/http://aspnetwebstack.codeplex.com/workitem/1913)
+* [GetSelectListWithDefaultValue modifica a <SelectListItem> selecionarlist IEnumerable](https://github.com/aspnet/AspNetWebStack/issues/271)

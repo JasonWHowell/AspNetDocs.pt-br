@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: d4dfc435-bda6-4621-9762-9ba270f8de4e
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 21a3efa865e5b5498dfb0f2adec199800fc70c58
-ms.sourcegitcommit: a4c3c7e04e5f53cf8cd334f036d324976b78d154
+ms.openlocfilehash: 2f3a6d57a7963eb7aafde62e344ae6b970af87e2
+ms.sourcegitcommit: 8d34fb54e790cfba2d64097afc8276da5b22283e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172959"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484224"
 ---
 # <a name="tutorial-use-ef-migrations-in-an-aspnet-mvc-app-and-deploy-to-azure"></a>Tutorial: usar migrações do EF em um aplicativo MVC ASP.NET e implantar no Azure
 
@@ -41,10 +41,10 @@ Quando você desenvolve um novo aplicativo, o modelo de dados é alterado com fr
 
 Esse método de manter o banco de dados em sincronia com o modelo de dados funciona bem até que você implante o aplicativo em produção. Quando o aplicativo está em execução na produção, ele geralmente armazena os dados que você deseja manter e você não deseja perder tudo sempre que fizer uma alteração, como adicionar uma nova coluna. O recurso [migrações do Code First](https://msdn.microsoft.com/data/jj591621) resolve esse problema habilitando Code First para atualizar o esquema de banco de dados em vez de descartar e recriar o banco de dados. Neste tutorial, você implantará o aplicativo e para se preparar para que você habilite as migrações.
 
-1. Desabilite o inicializador que você configurou anteriormente comentando ou excluindo o `contexts` elemento que você adicionou ao arquivo Web. config do aplicativo.
+1. Desabilite o inicializador que você configurou anteriormente comentando ou excluindo o `contexts` elemento que você adicionou ao arquivo de Web.config do aplicativo.
 
     [!code-xml[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.xml?highlight=2,6)]
-2. Também no arquivo *Web. config* do aplicativo, altere o nome do banco de dados na cadeia de conexão para ContosoUniversity2.
+2. Também no arquivo de *Web.config* do aplicativo, altere o nome do banco de dados na cadeia de conexão para ContosoUniversity2.
 
     [!code-xml[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.xml?highlight=2)]
 
@@ -129,7 +129,7 @@ Até agora, o aplicativo está em execução localmente em IIS Express no seu co
 
 ### <a name="use-code-first-migrations-to-deploy-the-database"></a>Usar Code First migrações para implantar o banco de dados
 
-Para implantar o banco de dados, você usará Migrações do Code First. Ao criar o perfil de publicação que você usa para definir as configurações de implantação do Visual Studio, você marcará uma caixa de seleção rotulada **Atualizar banco de dados**. Essa configuração faz com que o processo de implantação configure automaticamente o arquivo *Web. config* do aplicativo no servidor de destino para que Code First use a `MigrateDatabaseToLatestVersion` classe do inicializador.
+Para implantar o banco de dados, você usará Migrações do Code First. Ao criar o perfil de publicação que você usa para definir as configurações de implantação do Visual Studio, você marcará uma caixa de seleção rotulada **Atualizar banco de dados**. Essa configuração faz com que o processo de implantação configure automaticamente o arquivo de *Web.config* do aplicativo no servidor de destino para que Code First use a `MigrateDatabaseToLatestVersion` classe do inicializador.
 
 O Visual Studio não faz nada com o banco de dados durante o processo de implantação enquanto copia seu projeto para o servidor de destino. Quando você executa o aplicativo implantado e acessa o banco de dados pela primeira vez após a implantação, o Code First verifica se o banco de dados corresponde ao modelo de dado. Se houver uma incompatibilidade, Code First criará automaticamente o banco de dados (se ele ainda não existir) ou atualizará o esquema de banco de dados para a versão mais recente (se existir um banco de dados, mas não corresponder ao modelo). Se o aplicativo implementar um método de migrações `Seed` , o método será executado depois que o banco de dados for criado ou o esquema for atualizado.
 
@@ -138,7 +138,7 @@ O método Migrations `Seed` insere dados de teste. Se você estivesse implantand
 ### <a name="get-an-azure-account"></a>Obter uma conta do Azure
 
 Você precisará de uma conta do Azure. Se você ainda não tiver uma, mas tiver uma assinatura do Visual Studio, poderá [ativar os benefícios da sua assinatura](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/
-). Caso contrário, você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/free/).
+). Caso contrário, você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/dotnet/).
 
 ### <a name="create-a-web-site-and-a-sql-database-in-azure"></a>Criar um site da Web e um banco de dados SQL no Azure
 
@@ -196,15 +196,15 @@ Você implantará o banco de dados no banco de dados SQL do Azure. O banco de da
 
     Seu aplicativo agora está em execução na nuvem.
 
-Neste ponto, o banco de dados *SchoolContext* foi criado no banco de dados SQL do Azure porque você selecionou **executar migrações do Code First (é executado no início do aplicativo)**. O arquivo *Web. config* no site implantado foi alterado para que o inicializador [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) seja executado na primeira vez em que seu código lê ou grava dados no banco de dado (o que aconteceu quando você selecionou a guia **alunos** ):
+Neste ponto, o banco de dados *SchoolContext* foi criado no banco de dados SQL do Azure porque você selecionou **executar migrações do Code First (é executado no início do aplicativo)**. O arquivo de *Web.config* no site implantado foi alterado para que o inicializador [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) seja executado na primeira vez em que seu código lê ou grava dados no banco de dado (o que aconteceu quando você selecionou a guia **alunos** ):
 
-![Trecho do arquivo Web. config](https://asp.net/media/4367421/mig.png)
+![Trecho de arquivo Web.config](https://asp.net/media/4367421/mig.png)
 
 O processo de implantação também criou uma nova cadeia de conexão *(SchoolContext \_ DatabasePublish*) para migrações do Code First usar para atualizar o esquema de banco de dados e propagar o banco de dados.
 
-![Cadeia de conexão no arquivo Web. config](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
+![Cadeia de conexão no arquivo Web.config](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
 
-Você pode encontrar a versão implantada do arquivo Web. config em seu próprio computador no *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Você pode acessar o próprio arquivo *Web. config* implantado usando FTP. Para obter instruções, consulte [implantação da Web do ASP.NET usando o Visual Studio: Implantando uma atualização de código](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update). Siga as instruções que começam com "para usar uma ferramenta de FTP, você precisa de três coisas: a URL de FTP, o nome de usuário e a senha".
+Você pode encontrar a versão implantada do arquivo de Web.config em seu próprio computador no *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Você pode acessar o próprio arquivo de *Web.config* implantado usando FTP. Para obter instruções, consulte [implantação da Web do ASP.NET usando o Visual Studio: Implantando uma atualização de código](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update). Siga as instruções que começam com "para usar uma ferramenta de FTP, você precisa de três coisas: a URL de FTP, o nome de usuário e a senha".
 
 > [!NOTE]
 > O aplicativo Web não implementa a segurança, para que qualquer pessoa que encontre a URL possa alterar os dados. Para obter instruções sobre como proteger o site da Web, consulte [implantar um aplicativo MVC do secure ASP.NET com associação, OAuth e banco de dados SQL no Azure](/aspnet/core/security/authorization/secure-data). Você pode impedir que outras pessoas usem o site parando o serviço usando o Portal de Gerenciamento ou o **Gerenciador de servidores** do Azure no Visual Studio.
@@ -213,7 +213,7 @@ Você pode encontrar a versão implantada do arquivo Web. config em seu próprio
 
 ## <a name="advanced-migrations-scenarios"></a>Cenários de migrações avançadas
 
-Se você implantar um banco de dados executando migrações automaticamente, conforme mostrado neste tutorial, e estiver implantando em um site que é executado em vários servidores, poderá obter vários servidores tentando executar migrações ao mesmo tempo. As migrações são atômicas, portanto, se dois servidores tentarem executar a mesma migração, um será bem sucedido e o outro falhará (supondo que as operações não possam ser feitas duas vezes). Nesse cenário, se você quiser evitar esses problemas, poderá chamar as migrações manualmente e configurar seu próprio código para que isso ocorra apenas uma vez. Para obter mais informações, consulte [executando e realizando migrações de scripts do código](http://romiller.com/2012/02/09/running-scripting-migrations-from-code/) no blog de Rowan Miller e [Migrate. exe](/ef/ef6/modeling/code-first/migrations/migrate-exe) (para executar migrações na linha de comando).
+Se você implantar um banco de dados executando migrações automaticamente, conforme mostrado neste tutorial, e estiver implantando em um site que é executado em vários servidores, poderá obter vários servidores tentando executar migrações ao mesmo tempo. As migrações são atômicas, portanto, se dois servidores tentarem executar a mesma migração, um será bem sucedido e o outro falhará (supondo que as operações não possam ser feitas duas vezes). Nesse cenário, se você quiser evitar esses problemas, poderá chamar as migrações manualmente e configurar seu próprio código para que isso ocorra apenas uma vez. Para obter mais informações, consulte [executando e realizando migrações de scripts do código](http://romiller.com/2012/02/09/running-scripting-migrations-from-code/) no blog de Rowan Miller e [Migrate.exe](/ef/ef6/modeling/code-first/migrations/migrate-exe) (para executar migrações na linha de comando).
 
 Para obter informações sobre outros cenários de migração, consulte [Migrations screencast Series](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx).
 

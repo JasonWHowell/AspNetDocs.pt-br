@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b1ddb70805dcb07fb60eea895ff572c054bde5c6
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.openlocfilehash: 48938b378a741a0f1c351c2cb1d33b5140c6cf93
+ms.sourcegitcommit: 8d34fb54e790cfba2d64097afc8276da5b22283e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74595229"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484272"
 ---
 # <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Classificação, filtragem e paginação com o Entity Framework em um aplicativo MVC ASP.NET (3 de 10)
 
@@ -21,7 +21,7 @@ por [Tom Dykstra](https://github.com/tdykstra)
 
 [Baixar projeto concluído](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> O aplicativo Web de exemplo da Contoso University demonstra como criar aplicativos ASP.NET MVC 4 usando o Entity Framework 5 Code First e o Visual Studio 2012. Para obter informações sobre a série de tutoriais, consulte [primeiro tutorial na série](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Você pode iniciar a série de tutoriais desde o início ou [baixar um projeto inicial para este capítulo](building-the-ef5-mvc4-chapter-downloads.md) e começar aqui.
+> O aplicativo Web de exemplo da Contoso University demonstra como criar aplicativos ASP.NET MVC 4 usando o Entity Framework 5 Code First e o Visual Studio 2012. Para obter informações sobre a série de tutoriais, consulte [o primeiro tutorial da série](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Você pode iniciar a série de tutoriais desde o início ou [baixar um projeto inicial para este capítulo](building-the-ef5-mvc4-chapter-downloads.md) e começar aqui.
 > 
 > > [!NOTE] 
 > > 
@@ -35,23 +35,23 @@ A ilustração a seguir mostra a aparência da página quando você terminar. Os
 
 ## <a name="add-column-sort-links-to-the-students-index-page"></a>Adicionar links de classificação de coluna à página Índice de Alunos
 
-Para adicionar classificação à página de índice de estudante, você alterará o método `Index` do controlador de `Student` e adicionará o código à exibição de índice `Student`.
+Para adicionar a classificação à página de índice de estudante, você alterará o `Index` método do `Student` controlador e adicionará o código à `Student` exibição de índice.
 
 ### <a name="add-sorting-functionality-to-the-index-method"></a>Adicionar funcionalidade de classificação ao método de índice
 
-No *Controllers\StudentController.cs*, substitua o método `Index` pelo código a seguir:
+No *Controllers\StudentController.cs*, substitua o `Index` método pelo código a seguir:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Esse código recebe um parâmetro `sortOrder` da cadeia de caracteres de consulta na URL. O valor da cadeia de caracteres de consulta é fornecido pelo ASP.NET MVC como um parâmetro para o método de ação. O parâmetro será uma cadeia de caracteres "Name" ou "Date", opcionalmente, seguido de um sublinhado e a cadeia de caracteres "desc" para especificar a ordem descendente. A ordem de classificação crescente é padrão.
+Esse código recebe um parâmetro `sortOrder` da cadeia de caracteres de consulta na URL. O valor da cadeia de caracteres de consulta é fornecido pelo ASP.NET MVC como um parâmetro para o método de ação. O parâmetro será uma cadeia de caracteres "Name" ou "Date", opcionalmente, seguido de um sublinhado e a cadeia de caracteres "desc" para especificar a ordem descendente. A ordem de classificação padrão é crescente.
 
-Na primeira vez que a página Índice é solicitada, não há nenhuma cadeia de caracteres de consulta. Os alunos são exibidos em ordem crescente por `LastName`, que é o padrão, conforme estabelecido pelo caso de outono na instrução `switch`. Quando o usuário clica em um hiperlink de título de coluna, o valor `sortOrder` apropriado é fornecido na cadeia de caracteres de consulta.
+Na primeira vez que a página Índice é solicitada, não há nenhuma cadeia de caracteres de consulta. Os alunos são exibidos em ordem crescente por `LastName` , que é o padrão, conforme estabelecido pelo caso de outono na `switch` instrução. Quando o usuário clica em um hiperlink de título de coluna, o valor `sortOrder` apropriado é fornecido na cadeia de caracteres de consulta.
 
-As duas variáveis `ViewBag` são usadas para que a exibição possa configurar os hiperlinks de título de coluna com os valores de cadeia de caracteres de consulta apropriados:
+As duas `ViewBag` variáveis são usadas para que a exibição possa configurar os hiperlinks de título de coluna com os valores de cadeia de caracteres de consulta apropriados:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Essas são instruções ternárias. O primeiro especifica que, se o parâmetro `sortOrder` for nulo ou vazio, `ViewBag.NameSortParm` deverá ser definido como "nome\_desc"; caso contrário, ele deve ser definido como uma cadeia de caracteres vazia. Essas duas instruções permitem que a exibição defina os hiperlinks de título de coluna da seguinte maneira:
+Essas são instruções ternárias. O primeiro especifica que, se o `sortOrder` parâmetro for nulo ou vazio, `ViewBag.NameSortParm` deve ser definido como "nome \_ desc"; caso contrário, ele deve ser definido como uma cadeia de caracteres vazia. Essas duas instruções permitem que a exibição defina os hiperlinks de título de coluna da seguinte maneira:
 
 | Ordem de classificação atual | Hiperlink do sobrenome | Hiperlink de data |
 | --- | --- | --- |
@@ -60,15 +60,15 @@ Essas são instruções ternárias. O primeiro especifica que, se o parâmetro `
 | Data ascendente | ascending | descending |
 | Data descendente | ascending | ascending |
 
-O método usa [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) para especificar a coluna pela qual classificar. O código cria uma variável [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) antes da instrução `switch`, modifica-a na instrução `switch` e chama o método `ToList` após a instrução `switch`. Quando você cria e modifica variáveis `IQueryable`, nenhuma consulta é enviada para o banco de dados. A consulta não é executada até que você converta o objeto `IQueryable` em uma coleção chamando um método como `ToList`. Portanto, esse código resulta em uma única consulta que não é executada até a instrução `return View`.
+O método usa [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) para especificar a coluna pela qual classificar. O código cria uma variável [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) antes da `switch` instrução, modifica-a na `switch` instrução e chama o `ToList` método após a `switch` instrução. Quando você cria e modifica variáveis `IQueryable`, nenhuma consulta é enviada para o banco de dados. A consulta não é executada até que você converta o `IQueryable` objeto em uma coleção chamando um método como `ToList` . Portanto, esse código resulta em uma única consulta que não é executada até a `return View` instrução.
 
 ### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Adicionar hiperlinks de título de coluna à exibição de índice de estudante
 
-No *Views\Student\Index.cshtml*, substitua os elementos `<tr>` e `<th>` da linha de cabeçalho pelo código realçado:
+No *Views\Student\Index.cshtml*, substitua os `<tr>` `<th>` elementos e da linha de cabeçalho pelo código realçado:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cshtml?highlight=5-15)]
 
-Esse código usa as informações nas propriedades `ViewBag` para configurar hiperlinks com os valores de cadeia de caracteres de consulta apropriados.
+Esse código usa as informações nas `ViewBag` Propriedades para configurar hiperlinks com os valores de cadeia de caracteres de consulta apropriados.
 
 Execute a página e clique nos títulos de coluna de data do **último nome** e do **registro** para verificar se a classificação funciona.
 
@@ -84,18 +84,18 @@ Para adicionar a filtragem à página Índice de Alunos, você adicionará uma c
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Adicionar funcionalidade de filtragem ao método de índice
 
-No *Controllers\StudentController.cs*, substitua o método `Index` pelo código a seguir (as alterações são realçadas):
+No *Controllers\StudentController.cs*, substitua o `Index` método pelo código a seguir (as alterações são realçadas):
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Você adicionou um parâmetro `searchString` ao método `Index`. Você também adicionou à instrução LINQ uma cláusula `where` que seleciona somente alunos cujo nome ou sobrenome contêm a cadeia de caracteres de pesquisa. O valor da cadeia de caracteres de pesquisa é recebido de uma caixa de texto que você adicionará à exibição de índice. A instrução que adiciona a cláusula [Where](https://msdn.microsoft.com/library/bb535040.aspx) é executada somente se houver um valor a ser procurado.
+Você adicionou um parâmetro `searchString` ao método `Index`. Você também adicionou à instrução LINQ uma `where` cláusula que seleciona somente alunos cujo nome ou sobrenome contêm a cadeia de caracteres de pesquisa. O valor da cadeia de caracteres de pesquisa é recebido de uma caixa de texto que você adicionará à exibição de índice. A instrução que adiciona a cláusula [Where](https://msdn.microsoft.com/library/bb535040.aspx) é executada somente se houver um valor a ser procurado.
 
 > [!NOTE]
-> Em muitos casos, você pode chamar o mesmo método em um conjunto de entidades Entity Framework ou como um método de extensão em uma coleção na memória. Os resultados são normalmente os mesmos, mas em alguns casos podem ser diferentes. Por exemplo, a implementação de .NET Framework do método `Contains` retorna todas as linhas quando você passa uma cadeia de caracteres vazia para ela, mas o provedor de Entity Framework para SQL Server Compact 4,0 retorna zero linhas para cadeias de caracteres vazias. Portanto, o código no exemplo (colocar a instrução `Where` dentro de uma instrução `if`) garante que você obtenha os mesmos resultados para todas as versões do SQL Server. Além disso, a implementação .NET Framework do método `Contains` executa uma comparação que diferencia maiúsculas de minúsculas por padrão, mas Entity Framework provedores de SQL Server executam comparações que não diferenciam maiúsculas de minúsculas por padrão. Portanto, chamar o método `ToUpper` para fazer o teste explicitamente não diferencia maiúsculas de minúsculas garante que os resultados não sejam alterados quando você alterar o código posteriormente para usar um repositório, o que retornará uma coleção de `IEnumerable` em vez de um objeto `IQueryable`. (Quando você chama o método `Contains` em uma coleção `IEnumerable`, obtém a implementação do .NET Framework; quando chama-o em um objeto `IQueryable`, obtém a implementação do provedor de banco de dados.)
+> Em muitos casos, você pode chamar o mesmo método em um conjunto de entidades Entity Framework ou como um método de extensão em uma coleção na memória. Os resultados são normalmente os mesmos, mas em alguns casos podem ser diferentes. Por exemplo, a implementação de .NET Framework do `Contains` método retorna todas as linhas quando você passa uma cadeia de caracteres vazia para ela, mas o provedor de Entity Framework para SQL Server Compact 4,0 retorna zero linhas para cadeias de caracteres vazias. Portanto, o código no exemplo (colocando a `Where` instrução dentro de uma `if` instrução) garante que você obtenha os mesmos resultados para todas as versões do SQL Server. Além disso, a implementação de .NET Framework do `Contains` método executa uma comparação que diferencia maiúsculas de minúsculas por padrão, mas Entity Framework provedores de SQL Server executam comparações que não diferenciam maiúsculas de minúsculas por padrão. Portanto, chamar o `ToUpper` método para fazer o teste explicitamente não diferencia maiúsculas de minúsculas garante que os resultados não sejam alterados quando você altera o código posteriormente para usar um repositório, o que retornará uma `IEnumerable` coleção em vez de um `IQueryable` objeto. (Quando você chama o método `Contains` em uma coleção `IEnumerable`, obtém a implementação do .NET Framework; quando chama-o em um objeto `IQueryable`, obtém a implementação do provedor de banco de dados.)
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Adicionar uma Caixa de Pesquisa à exibição Índice de Alunos
 
-No *Views\Student\Index.cshtml*, adicione o código realçado imediatamente antes da marca de `table` de abertura para criar uma legenda, uma caixa de texto e um botão de **pesquisa** .
+No *Views\Student\Index.cshtml*, adicione o código realçado imediatamente antes da marca de abertura `table` para criar uma legenda, uma caixa de texto e um botão de **pesquisa** .
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cshtml?highlight=5-10)]
 
@@ -107,13 +107,13 @@ Observe que a URL não contém a cadeia de caracteres de pesquisa "a", o que sig
 
 ## <a name="add-paging-to-the-students-index-page"></a>Adicionar paginação à página de índice estudantes
 
-Para adicionar a paginação à página de índice estudantes, você começará instalando o pacote NuGet **PagedList. Mvc** . Em seguida, você fará alterações adicionais no método `Index` e adicionará links de paginação à exibição `Index`. O **PagedList. Mvc** é um dos muitos pacotes bons de paginação e classificação para o ASP.NET MVC, e seu uso é destinado apenas como exemplo, não como uma recomendação para ele em relação a outras opções. A ilustração a seguir mostra os links de paginação.
+Para adicionar a paginação à página de índice estudantes, você começará instalando o pacote NuGet **PagedList. Mvc** . Em seguida, você fará alterações adicionais no `Index` método e adicionará links de paginação à `Index` exibição. O **PagedList. Mvc** é um dos muitos pacotes bons de paginação e classificação para o ASP.NET MVC, e seu uso é destinado apenas como exemplo, não como uma recomendação para ele em relação a outras opções. A ilustração a seguir mostra os links de paginação.
 
 ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
 ### <a name="install-the-pagedlistmvc-nuget-package"></a>Instalar o pacote NuGet PagedList. MVC
 
-O pacote NuGet **PagedList. Mvc** instala automaticamente o pacote **PagedList** como uma dependência. O pacote **PagedList** instala um tipo de coleção e métodos de extensão de `PagedList` para coleções de `IQueryable` e de `IEnumerable`. Os métodos de extensão criam uma única página de dados em uma coleção de `PagedList` fora de seu `IQueryable` ou `IEnumerable`, e a coleção de `PagedList` fornece várias propriedades e métodos que facilitam a paginação. O pacote **PagedList. Mvc** instala um auxiliar de paginação que exibe os botões de paginação.
+O pacote NuGet **PagedList. Mvc** instala automaticamente o pacote **PagedList** como uma dependência. O pacote **PagedList** instala um `PagedList` tipo de coleção e métodos de extensão para `IQueryable` `IEnumerable` coleções e. Os métodos de extensão criam uma única página de dados em uma `PagedList` coleção fora de seu `IQueryable` ou `IEnumerable` e a `PagedList` coleção fornece várias propriedades e métodos que facilitam a paginação. O pacote **PagedList. Mvc** instala um auxiliar de paginação que exibe os botões de paginação.
 
 No menu **ferramentas** , selecione **Gerenciador de pacotes NuGet** e, em seguida, **gerenciar pacotes NuGet para solução**.
 
@@ -127,7 +127,7 @@ Na caixa **selecionar projetos** , clique em **OK**.
 
 ### <a name="add-paging-functionality-to-the-index-method"></a>Adicionar funcionalidade de paginação ao método de índice
 
-No *Controllers\StudentController.cs*, adicione uma instrução `using` para o namespace `PagedList`:
+Em *Controllers\StudentController.cs*, adicione uma `using` instrução para o `PagedList` namespace:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
@@ -135,21 +135,21 @@ Substitua o método `Index` pelo seguinte código:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
-Esse código adiciona um parâmetro `page`, um parâmetro de ordem de classificação atual e um parâmetro de filtro atual à assinatura do método, como mostrado aqui:
+Esse código adiciona um `page` parâmetro, um parâmetro de ordem de classificação atual e um parâmetro de filtro atual à assinatura do método, como mostrado aqui:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-Na primeira vez que a página for exibida, ou se o usuário ainda não tiver clicado em um link de paginação ou classificação, todos os parâmetros serão nulos. Se um link de paginação for clicado, a variável `page` conterá o número de página a ser exibido.
+Na primeira vez que a página for exibida, ou se o usuário ainda não tiver clicado em um link de paginação ou classificação, todos os parâmetros serão nulos. Se um link de paginação for clicado, a variável conterá `page` o número de página a ser exibido.
 
-`A ViewBag` propriedade fornece a exibição com a ordem de classificação atual, pois ela deve ser incluída nos links de paginação para manter a mesma ordem de classificação durante a paginação:
+`A ViewBag`a propriedade fornece a exibição com a ordem de classificação atual, pois ela deve ser incluída nos links de paginação para manter a mesma ordem de classificação durante a paginação:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-Outra propriedade, `ViewBag.CurrentFilter`, fornece a exibição com a cadeia de caracteres de filtro atual. Esse valor precisa ser incluído nos links de paginação para manter as configurações de filtro durante a paginação e precisa ser restaurado para a caixa de texto quando a página é exibida novamente. Se a cadeia de caracteres de pesquisa for alterada durante a paginação, a página precisará ser redefinida como 1, porque o novo filtro pode resultar na exibição de dados diferentes. A cadeia de caracteres de pesquisa é alterada quando um valor é inserido na caixa de texto e o botão enviar é pressionado. Nesse caso, o parâmetro `searchString` não é nulo.
+Outra propriedade, `ViewBag.CurrentFilter` , fornece a exibição com a cadeia de caracteres de filtro atual. Esse valor precisa ser incluído nos links de paginação para manter as configurações de filtro durante a paginação e precisa ser restaurado para a caixa de texto quando a página é exibida novamente. Se a cadeia de caracteres de pesquisa for alterada durante a paginação, a página precisará ser redefinida como 1, porque o novo filtro pode resultar na exibição de dados diferentes. A cadeia de caracteres de pesquisa é alterada quando um valor é inserido na caixa de texto e o botão enviar é pressionado. Nesse caso, o `searchString` parâmetro não é nulo.
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 
-No final do método, o método de extensão `ToPagedList` no objeto dos alunos `IQueryable` converte a consulta de aluno em uma única página de alunos em um tipo de coleção que dá suporte à paginação. Essa única página de alunos é passada para a exibição:
+No final do método, o método de `ToPagedList` extensão no objeto dos alunos `IQueryable` converte a consulta de aluno em uma única página de alunos em um tipo de coleção que dá suporte à paginação. Essa única página de alunos é passada para a exibição:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
@@ -163,7 +163,7 @@ No *Views\Student\Index.cshtml*, substitua o código existente pelo código a se
 
 A instrução `@model` na parte superior da página especifica que a exibição agora obtém um objeto `PagedList`, em vez de um objeto `List`.
 
-A instrução `using` para `PagedList.Mvc` dá acesso ao auxiliar do MVC para os botões de paginação.
+A `using` instrução para `PagedList.Mvc` fornece acesso ao auxiliar do MVC para os botões de paginação.
 
 O código usa uma sobrecarga de [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) que permite especificar [FormMethod. Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
 
@@ -185,11 +185,11 @@ A página atual e o número total de páginas são exibidos.
 
 Se não houver nenhuma página a ser exibida, "página 0 de 0" será mostrada. (Nesse caso, o número da página é maior que a contagem de páginas porque `Model.PageNumber` é 1 e `Model.PageCount` é 0.)
 
-Os botões de paginação são exibidos pelo auxiliar de `PagedListPager`:
+Os botões de paginação são exibidos pelo `PagedListPager` auxiliar:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 
-O auxiliar de `PagedListPager` fornece várias opções que você pode personalizar, incluindo URLs e estilos. Para obter mais informações, consulte [TroyGoode/PagedList](https://github.com/TroyGoode/PagedList) no site do github.
+O `PagedListPager` auxiliar fornece várias opções que você pode personalizar, incluindo URLs e estilos. Para obter mais informações, consulte [TroyGoode/PagedList](https://github.com/TroyGoode/PagedList) no site do github.
 
 Execute a página.
 
@@ -201,11 +201,11 @@ Clique nos links de paginação em ordens de classificação diferentes para ver
 
 ## <a name="create-an-about-page-that-shows-student-statistics"></a>Criar uma página sobre que mostre estatísticas de alunos
 
-Para a página sobre do site da Contoso University, você exibirá quantos alunos se registraram para cada data de registro. Isso exige agrupamento e cálculos simples nos grupos. Para fazer isso, você fará o seguinte:
+Para a página Sobre do site da Contoso University, você exibirá quantos alunos se registraram para cada data de registro. Isso exige agrupamento e cálculos simples nos grupos. Para fazer isso, você fará o seguinte:
 
 - Criar uma classe de modelo de exibição para os dados que você precisa passar para a exibição.
-- Modifique o método `About` no controlador de `Home`.
-- Modifique a exibição de `About`.
+- Modifique o `About` método no `Home` controlador.
+- Modifique a `About` exibição.
 
 ### <a name="create-the-view-model"></a>Criar o modelo de exibição
 
@@ -215,7 +215,7 @@ Crie uma pasta *ViewModels* . Nessa pasta, adicione um arquivo de classe *Enroll
 
 ### <a name="modify-the-home-controller"></a>Modificar o controlador Home
 
-No *HomeController.cs*, adicione as seguintes instruções de `using` na parte superior do arquivo:
+No *HomeController.cs*, adicione as seguintes `using` instruções na parte superior do arquivo:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cs)]
 
@@ -229,7 +229,7 @@ Substitua o método `About` pelo seguinte código:
 
 A instrução LINQ agrupa as entidades de alunos por data de registro, calcula o número de entidades em cada grupo e armazena os resultados em uma coleção de objetos de modelo de exibição `EnrollmentDateGroup`.
 
-Adicione um método de `Dispose`:
+Adicione um `Dispose` método:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
@@ -249,19 +249,19 @@ Até agora, seu aplicativo está em execução localmente em IIS Express no seu 
 
 ### <a name="using-code-first-migrations-to-deploy-the-database"></a>Usando Migrações do Code First para implantar o banco de dados
 
-Para implantar o banco de dados, você usará Migrações do Code First. Ao criar o perfil de publicação que você usa para definir as configurações de implantação do Visual Studio, você marcará uma caixa de seleção que é rotulada como **executar migrações do Code First (é executado no início do aplicativo)** . Essa configuração faz com que o processo de implantação configure automaticamente o arquivo *Web. config* do aplicativo no servidor de destino para que Code First use a classe de inicializador `MigrateDatabaseToLatestVersion`.
+Para implantar o banco de dados, você usará Migrações do Code First. Ao criar o perfil de publicação que você usa para definir as configurações de implantação do Visual Studio, você marcará uma caixa de seleção que é rotulada como **executar migrações do Code First (é executado no início do aplicativo)**. Essa configuração faz com que o processo de implantação configure automaticamente o arquivo de *Web.config* do aplicativo no servidor de destino para que Code First use a `MigrateDatabaseToLatestVersion` classe do inicializador.
 
-O Visual Studio não faz nada com o banco de dados durante o processo de implantação. Quando o aplicativo implantado acessa o banco de dados pela primeira vez após a implantação, Code First cria automaticamente o banco de dados ou atualiza o esquema de banco de dados para a versão mais recente. Se o aplicativo implementa uma migração `Seed` método, o método é executado depois que o banco de dados é criado ou o esquema é atualizado.
+O Visual Studio não faz nada com o banco de dados durante o processo de implantação. Quando o aplicativo implantado acessa o banco de dados pela primeira vez após a implantação, Code First cria automaticamente o banco de dados ou atualiza o esquema de banco de dados para a versão mais recente. Se o aplicativo implementar um método de migrações `Seed` , o método será executado depois que o banco de dados for criado ou o esquema for atualizado.
 
-As migrações `Seed` método insere dados de teste. Se você estivesse implantando em um ambiente de produção, precisaria alterar o método `Seed` para que ele insira apenas os dados que você deseja inserir em seu banco de dados de produção. Por exemplo, em seu modelo de dados atual, talvez você queira ter cursos reais, mas os alunos fictícios no banco de dado de desenvolvimento. Você pode escrever um método de `Seed` para carregar ambos no desenvolvimento e, em seguida, comentar os alunos fictícios antes de implantá-los na produção. Ou você pode escrever um método de `Seed` para carregar apenas cursos e inserir os alunos fictícios no banco de dados de teste manualmente usando a interface do usuário do aplicativo.
+O método Migrations `Seed` insere dados de teste. Se você estivesse implantando em um ambiente de produção, precisaria alterar o `Seed` método para que ele apenas insira dados que você deseja inserir em seu banco de dados de produção. Por exemplo, em seu modelo de dados atual, talvez você queira ter cursos reais, mas os alunos fictícios no banco de dado de desenvolvimento. Você pode escrever um `Seed` método para carregar ambos no desenvolvimento e, em seguida, comentar os alunos fictícios antes de implantá-los na produção. Ou você pode escrever um `Seed` método para carregar apenas cursos e inserir os alunos fictícios no banco de dados de teste manualmente usando a interface do usuário do aplicativo.
 
 ### <a name="get-a-windows-azure-account"></a>Obter uma conta do Windows Azure
 
-Você precisará de uma conta do Windows Azure. Se você ainda não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Windows Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Você precisará de uma conta do Windows Azure. Se você ainda não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Windows Azure](https://azure.microsoft.com/free/dotnet/).
 
 ### <a name="create-a-web-site-and-a-sql-database-in-windows-azure"></a>Criar um site da Web e um banco de dados SQL no Windows Azure
 
-Seu site do Windows Azure será executado em um ambiente de hospedagem compartilhado, o que significa que ele é executado em máquinas virtuais (VMs) que são compartilhadas com outros clientes do Windows Azure. Um ambiente de hospedagem compartilhado é uma maneira econômica de começar a usar a nuvem. Posteriormente, se o tráfego da Web aumentar, o aplicativo poderá ser dimensionado para atender à necessidade executando em VMs dedicadas. Se precisar de uma arquitetura mais complexa, você poderá migrar para um serviço de nuvem do Windows Azure. Os serviços de nuvem são executados em VMs dedicadas que você pode configurar de acordo com suas necessidades.
+Seu site do Windows Azure será executado em um ambiente de hospedagem compartilhado, o que significa que ele é executado em máquinas virtuais (VMs) que são compartilhadas com outros clientes do Windows Azure. Um ambiente de hospedagem compartilhado é uma maneira de começar na nuvem a um baixo custo. Mais tarde, se seu tráfego da Web aumentar, o aplicativo poderá ser dimensionado para atender à necessidade executando em VMs dedicadas. Se precisar de uma arquitetura mais complexa, você poderá migrar para um serviço de nuvem do Windows Azure. Os serviços de nuvem são executados em VMs dedicadas que podem ser configuradas de acordo com suas necessidades.
 
 O banco de dados SQL do Windows Azure é um serviço de banco de dados relacional baseado em nuvem criado em tecnologias de SQL Server. Ferramentas e aplicativos que funcionam com o SQL Server também funcionam com o banco de dados SQL.
 
@@ -273,7 +273,7 @@ O banco de dados SQL do Windows Azure é um serviço de banco de dados relaciona
     ![Criar com link de banco de dados no Portal de Gerenciamento](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
 
    O **novo site da Web-assistente de criação personalizada** é aberto.
-3. Na etapa **novo site** do assistente, insira uma cadeia de caracteres na caixa **URL** para usar como a URL exclusiva para seu aplicativo. A URL completa consistirá no que você inserir aqui, além do sufixo que você vê ao lado da caixa de texto. A ilustração mostra "ConU", mas essa URL é provavelmente usada, portanto, você precisará escolher uma diferente.
+3. Na etapa **novo site** do assistente, insira uma cadeia de caracteres na caixa **URL** para usar como a URL exclusiva para seu aplicativo. A URL completa consistirá no que você digitar aqui mais o sufixo que você vê ao lado da caixa de texto. A ilustração mostra "ConU", mas essa URL é provavelmente usada, portanto, você precisará escolher uma diferente.
 
     ![Criar com link de banco de dados no Portal de Gerenciamento](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
 4. Na lista suspensa **região** , escolha uma região perto de você. Essa configuração especifica em qual data center seu site será executado.
@@ -286,7 +286,7 @@ O banco de dados SQL do Windows Azure é um serviço de banco de dados relaciona
 7. Clique na seta que aponta para a direita na parte inferior da caixa. O assistente avança para a etapa **configurações de banco de dados** .
 8. Na caixa **nome** , digite *ContosoUniversityDB*.
 9. Na caixa **servidor** , selecione **novo servidor de banco de dados SQL**. Como alternativa, se você tiver criado anteriormente um servidor, poderá selecionar esse servidor na lista suspensa.
-10. Insira um **nome de logon** e uma **senha**de administrador. Se você selecionou **novo servidor de banco de dados SQL** , não está inserindo um nome e senha existentes aqui, você está inserindo um novo nome e senha que você está definindo agora para usar posteriormente ao acessar o banco de dados. Se você selecionou um servidor criado anteriormente, você digitará as credenciais para esse servidor. Para este tutorial, você não marcará a caixa de seleção ***avançado*** . As opções ***avançadas*** permitem que você defina o [agrupamento](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx)do banco de dados.
+10. Insira um **nome de logon** e uma **senha**de administrador. Se selecionou **Novo servidor do Banco de Dados SQL** , você não irá digitar um nome e uma senha existentes aqui; digite um novo nome e uma senha que você está definindo agora para usar mais tarde ao acessar o banco de dados. Se você selecionou um servidor criado anteriormente, você digitará as credenciais para esse servidor. Para este tutorial, você não marcará a caixa de seleção ***avançado*** . As opções ***avançadas*** permitem que você defina o [agrupamento](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx)do banco de dados.
 11. Escolha a mesma **região** que você escolheu para o site.
 12. Clique na marca de seleção na parte inferior direita da caixa para indicar que você terminou.   
   
@@ -300,7 +300,7 @@ O banco de dados SQL do Windows Azure é um serviço de banco de dados relaciona
 
 ## <a name="deploy-the-application-to-windows-azure"></a>Implantar o aplicativo no Windows Azure
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto em **Gerenciador de soluções** e selecione **publicar** no menu de contexto.  
+1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione **Publicar** no menu de contexto.  
   
     ![Publicar no menu de contexto do projeto](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image18.png)
 2. Na guia **perfil** do assistente **publicar Web** , clique em **importar**.  
@@ -321,7 +321,7 @@ O banco de dados SQL do Windows Azure é um serviço de banco de dados relaciona
     ![baixar arquivo. publishsettings](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image22.png)
 
     > [!WARNING]
-    > Segurança-o arquivo *publishsettings* contém suas credenciais (sem codificação) que são usadas para administrar suas assinaturas e serviços do Windows Azure. A prática recomendada de segurança para esse arquivo é armazená-lo temporariamente fora dos diretórios de origem (por exemplo, na pasta *Libraries\Documents* ) e, em seguida, excluí-lo após a conclusão da importação. Um usuário mal-intencionado que obtém acesso ao arquivo de `.publishsettings` pode editar, criar e excluir seus serviços do Windows Azure.
+    > Segurança-o arquivo *publishsettings* contém suas credenciais (sem codificação) que são usadas para administrar suas assinaturas e serviços do Windows Azure. A prática recomendada de segurança para esse arquivo é armazená-lo temporariamente fora dos diretórios de origem (por exemplo, na pasta *Libraries\Documents* ) e, em seguida, excluí-lo após a conclusão da importação. Um usuário mal-intencionado que obtém acesso ao `.publishsettings` arquivo pode editar, criar e excluir seus serviços do Windows Azure.
 
     d. Na caixa de diálogo **importar assinaturas do Windows Azure** , clique em **procurar** e navegue até o arquivo *. publishsettings* .
 
@@ -336,15 +336,15 @@ O banco de dados SQL do Windows Azure é um serviço de banco de dados relaciona
 5. Na guia **conexão** , clique em **validar conexão** para certificar-se de que as configurações estão corretas.  
   
     ![Validar conexão](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
-6. Quando a conexão for validada, uma marca de seleção verde será mostrada ao lado do botão **validar conexão** . Clique em **Avançar**.  
+6. Quando a conexão for validada, uma marca de seleção verde será mostrada ao lado do botão **validar conexão** . Clique em **Próximo**.  
   
     ![Conexão validada com êxito](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image27.png)
 7. Abra a lista suspensa **cadeia de conexão remota** em **SchoolContext** e selecione a cadeia de conexão para o banco de dados que você criou.
-8. Selecione **executar migrações do Code First (é executado no início do aplicativo)** .
-9. Desmarque **usar esta cadeia de conexão em tempo de execução** para o **userContext (DefaultConnection)** , pois esse aplicativo não está usando o banco de dados de associação.   
+8. Selecione **executar migrações do Code First (é executado no início do aplicativo)**.
+9. Desmarque **usar esta cadeia de conexão em tempo de execução** para o **userContext (DefaultConnection)**, pois esse aplicativo não está usando o banco de dados de associação.   
   
     ![Guia Configurações](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image28.png)
-10. Clique em **Avançar**.
+10. Clique em **Próximo**.
 11. Na guia **Visualização** , clique em **Iniciar visualização**.  
   
     ![Botão StartPreview na guia Visualização](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image29.png)  
@@ -354,7 +354,7 @@ O banco de dados SQL do Windows Azure é um serviço de banco de dados relaciona
     ![Saída do arquivo StartPreview](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image30.png)
 12. Clique em **Publicar**.  
     O Visual Studio inicia o processo de copiar os arquivos para o servidor do Windows Azure.
-13. A janela **saída** mostra quais ações de implantação foram executadas e relata a conclusão bem-sucedida da implantação.  
+13. A janela **Saída** mostra quais ações de implantação foram executadas e os relatórios da conclusão com êxito da implantação.  
   
     ![Janela de saída relatando a implantação bem-sucedida](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image31.png)
 14. Após a implantação bem-sucedida, o navegador padrão será aberto automaticamente na URL do site implantado.  
@@ -362,17 +362,17 @@ O banco de dados SQL do Windows Azure é um serviço de banco de dados relaciona
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
-Neste ponto, seu banco de dados *SchoolContext* foi criado no banco de dados SQL do Windows Azure porque você selecionou **executar migrações do Code First (é executado no início do aplicativo)** . O arquivo *Web. config* no site implantado foi alterado para que o inicializador [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) fosse executado na primeira vez em que o código lê ou grava dados no banco de dado (o que aconteceu quando você selecionou a guia **alunos** ):
+Neste ponto, seu banco de dados *SchoolContext* foi criado no banco de dados SQL do Windows Azure porque você selecionou **executar migrações do Code First (é executado no início do aplicativo)**. O arquivo de *Web.config* no site implantado foi alterado para que o inicializador [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) fosse executado na primeira vez em que seu código lê ou grava dados no banco de dado (o que aconteceu quando você selecionou a guia **estudantes** ):
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image33.png)
 
-O processo de implantação também criou uma nova cadeia de conexão *(SchoolContext\_DatabasePublish*) para migrações do Code First usar para atualizar o esquema de banco de dados e propagar o banco de dados.
+O processo de implantação também criou uma nova cadeia de conexão *(SchoolContext \_ DatabasePublish*) para migrações do Code First usar para atualizar o esquema de banco de dados e propagar o banco de dados.
 
 ![Database_Publish cadeia de conexão](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image34.png)
 
 A cadeia de conexão *DefaultConnection* é para o banco de dados Membership (que não estamos usando neste tutorial). A cadeia de conexão *SchoolContext* é para o banco de dados ContosoUniversity.
 
-Você pode encontrar a versão implantada do arquivo Web. config em seu próprio computador no *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Você pode acessar o próprio arquivo *Web. config* implantado usando FTP. Para obter instruções, consulte [implantação da Web do ASP.NET usando o Visual Studio: Implantando uma atualização de código](../../../../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). Siga as instruções que começam com "para usar uma ferramenta de FTP, você precisa de três coisas: a URL de FTP, o nome de usuário e a senha".
+Você pode encontrar a versão implantada do arquivo de Web.config em seu próprio computador no *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Você pode acessar o próprio arquivo de *Web.config* implantado usando FTP. Para obter instruções, consulte [implantação da Web do ASP.NET usando o Visual Studio: Implantando uma atualização de código](../../../../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). Siga as instruções que começam com "para usar uma ferramenta de FTP, você precisa de três coisas: a URL de FTP, o nome de usuário e a senha".
 
 > [!NOTE]
 > O aplicativo Web não implementa a segurança, para que qualquer pessoa que encontre a URL possa alterar os dados. Para obter instruções sobre como proteger o site da Web, consulte [implantar um aplicativo MVC do secure ASP.NET com associação, OAuth e banco de dados SQL em um site do Windows Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Você pode impedir que outras pessoas usem o site usando o Portal de Gerenciamento do Windows Azure ou **Gerenciador de servidores** no Visual Studio para interromper o site.
@@ -381,7 +381,7 @@ Você pode encontrar a versão implantada do arquivo Web. config em seu próprio
 
 ## <a name="code-first-initializers"></a>Inicializadores de Code First
 
-Na seção de implantação, você viu o inicializador [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) que está sendo usado. O Code First também fornece outros inicializadores que você pode usar, incluindo [CreateDatabaseIfNotExists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (o padrão), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) e [DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). O inicializador de `DropCreateAlways` pode ser útil para configurar condições para testes de unidade. Você também pode escrever seus próprios inicializadores e pode chamar um inicializador explicitamente se não quiser esperar até que o aplicativo leia ou grave no banco de dados. Para obter uma explicação abrangente dos inicializadores, consulte o capítulo 6 da [programação de livros Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) por Julie Lerman e Rowan Miller.
+Na seção de implantação, você viu o inicializador [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) que está sendo usado. O Code First também fornece outros inicializadores que você pode usar, incluindo [CreateDatabaseIfNotExists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (o padrão), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) e [DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). O `DropCreateAlways` inicializador pode ser útil para configurar condições para testes de unidade. Você também pode escrever seus próprios inicializadores e pode chamar um inicializador explicitamente se não quiser esperar até que o aplicativo leia ou grave no banco de dados. Para obter uma explicação abrangente dos inicializadores, consulte o capítulo 6 da [programação de livros Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) por Julie Lerman e Rowan Miller.
 
 ## <a name="summary"></a>Resumo
 
@@ -390,5 +390,5 @@ Neste tutorial, você viu como criar um modelo de dados e implementar a funciona
 Links para outros recursos de Entity Framework podem ser encontrados no [mapa de conteúdo de acesso a dados do ASP.net](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 > [!div class="step-by-step"]
-> [Anterior](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
-> [Próximo](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+> [Anterior](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md) 
+>  [Avançar](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)

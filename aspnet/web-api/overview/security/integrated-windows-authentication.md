@@ -8,12 +8,12 @@ ms.date: 12/18/2012
 ms.assetid: 71ee4c78-c500-4d1c-b761-b4e161a291b5
 msc.legacyurl: /web-api/overview/security/integrated-windows-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: e4f31f191f3c0fabff308ea5dadb0f1d9ce7d448
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: c5fe57c4a20e28fa434659a75484e3a4c37195f8
+ms.sourcegitcommit: 000cbcd1de66fe8a766f203ef2d6f009e4435f53
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78621740"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86424786"
 ---
 # <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows
 
@@ -23,12 +23,14 @@ A autenticação integrada do Windows permite que os usuários façam logon com 
 
 | Vantagens | Desvantagens |
 | --- | --- |
-| -Interno ao IIS. -Não envia as credenciais do usuário na solicitação. -Se o computador cliente pertencer ao domínio (por exemplo, aplicativo de intranet), o usuário não precisará inserir as credenciais. | -Não é recomendado para aplicativos da Internet. -Requer suporte a Kerberos ou NTLM no cliente. -O cliente deve estar no domínio Active Directory. |
+| Interno do IIS. | Não é recomendado para aplicativos da Internet. | 
+| Não envia as credenciais do usuário na solicitação. | Requer suporte a Kerberos ou NTLM no cliente. |
+| Se o computador cliente pertencer ao domínio (por exemplo, aplicativo de intranet), o usuário não precisará inserir as credenciais. | O cliente deve estar no domínio Active Directory. |
 
 > [!NOTE]
 > Se seu aplicativo estiver hospedado no Azure e você tiver um domínio de Active Directory local, considere a Federação de seu anúncio local com Azure Active Directory. Dessa forma, os usuários podem fazer logon com suas credenciais locais, mas a autenticação é executada pelo Azure AD. Para obter mais informações, consulte [autenticação do Azure](../../../visual-studio/overview/2012/windows-azure-authentication.md).
 
-Para criar um aplicativo que usa a autenticação integrada do Windows, selecione o modelo "aplicativo de intranet" no assistente de projeto MVC 4. Este modelo de projeto coloca a seguinte configuração no arquivo Web. config:
+Para criar um aplicativo que usa a autenticação integrada do Windows, selecione o modelo "aplicativo de intranet" no assistente de projeto MVC 4. Este modelo de projeto coloca a seguinte configuração no arquivo de Web.config:
 
 [!code-xml[Main](integrated-windows-authentication/samples/sample1.xml)]
 

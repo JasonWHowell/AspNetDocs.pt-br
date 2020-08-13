@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: b66e812f0324be95effdd8d232baa6a59302b9df
-ms.sourcegitcommit: 0cf7d06071a8ff986e6c028ac9daf0c0e7490412
+ms.openlocfilehash: 58e2d62da2181108f34bbf3e1e948977241e1dee
+ms.sourcegitcommit: b3c0e67bb231dbb0db9e8dfccd51cf715481edcc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85240605"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88161351"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Rede de Distribuição de Conteúdo do Microsoft Ajax
 
@@ -163,6 +163,14 @@ A CDN hospeda algumas das mais populares bibliotecas JavaScript de terceiros. A 
 ### <a name="jquery-releases-on-the-cdn"></a>Versões do jQuery na CDN
 
 As seguintes versões do jQuery são hospedadas na CDN:
+
+#### <a name="jquery-version-351"></a>jQuery versão 3.5.1
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.js
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.map
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.slim.js
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.slim.min.js
+- https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.slim.min.map
 
 #### <a name="jquery-version-350"></a>jQuery versão 3.5.0
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.js
@@ -686,7 +694,7 @@ As seguintes versões do plug-in de modelos jQuery são hospedadas nessa CDN. Cl
 
 As seguintes versões do plug-in do ciclo jQuery são hospedadas nessa CDN. Clique em cada link para ver a lista real de arquivos.
 
-- [Ciclo jQuery 2,99](jquery-cycle/cdnjquerycycle299.md "jQuery Cycle 2.99")
+- [jQuery Cycle 2.99](jquery-cycle/cdnjquerycycle299.md "jQuery Cycle 2.99")
 - [jQuery Cycle 2.94](jquery-cycle/cdnjquerycycle294.md "jQuery Cycle 2.94")
 - [jQuery Cycle 2.88](jquery-cycle/cdnjquerycycle288.md "jQuery Cycle 2.88")
 
@@ -702,7 +710,7 @@ As seguintes versões do plug-in jQuery DataTables estão hospedadas nessa CDN. 
 - [jQuery DataTables 1.9.3](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTables 1.9.3")
 - [jQuery DataTables 1.9.2](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTables 1.9.2")
 - [jQuery DataTables 1.9.1](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTables 1.9.1")
-- [1.9.0 de DataTables do jQuery](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTables 1.9.0")
+- [jQuery DataTables 1.9.0](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTables 1.9.0")
 - [jQuery DataTables 1.8.2](jquery-datatables/cdnjquerydatatables182.md "jQuery DataTables 1.8.2")
 
 <a id="Modernizr_Releases_on_the_CDN_8"></a>
@@ -1204,7 +1212,7 @@ As seguintes versões de [http://hammerjs.github.io/](http://hammerjs.github.io/
 As seguintes versões da biblioteca do ASP.NET AJAX são hospedadas na CDN. Clique em cada link para ver a lista real de arquivos.
 
 - [ASP.NET Web Forms e Ajax versão 4.5.2](cdnajax452.md "Web Forms do ASP.NET e Ajax 4.5.2")
-- [ASP.NET Web Forms e Ajax versão 4](cdnajax4.md "ASP.NET Web Forms e Ajax 4")
+- [ASP.NET Web Forms e Ajax versão 4](cdnajax4.md "Web Forms do ASP.NET e Ajax 4")
 - [ASP.NET AJAX versão 3,5](cdnajax35.md "ASP.NET Ajax 3.5")
 
 <a id="ASPNET_MVC_Releases_on_the_CDN_16"></a>

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: d7cc83a5b78a60f575f5c3065079679189296a0c
-ms.sourcegitcommit: c9d9210e0d16fbb3829b7688cfb832dc263c79cc
+ms.openlocfilehash: 2bfa4401c73b56be87502ffbb189abab3c59c226
+ms.sourcegitcommit: 4e6d586faadbe4d9ef27122f86335ec9385134af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "86188658"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89044994"
 ---
 # <a name="tutorial-learn-about-advanced-ef-scenarios-for-an-mvc-5-web-app"></a>Tutorial: Saiba mais sobre cenários avançados do EF para um aplicativo Web MVC 5
 
@@ -130,7 +130,7 @@ Em *controladores/CourseController*, substitua o `Index` método pelo código a 
 
 Agora, defina um ponto de interrupção na `return` instrução (F9 com o cursor nessa linha). Pressione **F5** para executar o projeto no modo de depuração e selecione a página de índice do curso. Quando o código atingir o ponto de interrupção, examine a `sql` variável. Você vê a consulta que é enviada para SQL Server. É uma instrução simples `Select` .
 
-[!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample7.json)]
+[!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample7.sql)]
 
 Clique na lupa para ver a consulta no **Visualizador de texto**.
 

@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 64906a1d-f734-41cf-9615-ee95f8740996
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: f8f079f6d8ea663c6888456be422a2bae93a4b87
-ms.sourcegitcommit: c9d9210e0d16fbb3829b7688cfb832dc263c79cc
+ms.openlocfilehash: 85dd59016d904a9f654c438db977b5ae2c0187d2
+ms.sourcegitcommit: 4e6d586faadbe4d9ef27122f86335ec9385134af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "86163405"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89045046"
 ---
 # <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Cenários de Entity Framework avançados para um aplicativo Web MVC (10 de 10)
 
@@ -191,7 +191,7 @@ Em *controladores/CourseController*, substitua o `Index` método pelo código a 
 
 Agora, defina um ponto de interrupção em *GenericRepository.cs* no `return query.ToList();` e as `return orderBy(query).ToList();` instruções do `Get` método. Execute o projeto no modo de depuração e selecione a página de índice do curso. Quando o código atingir o ponto de interrupção, examine a `query` variável. Você vê a consulta que é enviada para SQL Server. É uma instrução simples `Select` :
 
-[!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample14.json)]
+[!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample14.sql)]
 
 ![](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image12.png)
 
@@ -219,7 +219,7 @@ Com os pontos de interrupção ainda definidos na `GenericRepository` classe, ex
 
 Desta vez, o primeiro ponto de interrupção será para a consulta de departamentos para a lista suspensa. Pule e exiba a `query` variável na próxima vez em que o código atingir o ponto de interrupção para ver a `Course` aparência da consulta agora. Você verá algo semelhante ao seguinte:
 
-[!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample17.json)]
+[!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample17.sql)]
 
 Você pode ver que a consulta agora é uma `JOIN` consulta que carrega `Department` dados junto com os `Course` dados e que ele inclui uma `WHERE` cláusula.
 

@@ -8,12 +8,12 @@ ms.date: 08/28/2012
 ms.assetid: 41eb99ca-e88f-4720-ae6d-49a958da8116
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 85ad9a5758d70b5fe4ed792efb80217d7b3e2132
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 16ce02ba00e13b4cff2d6e86b2d9e0684aab096e
+ms.sourcegitcommit: 4e6d586faadbe4d9ef27122f86335ec9385134af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "86162930"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89044513"
 ---
 # <a name="examining-the-edit-methods-and-edit-view"></a>Examinar os métodos de edição e a exibição de edição
 
@@ -123,7 +123,7 @@ Execute o aplicativo e navegue até */Movies/SearchIndex*. Acrescente uma cadeia
 
 Se você alterar a assinatura do `SearchIndex` método para ter um parâmetro chamado `id` , o `id` parâmetro corresponderá ao `{id}` espaço reservado para as rotas padrão definidas no arquivo *global. asax* .
 
-[!code-json[Main](examining-the-edit-methods-and-edit-view/samples/sample13.json)]
+[!code-json[Main](examining-the-edit-methods-and-edit-view/samples/sample13.txt)]
 
 O `SearchIndex` método original tem esta aparência::
 

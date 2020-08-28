@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 6eac36767bf34857d5341188d0653e7fec7cade2
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: f6ff5fa18a44b3e6717ec0141ebe101bcdc0bee4
+ms.sourcegitcommit: 4e6d586faadbe4d9ef27122f86335ec9385134af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "86188751"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89045176"
 ---
 # <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Criar uma API REST com roteamento de atributos no ASP.NET Web API 2
 
@@ -238,7 +238,7 @@ Você também pode dar suporte a um separador de barra ( `/api/books/date/yyyy/m
 
 Há um detalhe sutil, mas importante, aqui. O segundo modelo de rota tem um caractere curinga ( \* ) no início do parâmetro {pubDate}:
 
-[!code-json[Main](create-a-rest-api-with-attribute-routing/samples/sample21.json)]
+[!code-json[Main](create-a-rest-api-with-attribute-routing/samples/sample21.txt)]
 
 Isso informa ao mecanismo de roteamento que {pubDate} deve corresponder ao restante do URI. Por padrão, um parâmetro de modelo corresponde a um único segmento de URI. Nesse caso, queremos que {pubDate} abranja vários segmentos URI:
 

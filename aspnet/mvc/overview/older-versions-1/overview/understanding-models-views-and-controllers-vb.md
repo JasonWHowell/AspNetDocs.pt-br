@@ -8,12 +8,12 @@ ms.date: 08/19/2008
 ms.assetid: a106374a-5e74-4fd0-9ac0-1a32280e5d0d
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc7988e0c9802e8cd376396eb5da15b5393d6088
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: e11487cbb863bae230ccb9dfdaf7172c65ec4d43
+ms.sourcegitcommit: ffd0f59ef9b7d221a5b2010c32aa61c89c14f406
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78600446"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89042086"
 ---
 # <a name="understanding-models-views-and-controllers-vb"></a>Noções básicas sobre modelos, exibições e controladores (VB)
 
@@ -29,15 +29,15 @@ Depois de ler este tutorial, você deve entender como as diferentes partes de um
 
 O modelo padrão do Visual Studio para criar aplicativos Web ASP.NET MVC inclui um aplicativo de exemplo extremamente simples que pode ser usado para entender as diferentes partes de um aplicativo MVC ASP.NET. Aproveitamos este aplicativo simples neste tutorial.
 
-Você cria um novo aplicativo MVC do ASP.NET com o modelo MVC iniciando o Visual Studio 2008 e selecionando o arquivo de opção de menu, novo projeto (veja a Figura 1). Na caixa de diálogo novo projeto, selecione sua linguagem de programação favorita em tipos de projeto C#(Visual Basic ou) e selecione **aplicativo Web ASP.NET MVC** em modelos. Clique no botão OK.
+Você cria um novo aplicativo MVC do ASP.NET com o modelo MVC iniciando o Visual Studio 2008 e selecionando o arquivo de opção de menu, novo projeto (veja a Figura 1). Na caixa de diálogo novo projeto, selecione sua linguagem de programação favorita em tipos de projeto (Visual Basic ou C#) e selecione **aplicativo Web ASP.NET MVC** em modelos. Clique no botão OK.
 
-[Caixa de diálogo ![novo projeto](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
+[![Caixa de diálogo novo projeto](understanding-models-views-and-controllers-vb/_static/image1.jpg)](understanding-models-views-and-controllers-vb/_static/image1.png)
 
 **Figura 01**: caixa de diálogo novo projeto ([clique para exibir a imagem em tamanho normal](understanding-models-views-and-controllers-vb/_static/image2.png))
 
 Quando você cria um novo aplicativo MVC ASP.NET, a caixa de diálogo **criar projeto de teste de unidade** é exibida (consulte a Figura 2). Esta caixa de diálogo permite que você crie um projeto separado em sua solução para testar seu aplicativo MVC ASP.NET. Selecione a opção **não, não crie um projeto de teste de unidade** e clique no botão **OK** .
 
-[Caixa de diálogo ![criar teste de unidade](understanding-models-views-and-controllers-vb/_static/image2.jpg)](understanding-models-views-and-controllers-vb/_static/image3.png)
+[![Caixa de diálogo Criar teste de unidade](understanding-models-views-and-controllers-vb/_static/image2.jpg)](understanding-models-views-and-controllers-vb/_static/image3.png)
 
 **Figura 02**: criar caixa de diálogo de teste de unidade ([clique para exibir a imagem em tamanho normal](understanding-models-views-and-controllers-vb/_static/image4.png))
 
@@ -45,7 +45,7 @@ Depois que o novo aplicativo MVC do ASP.NET for criado. Você verá várias past
 
 Se você expandir a pasta controladores, deverá ver um arquivo chamado AccountController. vb e um arquivo chamado HomeController. vb. Se você expandir a pasta exibições, verá três subpastas denominadas conta, página inicial e compartilhada. Se você expandir a pasta base, verá dois arquivos adicionais chamados about. aspx e index. aspx (consulte a Figura 3). Esses arquivos compõem o aplicativo de exemplo incluído no modelo MVC padrão do ASP.NET.
 
-[![a janela de Gerenciador de Soluções](understanding-models-views-and-controllers-vb/_static/image3.jpg)](understanding-models-views-and-controllers-vb/_static/image5.png)
+[![A janela de Gerenciador de Soluções](understanding-models-views-and-controllers-vb/_static/image3.jpg)](understanding-models-views-and-controllers-vb/_static/image5.png)
 
 **Figura 03**: a janela de Gerenciador de soluções ([clique para exibir a imagem em tamanho normal](understanding-models-views-and-controllers-vb/_static/image6.png))
 
@@ -53,19 +53,19 @@ Você pode executar o aplicativo de exemplo selecionando a opção de menu **dep
 
 Quando você executa um aplicativo ASP.NET pela primeira vez, a caixa de diálogo da Figura 4 é exibida, recomendando que você habilite o modo de depuração. Clique no botão OK e o aplicativo será executado.
 
-[caixa de diálogo ![depuração não habilitada](understanding-models-views-and-controllers-vb/_static/image4.jpg)](understanding-models-views-and-controllers-vb/_static/image7.png)
+[![Caixa de diálogo depuração não habilitada](understanding-models-views-and-controllers-vb/_static/image4.jpg)](understanding-models-views-and-controllers-vb/_static/image7.png)
 
 **Figura 04**: caixa de diálogo depuração não habilitada ([clique para exibir a imagem em tamanho normal](understanding-models-views-and-controllers-vb/_static/image8.png))
 
 Quando você executa um aplicativo MVC do ASP.NET, o Visual Studio inicia o aplicativo em seu navegador da Web. O aplicativo de exemplo consiste em apenas duas páginas: a página de índice e a página sobre. Quando o aplicativo é iniciado pela primeira vez, a página índice é exibida (veja a Figura 5). Você pode navegar até a página sobre clicando no link de menu na parte superior direita do aplicativo.
 
-[![a página de índice](understanding-models-views-and-controllers-vb/_static/image5.jpg)](understanding-models-views-and-controllers-vb/_static/image9.png)
+[![A página de índice](understanding-models-views-and-controllers-vb/_static/image5.jpg)](understanding-models-views-and-controllers-vb/_static/image9.png)
 
 **Figura 05**: a página de índice ([clique para exibir a imagem em tamanho normal](understanding-models-views-and-controllers-vb/_static/image10.png))
 
 Observe as URLs na barra de endereços do seu navegador. Por exemplo, quando você clica no link do menu sobre, a URL na barra de endereços do navegador é alterada para **/Home/about**.
 
-Se você fechar a janela do navegador e retornar ao Visual Studio, não será possível localizar um arquivo com o caminho Home/about. Os arquivos não existem. Como é possível?
+Se você fechar a janela do navegador e retornar ao Visual Studio, não será possível localizar um arquivo com o caminho Home/about. Os arquivos não existem. Como isso é possível?
 
 ## <a name="a-url-does-not-equal-a-page"></a>Uma URL não é igual a uma página
 
@@ -85,7 +85,7 @@ O roteamento do ASP.NET usa uma tabela de rotas para lidar com solicitações de
 
 [!code-vb[Main](understanding-models-views-and-controllers-vb/samples/sample1.vb)]
 
-Quando um aplicativo ASP.NET é iniciado pela primeira vez, o aplicativo\_método Start () é chamado. Na Listagem 1, esse método chama o método RegisterRoutes () e o método RegisterRoutes () cria a tabela de rotas padrão.
+Quando um aplicativo ASP.NET é iniciado pela primeira vez, o \_ método Start () do aplicativo é chamado. Na Listagem 1, esse método chama o método RegisterRoutes () e o método RegisterRoutes () cria a tabela de rotas padrão.
 
 A tabela de rotas padrão consiste em uma rota. Essa rota padrão interrompe todas as solicitações de entrada em três segmentos (um segmento de URL é qualquer coisa entre barras "/"). O primeiro segmento é mapeado para um nome de controlador, o segundo segmento é mapeado para um nome de ação e o segmento final é mapeado para um parâmetro passado para a ação chamada ID.
 
@@ -99,7 +99,7 @@ Controlador = produto
 
 Ação = detalhes
 
-Id = 3
+ID = 3
 
 A rota padrão definida no arquivo global. asax inclui valores padrão para todos os três parâmetros. O controlador padrão é home, a ação padrão é index e a ID padrão é uma cadeia de caracteres vazia. Com esses padrões em mente, considere como a seguinte URL é analisada:
 
@@ -109,17 +109,17 @@ Essa URL é analisada em três parâmetros como este:
 
 Controlador = funcionário
 
-ação = índice
+Ação = índice
 
-Id = ��
+ID =?
 
-Por fim, se você abrir um aplicativo MVC ASP.NET sem fornecer nenhuma URL (por exemplo, `http://localhost`), a URL será analisada da seguinte maneira:
+Por fim, se você abrir um aplicativo MVC ASP.NET sem fornecer nenhuma URL (por exemplo, `http://localhost` ), a URL será analisada da seguinte maneira:
 
-controlador = página inicial
+Controlador = página inicial
 
-ação = índice
+Ação = índice
 
-Id = ��
+ID =?
 
 A solicitação é roteada para a ação index () na classe HomeController.
 
@@ -127,7 +127,7 @@ A solicitação é roteada para a ação index () na classe HomeController.
 
 Um controlador é responsável por controlar a maneira como um usuário interage com um aplicativo MVC. Um controlador contém a lógica de controle de fluxo para um aplicativo MVC ASP.NET. Um controlador determina qual resposta enviar de volta a um usuário quando um usuário faz uma solicitação de navegador.
 
-Um controlador é apenas uma classe (por exemplo, uma Visual Basic ou C# classe). O aplicativo ASP.NET MVC de exemplo inclui um controlador chamado HomeController. vb localizado na pasta controladores. O conteúdo do arquivo HomeController. vb é reproduzido na Listagem 2.
+Um controlador é apenas uma classe (por exemplo, uma classe Visual Basic ou C#). O aplicativo ASP.NET MVC de exemplo inclui um controlador chamado HomeController. vb localizado na pasta controladores. O conteúdo do arquivo HomeController. vb é reproduzido na Listagem 2.
 
 **Listagem 2-HomeController.cs**
 
@@ -159,7 +159,7 @@ O arquivo na Listagem 3 contém a exibição about. aspx.
 
 Se você ignorar a primeira linha na Listagem 3, a maior parte do restante da exibição consistirá em HTML padrão. Você pode modificar o conteúdo da exibição inserindo qualquer HTML que desejar aqui.
 
-Uma exibição é muito semelhante a uma página em Active Server páginas ou ASP.NET Web Forms. Uma exibição pode conter conteúdo e scripts HTML. Você pode escrever os scripts em sua linguagem de programação do .NET favorita (por C# exemplo, ou Visual Basic .net). Você usa scripts para exibir conteúdo dinâmico, como dados de banco de dados.
+Uma exibição é muito semelhante a uma página em Active Server páginas ou ASP.NET Web Forms. Uma exibição pode conter conteúdo e scripts HTML. Você pode escrever os scripts em sua linguagem de programação do .NET favorita (por exemplo, C# ou Visual Basic .NET). Você usa scripts para exibir conteúdo dinâmico, como dados de banco de dados.
 
 ## <a name="understanding-models"></a>Entendendo modelos
 

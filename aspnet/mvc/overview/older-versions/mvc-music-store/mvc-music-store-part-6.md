@@ -8,14 +8,14 @@ ms.date: 04/21/2011
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: bc031dd5be61cc6707c522f85f6af77a420c8b31
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 24d3f028a9a720e5b526518624c9c1c2ce2c37d4
+ms.sourcegitcommit: 4e6d586faadbe4d9ef27122f86335ec9385134af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78539273"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89044942"
 ---
-# <a name="part-6-using-data-annotations-for-model-validation"></a>Parte 6: usando as anotações de dados para a validação do modelo
+# <a name="part-6-using-data-annotations-for-model-validation"></a>Parte 6: Uso de anotações de dados para a validação de modelo
 
 por [Jon Galloway](https://github.com/jongalloway)
 
@@ -34,13 +34,13 @@ Podemos adicionar facilmente a validação ao nosso aplicativo Adicionando anota
 Usaremos os seguintes atributos de anotação de dados:
 
 - **Obrigatório** – indica que a propriedade é um campo obrigatório
-- **DisplayName** – define o texto que queremos usar em campos de formulário e mensagens de validação
+- **DisplayName** – define o texto a ser usado em campos de formulário e mensagens de validação
 - **StringLength** – define um comprimento máximo para um campo de cadeia de caracteres
 - **Range** – fornece um valor máximo e mínimo para um campo numérico
 - **BIND** – lista os campos a serem excluídos ou incluídos ao associar valores de parâmetro ou formulário a propriedades de modelo
 - **ScaffoldColumn** – permite ocultar campos de formulários do editor
 
-*Observação: para obter mais informações sobre a validação de modelo usando atributos de anotação de dados, consulte a documentação do MSDN em* [`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)
+*Observação: para obter mais informações sobre a validação de modelo usando atributos de anotação de dados, consulte a documentação do MSDN em*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)
 
 Abra a classe album e adicione as instruções *using* a seguir à parte superior.
 
@@ -77,5 +77,5 @@ A digitação de uma única letra no campo título atende aos requisitos de vali
 ![](mvc-music-store-part-6/_static/image3.png)
 
 > [!div class="step-by-step"]
-> [Anterior](mvc-music-store-part-5.md)
-> [Próximo](mvc-music-store-part-7.md)
+> [Anterior](mvc-music-store-part-5.md) 
+>  [Avançar](mvc-music-store-part-7.md)

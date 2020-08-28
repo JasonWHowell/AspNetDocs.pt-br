@@ -8,12 +8,12 @@ ms.date: 02/16/2008
 ms.assetid: c28ba88d-3a93-47f5-a306-049bd766714d
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f02728ed248f29b09d654e509977ed43889cbb83
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: a07d15cb14e9ef90b62c5a8702dee53f1a0a6032
+ms.sourcegitcommit: 4e6d586faadbe4d9ef27122f86335ec9385134af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78541303"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89044658"
 ---
 # <a name="aspnet-mvc-views-overview-vb"></a>Visão geral de exibições do ASP.NET MVC (VB)
 
@@ -81,15 +81,15 @@ Observe que o corpo da página HTML na Listagem 2 contém o script a seguir:
 
 &lt;% Response. Write (DateTime. Now)%&gt;
 
-Você usa os delimitadores de script &lt;% e%&gt; para marcar o início e o fim de um script. Esse script é escrito em Visual Basic. Ele exibe a data e a hora atuais chamando o método Response. Write () para renderizar o conteúdo para o navegador. Os delimitadores de script &lt;% e%&gt; podem ser usados para executar uma ou mais instruções.
+Você usa os delimitadores de script &lt; % e% &gt; para marcar o início e o fim de um script. Esse script é escrito em Visual Basic. Ele exibe a data e a hora atuais chamando o método Response. Write () para renderizar o conteúdo para o navegador. Os delimitadores de script &lt; % e% &gt; podem ser usados para executar uma ou mais instruções.
 
-Como você chama Response. Write () com frequência, a Microsoft fornece um atalho para chamar o método Response. Write (). A exibição na Listagem 3 usa os delimitadores &lt;% = e%&gt; como um atalho para chamar Response. Write ().
+Como você chama Response. Write () com frequência, a Microsoft fornece um atalho para chamar o método Response. Write (). A exibição na Listagem 3 usa os delimitadores &lt; % = e% &gt; como um atalho para chamar Response. Write ().
 
 **Listagem 3-Views\Home\Index2.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample3.aspx)]
 
-Você pode usar qualquer linguagem .NET para gerar conteúdo dinâmico em uma exibição. Normalmente, você usa o Visual Basic .NET ou C# para escrever seus controladores e exibições.
+Você pode usar qualquer linguagem .NET para gerar conteúdo dinâmico em uma exibição. Normalmente, você usará o Visual Basic .NET ou C# para escrever seus controladores e exibições.
 
 ## <a name="using-html-helpers-to-generate-view-content"></a>Usando auxiliares HTML para gerar conteúdo de exibição
 
@@ -101,13 +101,13 @@ Por exemplo, a exibição na Listagem 4 aproveita os três auxiliares HTML--o Be
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample4.aspx)]
 
-[![caixa de diálogo novo projeto](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
+[![A caixa de diálogo Novo Projeto](asp-net-mvc-views-overview-vb/_static/image1.jpg)](asp-net-mvc-views-overview-vb/_static/image1.png)
 
 **Figura 01**: um formulário de logon padrão ([clique para exibir a imagem em tamanho normal](asp-net-mvc-views-overview-vb/_static/image2.png))
 
 Todos os métodos de auxiliares HTML são chamados na propriedade HTML da exibição. Por exemplo, você renderiza uma caixa de texto chamando o método html. TextBox ().
 
-Observe que você usa os delimitadores de script &lt;% = e%&gt; ao chamar os auxiliares HTML. TextBox () e HTML. Password (). Esses auxiliares simplesmente retornam uma cadeia de caracteres. Você precisa chamar Response. Write () para renderizar a cadeia de caracteres para o navegador.
+Observe que você usa os delimitadores de script &lt; % = e% &gt; ao chamar os auxiliares HTML. TextBox () e HTML. Password (). Esses auxiliares simplesmente retornam uma cadeia de caracteres. Você precisa chamar Response. Write () para renderizar a cadeia de caracteres para o navegador.
 
 O uso de métodos auxiliares HTML é opcional. Eles facilitam sua vida reduzindo a quantidade de HTML e script que você precisa escrever. A exibição na listagem 5 renderiza exatamente a mesma forma que a exibição na Listagem 4 sem usar auxiliares HTML.
 
@@ -135,7 +135,7 @@ A exibição na Listagem 7 recupera a mensagem do modo de exibição dados e ren
 
 Observe que a exibição aproveita o método auxiliar HTML HTML. Encode () ao renderizar a mensagem. O auxiliar HTML HTML. Encode () codifica caracteres especiais, como &lt; e &gt; em caracteres que são seguros para serem exibidos em uma página da Web. Sempre que você renderiza o conteúdo que um usuário envia para um site, você deve codificar o conteúdo para evitar ataques de injeção de JavaScript.
 
-(Como criamos a mensagem por conta própria no ProductController, não precisamos realmente codificar a mensagem. No entanto, é um bom hábito sempre chamar o método html. Encode () ao exibir o conteúdo recuperado dos dados de exibição em uma exibição.)
+(Como criamos a mensagem por si só no ProductController, não precisamos realmente codificar a mensagem. No entanto, é um bom hábito sempre chamar o método html. Encode () ao exibir o conteúdo recuperado dos dados de exibição em uma exibição.)
 
 Na Listagem 7, tiramos proveito da exibição de dados para passar uma mensagem simples de cadeia de caracteres de um controlador para um modo de exibição. Você também pode usar o modo de exibição de dados para passar outros tipos de dados, como uma coleção de registros de banco de dado, de um controlador para um modo de exibição. Por exemplo, se você quiser exibir o conteúdo da tabela de banco de dados Products em uma exibição, você passaria a coleção de registros de banco de dados em View Data.
 
@@ -146,5 +146,5 @@ Você também tem a opção de passar dados de exibição com rigidez de tipos d
 Este tutorial forneceu uma breve introdução às exibições do ASP.NET MVC, exibir dados e auxiliares HTML. Na primeira seção, você aprendeu a adicionar novas exibições ao seu projeto. Você aprendeu que deve adicionar uma exibição à pasta direita para chamá-la de um controlador específico. Em seguida, discutimos o tópico de auxiliares HTML. Você aprendeu como os auxiliares HTML permitem que você gere facilmente conteúdo HTML padrão. Por fim, você aprendeu a aproveitar os dados de exibição para passar dados de um controlador para um modo de exibição.
 
 > [!div class="step-by-step"]
-> [Anterior](passing-data-to-view-master-pages-cs.md)
-> [Próximo](creating-custom-html-helpers-vb.md)
+> [Anterior](passing-data-to-view-master-pages-cs.md) 
+>  [Avançar](creating-custom-html-helpers-vb.md)

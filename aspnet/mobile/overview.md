@@ -8,22 +8,24 @@ ms.date: 01/28/2011
 ms.assetid: 1febce65-cdd4-47da-bdb5-1e6022ccd20a
 msc.legacyurl: /mobile
 msc.type: content
-ms.openlocfilehash: 769484ee505599eef48ff4a106ddd4f7ec7d99af
-ms.sourcegitcommit: 0cf7d06071a8ff986e6c028ac9daf0c0e7490412
+ms.openlocfilehash: 41cf393f307808e457e0ab2529129ca8ecbc3b5d
+ms.sourcegitcommit: dfd3ce87ffc9e3a7076f8252abb5d5d6b991333b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85240729"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89449698"
 ---
 # <a name="mobile-apps--sites-with-aspnet"></a>Aplicativos móveis & sites com ASP.NET
 
 ## <a name="develop-mobile-apps"></a>Desenvolver aplicativos móveis
 
-### <a name="cloud-connected-mobile-apps---create-a-web-service-with-azure-web-apps-and-webjobspart-1"></a>[Aplicativos móveis conectados à nuvem – Criar um serviço Web com aplicativos Web e Webjobs do Azure](https://msdn.microsoft.com/magazine/mt185572)(parte 1)
+### <a name="cloud-connected-mobile-apps"></a>Aplicativos móveis conectados à nuvem
+
+[Parte 1-criar um serviço Web com aplicativos Web do Azure e webjobs](https://msdn.microsoft.com/magazine/mt185572)
 
 Na primeira parte de um artigo de duas partes, os autores exploram alguns dos problemas envolvidos na criação de um back-end de nuvem que agrega e processa dados e os atende aos clientes móveis.
 
-### <a name="cloud-connected-mobile-apps---build-a-xamarin-app-with-authentication-and-offline-supportpart-2"></a>[Aplicativos móveis conectados à nuvem-crie um aplicativo Xamarin com autenticação e suporte offline](https://msdn.microsoft.com/magazine/mt422581.aspx)(parte 2)
+[Parte 2-criar um aplicativo Xamarin com autenticação e suporte offline](https://msdn.microsoft.com/magazine/mt422581.aspx)
 
 No segundo artigo da série, os autores discutem como eles usam o Xamarin para direcionar várias plataformas de cliente móvel e mostram como implementar a autenticação e manter um cache de dados sincronizado do lado do cliente.
 

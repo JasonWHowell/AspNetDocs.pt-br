@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 5da3e142c52a770f59222c21d9f9a53cbbdbf498
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 42d5683ce75467a159c9d13edf302bd6bf24a11d
+ms.sourcegitcommit: 45754124123403520b9fa2e706a4d1292494159b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78538013"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89643690"
 ---
 # <a name="using-page-inspector-in-aspnet-mvc"></a>Usando o Inspetor de Página no ASP.NET MVC
 
@@ -40,7 +40,7 @@ por Tim Ammann
 
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) ou [Visual Studio Express 2012 para Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
@@ -53,7 +53,7 @@ Inspetor de Página é agrupado com Microsoft Web Developer Tools. A versão mai
 
 ## <a name="create-a-web-application"></a>Criar um aplicativo Web
 
-Primeiro, crie um aplicativo Web com o qual você usará Inspetor de Página. No Visual Studio, escolha **arquivo** &gt; **novo projeto**. À esquerda, expanda **Visual C#** , selecione **Web**e, em seguida, selecione **ASP.net MVC4 aplicativo Web**.
+Primeiro, crie um aplicativo Web com o qual você usará Inspetor de Página. No Visual Studio, escolha **Arquivo** &gt; **Novo Projeto**. À esquerda, expanda **Visual C#**, selecione **Web**e, em seguida, selecione **ASP.net MVC4 aplicativo Web**.
 
 ![Novo aplicativo MVC ASP.NET](using-page-inspector-in-aspnet-mvc/_static/image2.png)
 
@@ -111,23 +111,23 @@ Inspetor de Página permite encontrar marcação cujo local pode não ser óbvio
 
 Para ver isso, clique em **inspecionar** e role até a parte inferior da página na janela Inspetor de página.
 
-Quando você move o ponteiro do mouse para a área de rodapé, Inspetor de Página abre o arquivo \_layout. cshtml e realça a seção da página de layout que você selecionou. Como você pode ver, o rodapé é definido no arquivo de layout e não na exibição em si.
+Quando você move o ponteiro do mouse para a área de rodapé, Inspetor de Página abre o \_ arquivo layout. cshtml e realça a seção da página de layout que você selecionou. Como você pode ver, a área de rodapé é definida no arquivo de layout e não a exibição em si.
 
 ![Rodapé](using-page-inspector-in-aspnet-mvc/_static/image16.png)
 
-Agora, mova o ponteiro do mouse sobre a linha com <a id="a"> </a>o aviso de direitos autorais. Na página \_layout. cshtml, a linha correspondente é realçada.
+Agora, mova o ponteiro do mouse sobre a linha com o aviso de direitos autorais <a id="a"></a> . Na \_ página layout. cshtml, a linha correspondente é realçada.
 
 ![Linha de copyright de rodapé realçada](using-page-inspector-in-aspnet-mvc/_static/image18.png)
 
-Adicione texto ao final da linha no arquivo layout. cshtml do \_.
+Adicione texto ao final da linha no \_ arquivo layout. cshtml.
 
-&lt;p&gt;&amp;cópia; @DateTime.Now.Year-meu aplicativo MVC ASP.NET Rocks!&lt;/p&gt;
+&lt;p &gt; &amp; Copy; @DateTime.Now.Year -meu aplicativo ASP.NET MVC Rocks! &lt; /p&gt;
 
 Agora, pressione Ctrl + Alt + Enter ou clique na barra de atualização para ver os resultados na janela do navegador Inspetor de Página.
 
 ![Meu aplicativo ASP.NET Rocks!](using-page-inspector-in-aspnet-mvc/_static/image20.png)
 
-Talvez você tenha pensado no rodapé definido em index. cshtml, mas ele se tornou no \_layout. cshtml e Inspetor de Página encontrá-lo para você.
+Talvez você tenha pensado no rodapé definido em index. cshtml, mas ele se tornou no \_ layout. cshtml, e Inspetor de página encontrá-lo para você.
 
 <a id="_inspection_mode_and_1"></a><a id="_6_inspection_mode"></a>
 
@@ -143,7 +143,7 @@ Agora, mova o ponteiro do mouse para a janela **HTML** . À medida que você mov
 
 ![Janela HTML](using-page-inspector-in-aspnet-mvc/_static/image22.png)
 
-Como antes, Inspetor de Página abre o arquivo \_layout. cshtml para você em uma guia temporária. Clique na guia temporário do \_layout. cshtml e a marcação correspondente será realçada na seção&gt; do cabeçalho de &lt;para você:
+Como antes, Inspetor de Página abre o \_ arquivo layout. cshtml para você em uma guia temporária. Clique na \_ guia temporário layout. cshtml e a marcação correspondente será realçada na &lt; &gt; seção de cabeçalho para você:
 
 ![Marcação realçada](using-page-inspector-in-aspnet-mvc/_static/image24.png)
 
@@ -196,7 +196,7 @@ Agora, altere o valor de `background-color` para "vermelho". A alteração apare
 
 O editor de CSS no Visual Studio 2012 tem um seletor de cores que torna mais fácil escolher e inserir cores. O seletor de cores inclui uma paleta padrão de cores, dá suporte a nomes de cores padrão, códigos de hash, cores RGB, RGBA, HSL e HSLA e mantém uma lista das cores que você usou mais recentemente no documento.
 
-Na seção anterior, você alterou o valor da propriedade `background-color`. Para invocar o seletor de cores, coloque o ponto de inserção após o nome da propriedade e digite **#** ou **RGB (** .
+Na seção anterior, você alterou o valor da `background-color` propriedade. Para invocar o seletor de cores, coloque o ponto de inserção após o nome da propriedade e digite **#** ou **RGB (**.
 
 ![A barra do seletor de cores CSS](using-page-inspector-in-aspnet-mvc/_static/image36.png)
 
@@ -236,7 +236,7 @@ Com a versão 1,3, agora Inspetor de Página pode mapear itens que foram adicion
 > [!NOTE]
 > O modelo SPA requer a atualização [ASP.NET and Web Tools 2012,2](https://go.microsoft.com/fwlink/?LinkId=282650) .
 
-No Visual Studio, escolha **arquivo** &gt; **novo projeto**. À esquerda, expanda **Visual C#** , selecione **Web**e, em seguida, selecione **ASP.net MVC4 aplicativo Web**. Clique em **OK**.
+No Visual Studio, escolha **Arquivo** &gt; **Novo Projeto**. À esquerda, expanda **Visual C#**, selecione **Web**e, em seguida, selecione **ASP.net MVC4 aplicativo Web**. Clique em **OK**.
 
 Na caixa de diálogo **novo projeto ASP.NET MVC 4** , selecione **aplicativo de página única**.
 

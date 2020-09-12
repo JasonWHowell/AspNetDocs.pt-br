@@ -9,10 +9,10 @@ ms.assetid: 3332d6e7-e2e1-4144-b805-e71d51e7e415
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 msc.type: authoredcontent
 ms.openlocfilehash: eac3d53fd871d0cb5a2870488ce752c057cc5b1a
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.sourcegitcommit: 45754124123403520b9fa2e706a4d1292494159b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 09/12/2020
 ms.locfileid: "86162732"
 ---
 # <a name="understanding-aspnet-ajax-web-services"></a>Noções básicas sobre os serviços Web do AJAX ASP.NET
@@ -183,7 +183,7 @@ Essa chamada referencia o namespace InterfaceTraining, a classe CustomersService
 
 Os proxies JavaScript também podem fazer chamadas unidirecionais para serviços Web em casos em que um método da Web deve ser chamado, mas o proxy não deve esperar por uma resposta. Por exemplo, talvez você queira chamar um serviço Web para iniciar um processo, como um fluxo de trabalho, mas não aguardar um valor de retorno do serviço. Nos casos em que uma chamada unidirecional precisa ser feita a um serviço, a função de retorno de chamado mostrada na listagem 13 pode simplesmente ser omitida. Como nenhuma função de retorno de chamada é definida, o objeto proxy não aguardará o serviço Web retornar dados.
 
-## <a name="handling-errors"></a>Tratando erros
+## <a name="handling-errors"></a>Manipulando erros
 
 Retornos de chamada assíncronos para serviços Web podem encontrar diferentes tipos de erros, como a rede inoperante, o serviço Web que está sendo indisponível ou uma exceção que está sendo retornada. Felizmente, os objetos de proxy JavaScript gerados pelo ScriptManager permitem que vários retornos de chamada sejam definidos para lidar com erros e falhas, além do retorno de chamada bem-sucedido mostrado anteriormente. Uma função de retorno de chamada de erro pode ser definida imediatamente após a função de retorno de chamada padrão na chamada para o método Web, conforme mostrado na listagem 14.
 
